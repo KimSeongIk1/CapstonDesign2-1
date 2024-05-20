@@ -22,6 +22,7 @@ public class SkillData : ScriptableObject
     public float spawnPosy; // 생성 위치 Y
     [Header("스킬 발사")]
     public bool skillFire; // 스킬 프리팹 발사 여부
+    public bool skillPenetrate; // 발사체 관통 여부
     public float skillSpeed; // 발사체 이동속도
     [Header("기타")]
     public GameObject projectilePrefab; // 스킬 프리팹

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -23,16 +24,27 @@ public class PlayerSkill : MonoBehaviour
         if (collision.tag.Equals("Enemy") || collision.tag.Equals("Boss"))  // 태그값이 보스나 적일 경우
         {
             Damageable damageable = collision.GetComponent<Damageable>();   // 해당 적의 Damageable스크립트 접근
+            print("1차 감지");
 
-            if (damageable != null)
+            if(skillData.ExplosionPrefab != null)   //  폭발을 표현할 프리팹이 있는 경우
+            {
+                print("2차 감지");
+                Vector2 explosionSpawnPos = this.gameObject.transform.position; 
+                GameObject explosionPrefab = Instantiate(skillData.ExplosionPrefab, explosionSpawnPos , Quaternion.identity);
+                Destroy(explosionPrefab, explosionPrefab.GetOrAddComponent<PlayerSkill>().skillData.duration);
+                if (skillData.skillPenetrate != true) // 관통이 활성화되지 않았을 경우
+                    Destroy(this.gameObject);   // 프로젝타일 프리팹 소멸
+
+            }
+            /*if (damageable != null)
             {
                 bool gotHit = damageable.Hit(skillData.damage, skillData.knockback);
-                
+
                 if (gotHit)
                 {
                     Debug.Log(collision.name + " hit for " + skillData.damage);
                 }
-            }
+            }*/
         }
     }
 }
