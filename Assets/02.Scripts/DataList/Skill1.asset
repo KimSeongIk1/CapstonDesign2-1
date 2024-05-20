@@ -22,7 +22,7 @@ MonoBehaviour:
   duration: 0.95
   knockback: {x: 0, y: 0}
   spawnPosx: 2
-  spawnPosy: -0.25
+  spawnPosy: -0.3
   skillFire: 0
   skillSpeed: 0
   projectilePrefab: {fileID: 8368436044975621090, guid: a9e6263b0665102409d42f034353e992, type: 3}

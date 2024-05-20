@@ -113,12 +113,12 @@ TextureImporter:
       name: "\uBD80\uC801\uB0A0\uB77C\uAC00\uAE30-Sheet_0"
       rect:
         serializedVersion: 2
-        x: 6
-        y: 32
-        width: 122
-        height: 59
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 30
+        width: 151
+        height: 58
+      alignment: 9
+      pivot: {x: 0.71, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,12 +134,12 @@ TextureImporter:
       name: "\uBD80\uC801\uB0A0\uB77C\uAC00\uAE30-Sheet_2"
       rect:
         serializedVersion: 2
-        x: 178
-        y: 28
-        width: 124
+        x: 152
+        y: 30
+        width: 176
         height: 59
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.71, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,12 +155,12 @@ TextureImporter:
       name: "\uBD80\uC801\uB0A0\uB77C\uAC00\uAE30-Sheet_3"
       rect:
         serializedVersion: 2
-        x: 346
-        y: 32
-        width: 140
-        height: 57
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 327
+        y: 31
+        width: 167
+        height: 59
+      alignment: 9
+      pivot: {x: 0.72, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,12 +176,12 @@ TextureImporter:
       name: "\uBD80\uC801\uB0A0\uB77C\uAC00\uAE30-Sheet_4"
       rect:
         serializedVersion: 2
-        x: 512
+        x: 508
         y: 30
-        width: 168
+        width: 158
         height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.695, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: "\uBD80\uC801\uB0A0\uB77C\uAC00\uAE30-Sheet_5"
       rect:
         serializedVersion: 2
-        x: 681
-        y: 31
-        width: 169
-        height: 59
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 692
+        y: 32
+        width: 152
+        height: 58
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: "\uBD80\uC801\uB0A0\uB77C\uAC00\uAE30-Sheet_6"
       rect:
         serializedVersion: 2
-        x: 852
-        y: 28
-        width: 168
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 866
+        y: 29
+        width: 147
+        height: 58
+      alignment: 9
+      pivot: {x: 0.63, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
