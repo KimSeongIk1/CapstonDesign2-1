@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc260db984a676343b5c6663362c7521, type: 3}
+  m_Name: Skill2
+  m_EditorClassIdentifier: 
+  skillName: Skill2
+  skillIcon: {fileID: 390966853, guid: ae2ef62c66463414e9877ebef9f45158, type: 3}
+  cooldown: 0
+  manaCost: 20
+  damage: 20
+  range: 100
+  spawnDelay: 0.5
+  duration: 2
+  knockback: {x: 0, y: 0}
+  spawnPosx: 2.7
+  spawnPosy: 0
+  skillFire: 1
+  skillSpeed: 6
+  projectilePrefab: {fileID: 1577204655605397387, guid: 653b2dc091fcbea45a441cdb5d6aa798, type: 3}
+  ExplosionPrefab: {fileID: 1657587993043581274, guid: f8912132feb995a45ba3afae0838261a, type: 3}
+  freezePlayerPos: 0
+  skillSpawnAudioSource: {fileID: 0}
+  skillDestroyAudioSource: {fileID: 0}
