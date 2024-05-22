@@ -1,0 +1,133 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Unity\\cap1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FCCEFB38-2B5D-BCBD-B28A-9F46F45B5E3E}|Assembly-CSharp.csproj|e:\\unity\\cap1\\assets\\02.scripts\\player\\playerskill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FCCEFB38-2B5D-BCBD-B28A-9F46F45B5E3E}|Assembly-CSharp.csproj|solutionrelative:assets\\02.scripts\\player\\playerskill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FCCEFB38-2B5D-BCBD-B28A-9F46F45B5E3E}|Assembly-CSharp.csproj|E:\\Unity\\cap1\\assets\\02.scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FCCEFB38-2B5D-BCBD-B28A-9F46F45B5E3E}|Assembly-CSharp.csproj|solutionrelative:assets\\02.scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FCCEFB38-2B5D-BCBD-B28A-9F46F45B5E3E}|Assembly-CSharp.csproj|E:\\Unity\\cap1\\assets\\02.scripts\\attack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FCCEFB38-2B5D-BCBD-B28A-9F46F45B5E3E}|Assembly-CSharp.csproj|solutionrelative:assets\\02.scripts\\attack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FCCEFB38-2B5D-BCBD-B28A-9F46F45B5E3E}|Assembly-CSharp.csproj|E:\\Unity\\cap1\\assets\\10.other\\js\\scripts\\audiomange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FCCEFB38-2B5D-BCBD-B28A-9F46F45B5E3E}|Assembly-CSharp.csproj|solutionrelative:assets\\10.other\\js\\scripts\\audiomange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FCCEFB38-2B5D-BCBD-B28A-9F46F45B5E3E}|Assembly-CSharp.csproj|E:\\Unity\\cap1\\assets\\02.scripts\\player\\animationstrings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FCCEFB38-2B5D-BCBD-B28A-9F46F45B5E3E}|Assembly-CSharp.csproj|solutionrelative:assets\\02.scripts\\player\\animationstrings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FCCEFB38-2B5D-BCBD-B28A-9F46F45B5E3E}|Assembly-CSharp.csproj|E:\\Unity\\cap1\\assets\\02.scripts\\player\\skilldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FCCEFB38-2B5D-BCBD-B28A-9F46F45B5E3E}|Assembly-CSharp.csproj|solutionrelative:assets\\02.scripts\\player\\skilldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FCCEFB38-2B5D-BCBD-B28A-9F46F45B5E3E}|Assembly-CSharp.csproj|E:\\Unity\\cap1\\assets\\02.scripts\\player\\mp_manage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FCCEFB38-2B5D-BCBD-B28A-9F46F45B5E3E}|Assembly-CSharp.csproj|solutionrelative:assets\\02.scripts\\player\\mp_manage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Attack.cs",
+              "DocumentMoniker": "E:\\Unity\\cap1\\Assets\\02.Scripts\\Attack.cs",
+              "RelativeDocumentMoniker": "Assets\\02.Scripts\\Attack.cs",
+              "ToolTip": "E:\\Unity\\cap1\\Assets\\02.Scripts\\Attack.cs",
+              "RelativeToolTip": "Assets\\02.Scripts\\Attack.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T11:27:56.137Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AudioMange.cs",
+              "DocumentMoniker": "E:\\Unity\\cap1\\Assets\\10.Other\\JS\\Scripts\\AudioMange.cs",
+              "RelativeDocumentMoniker": "Assets\\10.Other\\JS\\Scripts\\AudioMange.cs",
+              "ToolTip": "E:\\Unity\\cap1\\Assets\\10.Other\\JS\\Scripts\\AudioMange.cs",
+              "RelativeToolTip": "Assets\\10.Other\\JS\\Scripts\\AudioMange.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwUAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T09:55:24.21Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AnimationStrings.cs",
+              "DocumentMoniker": "E:\\Unity\\cap1\\Assets\\02.Scripts\\Player\\AnimationStrings.cs",
+              "RelativeDocumentMoniker": "Assets\\02.Scripts\\Player\\AnimationStrings.cs",
+              "ToolTip": "E:\\Unity\\cap1\\Assets\\02.Scripts\\Player\\AnimationStrings.cs",
+              "RelativeToolTip": "Assets\\02.Scripts\\Player\\AnimationStrings.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T07:51:38.734Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SkillData.cs",
+              "DocumentMoniker": "E:\\Unity\\cap1\\Assets\\02.Scripts\\Player\\SkillData.cs",
+              "RelativeDocumentMoniker": "Assets\\02.Scripts\\Player\\SkillData.cs",
+              "ToolTip": "E:\\Unity\\cap1\\Assets\\02.Scripts\\Player\\SkillData.cs",
+              "RelativeToolTip": "Assets\\02.Scripts\\Player\\SkillData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T07:05:52.153Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MP_Manage.cs",
+              "DocumentMoniker": "E:\\Unity\\cap1\\Assets\\02.Scripts\\Player\\MP_Manage.cs",
+              "RelativeDocumentMoniker": "Assets\\02.Scripts\\Player\\MP_Manage.cs",
+              "ToolTip": "E:\\Unity\\cap1\\Assets\\02.Scripts\\Player\\MP_Manage.cs",
+              "RelativeToolTip": "Assets\\02.Scripts\\Player\\MP_Manage.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T06:58:49.679Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PlayerSkill.cs",
+              "DocumentMoniker": "E:\\Unity\\cap1\\Assets\\02.Scripts\\Player\\PlayerSkill.cs",
+              "RelativeDocumentMoniker": "Assets\\02.Scripts\\Player\\PlayerSkill.cs",
+              "ToolTip": "E:\\Unity\\cap1\\Assets\\02.Scripts\\Player\\PlayerSkill.cs",
+              "RelativeToolTip": "Assets\\02.Scripts\\Player\\PlayerSkill.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T06:57:11.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayerController.cs",
+              "DocumentMoniker": "E:\\Unity\\cap1\\Assets\\02.Scripts\\Player\\PlayerController.cs",
+              "RelativeDocumentMoniker": "Assets\\02.Scripts\\Player\\PlayerController.cs",
+              "ToolTip": "E:\\Unity\\cap1\\Assets\\02.Scripts\\Player\\PlayerController.cs",
+              "RelativeToolTip": "Assets\\02.Scripts\\Player\\PlayerController.cs",
+              "ViewState": "AQIAAGYBAAAAAAAAAAAvwIcBAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T06:51:07.353Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
