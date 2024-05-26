@@ -9,26 +9,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72436475aab47ac4f9818c925f1ad30d, type: 3}
-  m_Name: Skill2_Explosion
+  m_Script: {fileID: 11500000, guid: cc260db984a676343b5c6663362c7521, type: 3}
+  m_Name: Skill2(Charm)
   m_EditorClassIdentifier: 
-  skillName: Skill2_Explosion
-  damage: 10
-  spawnDelay: 0
-  duration: 9
+  skillName: Skill2
+  skillNum: 1
+  skillIcon: {fileID: 390966853, guid: ae2ef62c66463414e9877ebef9f45158, type: 3}
+  cooldown: 0
+  manaCost: 20
+  damage: 20
+  attackSpeed: 0
+  range: 100
+  spawnDelay: 0.5
+  duration: 2
   knockback: {x: 0, y: 0}
-  spawnPosx: 2
+  spawnPosx: 2.7
   spawnPosy: 0
-  skillFire: 0
+  skillFire: 1
   skillPenetrate: 0
-  skillSpeed: 0
-  skillAttach: 1
-  skillAttachPos: {x: 0, y: 0}
-  Stun: 1
-  StunTime: 0.5
-  stunTick: 0.2
-  stunCycle: 5
-  projectilePrefab: {fileID: 0}
+  skillSpeed: 6
+  projectilePrefab: {fileID: 1577204655605397387, guid: 653b2dc091fcbea45a441cdb5d6aa798, type: 3}
   ExplosionPrefab: {fileID: 1657587993043581274, guid: f8912132feb995a45ba3afae0838261a, type: 3}
+  freezePlayerPos: 0
   skillSpawnAudioSource: {fileID: 0}
   skillDestroyAudioSource: {fileID: 0}

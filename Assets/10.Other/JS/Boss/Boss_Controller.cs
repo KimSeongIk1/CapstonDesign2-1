@@ -194,7 +194,7 @@ public class Boss_Controller : MonoBehaviour
         switch (nextPattern)
         {
             case 0:
-                StartCoroutine(rush());
+                StartCoroutine(rush()); 
                 break;
             case 1:
                 StartCoroutine(Horizontal());
@@ -210,7 +210,7 @@ public class Boss_Controller : MonoBehaviour
                 break;
         }
     }
-    public GameObject[] effectRangePrefab;
+    public GameObject[] effectRangePrefab; 
     //공격 범위 표시
     IEnumerator EffectRange(int effectNum)
     {

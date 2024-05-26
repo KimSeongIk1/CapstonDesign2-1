@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc260db984a676343b5c6663362c7521, type: 3}
-  m_Name: Skill1
+  m_Name: Skill1(Pillar)
   m_EditorClassIdentifier: 
   skillName: Skill1
   skillIcon: {fileID: 390966853, guid: ae2ef62c66463414e9877ebef9f45158, type: 3}
@@ -26,6 +26,7 @@ MonoBehaviour:
   skillFire: 0
   skillPenetrate: 0
   skillSpeed: 0
+  skillDestoryTime: 0
   projectilePrefab: {fileID: 8368436044975621090, guid: a9e6263b0665102409d42f034353e992, type: 3}
   ExplosionPrefab: {fileID: 0}
   freezePlayerPos: 1

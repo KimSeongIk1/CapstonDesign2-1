@@ -13,29 +13,33 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 //2차 작업 및 수정자 : 김장후
 public class PlayerController : MonoBehaviour
 {
-    public float distance = 3;
-    public float attackSpeed = 3f;
-    public float walkSpeed = 5f; //캐릭터 걷는 속도
-    public float walkMaxAcceleration = 10f; //걷기 최대 가속값
-    public float runSpeed = 8f; //캐릭터 뛰는 속도
-    public float runMaxAcceleration = 10f; //뛰기 최대 가속값
-    public float airWalkSpeed = 6f; //공중에 떠있는 상태에서 이동 속도
-    public float jumpImpulse = 8f; //점프하는 힘
+    [SerializeField] private float distance = 3;
+    [SerializeField] private float attackSpeed = 3f;
+    [SerializeField] private float walkSpeed = 5f; //캐릭터 걷는 속도
+    [SerializeField] private float walkMaxAcceleration = 10f; //걷기 최대 가속값
+    [SerializeField] private float runSpeed = 8f; //캐릭터 뛰는 속도
+    [SerializeField] private float runMaxAcceleration = 10f; //뛰기 최대 가속값
+    [SerializeField] private float airWalkSpeed = 6f; //공중에 떠있는 상태에서 이동 속도
+    [SerializeField] private float jumpImpulse = 8f; //점프하는 힘
     //UI
-    public int staminaValueNow = 60; //staminaMaxValue = 100;//스태미나 값
-    public int staminaUse = 20;//스태미나 사용값
-    public int staminaRecover = 50;//스태미나 회복량
-                                   //스킬
-    public int manaValueNow = 60; //manaMaxValue = 100;//마나 값
-    public bool skillOn = true;    //스킬 활성화 여부
-    public bool skillManaCheck = false; //스킬 사용 마나 확인 여부
+    [SerializeField] private int staminaValueNow = 60; //staminaMaxValue = 100;//스태미나 값
+    [SerializeField] private int staminaUse = 20;//스태미나 사용값
+    [SerializeField] private int staminaRecover = 50;//스태미나 회복량
+    public int manaValueNow = 60;  //manaMaxValue = 100;//마나 값
+    [SerializeField] private bool skillOn = true;    //스킬 활성화 여부
+    [SerializeField] private bool DashOn = true;     //대쉬 활성화 여부
+    [SerializeField] private bool skillManaCheck = false; //스킬 사용 마나 확인 여부
     private int selectedSkillIndex = 0; // 선택된 스킬 인덱스
     public SkillData[] skillList;// 사용 가능한 스킬 목록
-    //public GameObject[] SkillList;
-
     //회피기
-    public float dodgeForce = 200f; // 회피 힘
-    public float dodgeDuration = 0.2f; // 회피 지속 시간
+    [SerializeField] private float idleDashSpeed = 7f;
+    [SerializeField] private float walkDashSpeed = 7f; // 걷는 도중 회피 속도
+    [SerializeField] private float runDashSpeed = 7f; // 뛰는 도중 회피 속도
+    [SerializeField] private float airDashSpeed = 7f; // 공중 회피 속도
+    [SerializeField] private float walkDashDuration = 0.1f; // 회피 지속 시간
+    [SerializeField] private float runDashDuration = 0.1f; // 회피 지속 시간
+    [SerializeField] private float airDashDuration = 0.1f; // 회피 지속 시간
+    [SerializeField] private float dashCooltime = 1f; // 회피 쿨타임
     //카메라
     public GameObject cameraObj;
     //음향
@@ -52,10 +56,12 @@ public class PlayerController : MonoBehaviour
     Damageable damagable; //데미지를 받을 수 있는지 여부를 판단
 
     //현재 캐릭터의 이동 속도
-    public float CurrentMoveSpeed {  get
+    public float CurrentMoveSpeed
+    {
+        get
         {
             if (CanMove)
-             {
+            {
                 if (IsMoving && !touchingDirection.IsOnWall)
                 {
                     //땅에 있는 경우
@@ -71,20 +77,21 @@ public class PlayerController : MonoBehaviour
                         }
                     }
                     else
-                    {                     
+                    {
                         return airWalkSpeed;
                     }
                 }
                 else
-                {               
+                {
                     return 0;
                 }
             }
             else
-            {            
+            {
                 return 0;
             }
-        } }
+        }
+    }
     [SerializeField]
     private bool _isMoving = false;
 
@@ -120,11 +127,11 @@ public class PlayerController : MonoBehaviour
             
              rb.AddForce(new Vector2(moveInput.x * CurrentMoveSpeed, 0), ForceMode2D.Impulse); //Addforce로 인한 가속 형태의 이동
         
-        if (rb.velocity.x > walkMaxAcceleration && moveInput.x == 1)
+        if (rb.velocity.x > walkMaxAcceleration && moveInput.x == 1 && !IsDash)
             rb.velocity = new Vector2(walkMaxAcceleration, rb.velocity.y); // 오른쪽 걷기 시 연속된 가속으로 인한 최대 이동속도 제한
-        if (rb.velocity.x < walkMaxAcceleration*(-1) && moveInput.x==(-1))
+        if (rb.velocity.x < walkMaxAcceleration*(-1) && moveInput.x==(-1) && !IsDash)
             rb.velocity = new Vector2(walkMaxAcceleration * (-1), rb.velocity.y); // 오른쪽 걷기 시 연속된 가속으로 인한 최대 이동속도 제한
-        animator.SetFloat(AnimationStrings.yVelocity, rb.velocity.y);
+        animator.SetFloat(AnimationStrings.yVelocity, rb.velocity.y); 
         /*if(manaValueNow == 100)
         {
             skillOn = true;
@@ -281,7 +288,6 @@ public class PlayerController : MonoBehaviour
 
         }
     }
-
     //공격
     public void OnAttack(InputAction.CallbackContext context)
     {
@@ -300,6 +306,8 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(moveInput.x * attackSpeed, rb.velocity.y);
         }
     }
+
+
     [SerializeField]
     private int manaMaxValue = 100; //    최대 마나
     public int MaxMana
@@ -350,18 +358,32 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    public void OnSkill3(InputAction.CallbackContext context) { // D키, 스킬 미정
-        selectedSkillIndex = 2;
-        print("스킬 사용 D");
+    public void OnSkill3(InputAction.CallbackContext context) { // D키, 지옥귀 소환
+        selectedSkillIndex = 2; 
+        if (context.started && touchingDirection.IsGrounded == true && skillOn == false) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
+        {
+            print("스킬 사용 D");
+            selectedSkillIndex = 1;
+            if (manaValueNow >= skillList[selectedSkillIndex].manaCost)  // 기존 조건(쿨다운) + 마나 소모량이 일정 이상이면 스킬 실행
+            {
+                skillOn = true;    // 반복 스킬 사용 방지
+                animator.SetTrigger(AnimationStrings.SkillTrigger2);    // 스킬 사용 캐릭터 애니메이션 실행
+                manaValueNow -= skillList[selectedSkillIndex].manaCost; // 마나 소모량에 따라 감소
+                StartCoroutine(SkillSpawn(selectedSkillIndex));  // 스킬 프리팹 생성
+            }
+            else
+            {
+                Debug.Log("스킬사용 S 실패");
+            }
+        }
     }
     public void OnSkill4(InputAction.CallbackContext context) { // F키, 스킬 미정
         selectedSkillIndex = 3;
         print("스킬 사용 F");
     }
-
     public IEnumerator SkillSpawn(int selectedSkillIndex) { // 스킬 스폰 시스템
         // 스킬 사용 로직
-        
+        PlayerSkill playerSkill;
         Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y);    // 스킬 스폰 지점 구하기
         yield return new WaitForSeconds(skillList[selectedSkillIndex].spawnDelay);
         if (transform.localScale.x >= 0) // 플레이어가 오른쪽을 바라보고 있을 경우 == true
@@ -413,65 +435,118 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(knockback.x, rb.velocity.y + knockback.y);
     }
 
-    public bool _isTeleport = false;
-    public bool IsTeleport
+    public bool _isDash = false;
+    public bool IsDash
     {
         get
         {
-            return _isTeleport;
+            return _isDash;
         }
         set
         {
-            _isTeleport = value;
-            //animator.SetBool(AnimationStrings.isTeleport, value);
+            _isDash = value;
+            //animator.SetBool(AnimationStrings.isDash, value);
+            //animator.SetTrigger(AnimationStrings.isDash);
         }
     }
-    public void Doge(InputAction.CallbackContext context)
+    public float CurrentDashSpeed
+    {
+        get
+        {
+            if (CanMove)
+            {
+                if (IsMoving && !touchingDirection.IsOnWall)
+                {
+                    //땅에 있는 경우
+                    if (touchingDirection.IsGrounded)
+                    {
+                        if (IsRunning)
+                        {
+                            return runDashSpeed;
+                        }
+                        else
+                        {
+                            return walkDashSpeed;
+                        }
+                    }
+                    else
+                    {
+                        return airDashSpeed;
+                    }
+                }
+                else
+                {
+                    return idleDashSpeed;
+                }
+            }
+            else
+            {
+                return 0;
+            }
+        }
+    }
+    public float CurrentDashDuration
+    {
+        get {
+            if (CanMove)
+            {
+                if (IsMoving && !touchingDirection.IsOnWall)
+                {
+                    //땅에 있는 경우
+                    if (touchingDirection.IsGrounded)
+                    {
+                        if (IsRunning)
+                        {
+                            return runDashDuration;
+                        }
+                        else
+                        {
+                            return walkDashDuration;
+                        }
+                    }
+                    else
+                    {
+                        return airDashDuration;
+                    }
+                }
+                else
+                {
+                    return walkDashDuration;
+                }
+            }
+            else
+            {
+                return 0;
+            }
+        }
+    }
+    [SerializeField]
+    public void DoDash(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            animator.SetBool(AnimationStrings.isTeleport, true);
-            //animator.SetTrigger(AnimationStrings.isTeleport);
-            //IsTeleport = true;
-            Dodge(transform.localScale.x);
+            //animator.SetBool(AnimationStrings.isDash, true);
+            print("대쉬입력");
+            StartCoroutine(Dash());
         }
     }
-    IEnumerator DogeAnime()
+    IEnumerator Dash()
     {
-            yield return new WaitForSecondsRealtime(1.0f);// + 조건
-
-        //animator.SetBool(AnimationStrings.isTeleport,false);
-        IsTeleport = false;
-    }
-    void Dodge(float direction)
-    {
-            rb.velocity = Vector2.zero; // 현재 속도 초기화
-
-        if (transform.localScale.x >= 0)
-        {
-            rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
-            rb.AddForce(new Vector2(dodgeForce * direction, 0f)); // 회피 방향으로 힘 가하기
+        print("대쉬입장");
+        if (DashOn == true){
+            DashOn = false;
+            _isDash = true;
+            float originalGraviry = rb.gravityScale;
+            rb.gravityScale = 0f;
+            rb.velocity = new Vector2(transform.localScale.x * CurrentDashSpeed, 0f);
+            print(touchingDirection.IsGrounded + "이다다다다");
+            yield return new WaitForSeconds(CurrentDashDuration);
+            rb.gravityScale = originalGraviry;
+            _isDash = false;
+            yield return new WaitForSeconds(dashCooltime);
+            DashOn = true;
         }
-        else
-        {
-            rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
-            rb.AddForce(new Vector2(dodgeForce * direction, 0f)); // 회피 방향으로 힘 가하기
-            
-        }
-            
-        
-
-        Invoke("StopDodge", dodgeDuration); // dodgeDuration 후 StopDodge 함수 호출
-    }
-
-    void StopDodge()
-    {
-        rb.velocity = Vector2.zero; // 회피 후 속도 다시 0으로 설정
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        animator.SetBool(AnimationStrings.isTeleport, false);
-
-        //IsTeleport = false;
-        //StartCoroutine(DogeAnime());
+        print("대쉬퇴장");
     }
     public void SkillChangeZ(InputAction.CallbackContext context)
     {

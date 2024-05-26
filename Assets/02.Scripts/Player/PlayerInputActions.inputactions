@@ -34,12 +34,12 @@
                 },
                 {
                     "name": "Run",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "838adfea-07b9-41d4-ab4c-7e2212e5143b",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Jump",
@@ -51,7 +51,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "DashJump",
+                    "name": "Dash",
                     "type": "Button",
                     "id": "d8277a3d-0cc7-465c-9c5e-1768e7e75392",
                     "expectedControlType": "Button",
@@ -110,7 +110,7 @@
                     "name": "",
                     "id": "978bfe49-cc26-4a3d-ab7b-7d7a29327403",
                     "path": "<Gamepad>/leftStick",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "Move",
@@ -121,7 +121,7 @@
                     "name": "Arrows",
                     "id": "00ca640b-d935-4593-8157-c05846ea39b3",
                     "path": "Dpad",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Move",
@@ -262,17 +262,6 @@
                 },
                 {
                     "name": "",
-                    "id": "6b8b3cd5-6b95-40fb-a058-5d0ba69b31c7",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Run",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "2e014204-5296-4d2c-972a-af82051c5155",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
@@ -285,11 +274,11 @@
                 {
                     "name": "",
                     "id": "cc5ef587-01b0-40b3-93ed-d8866d4ce1b1",
-                    "path": "",
+                    "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "DashJump",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

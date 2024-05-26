@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abe0fe8373287924c94a1889c58acc9e, type: 3}
+  m_Name: "skill3\uBCF4\uB958"
+  m_EditorClassIdentifier: 
+  skillName: Skill3
+  skillNum: 2
+  skillIcon: {fileID: 0}
+  cooldown: 0
+  manaCost: 20
+  damage: 1
+  attackSpeed: 2
+  range: 4
+  movespeed: 5
+  spawnDelay: 0
+  duration: 0
+  knockback: {x: 0, y: 0}
+  spawnPosx: 2
+  spawnPosy: 0
+  sommonerPrefab: {fileID: 0}
+  freezePlayerPos: 0
+  skillSpawnAudioSource: {fileID: 0}
+  skillDestroyAudioSource: {fileID: 0}

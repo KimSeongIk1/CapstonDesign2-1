@@ -10,23 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc260db984a676343b5c6663362c7521, type: 3}
-  m_Name: Skill2
+  m_Name: Skill3(HellHound)
   m_EditorClassIdentifier: 
-  skillName: Skill2
-  skillIcon: {fileID: 390966853, guid: ae2ef62c66463414e9877ebef9f45158, type: 3}
+  skillName: Skill3
+  skillNum: 2
+  skillIcon: {fileID: 0}
   cooldown: 0
-  manaCost: 20
-  damage: 20
-  range: 100
-  spawnDelay: 0.5
-  duration: 2
+  manaCost: 0
+  damage: 10
+  attackSpeed: 2
+  range: 0
+  spawnDelay: 0
+  duration: 0
   knockback: {x: 0, y: 0}
-  spawnPosx: 2.7
+  spawnPosx: 2
   spawnPosy: 0
-  skillFire: 1
-  skillSpeed: 6
-  projectilePrefab: {fileID: 1577204655605397387, guid: 653b2dc091fcbea45a441cdb5d6aa798, type: 3}
-  ExplosionPrefab: {fileID: 1657587993043581274, guid: f8912132feb995a45ba3afae0838261a, type: 3}
+  skillFire: 0
+  skillPenetrate: 0
+  skillSpeed: 3
+  projectilePrefab: {fileID: 1019930671860705011, guid: 4c60e9d51ac330642980f98e5dd07628, type: 3}
+  ExplosionPrefab: {fileID: 0}
   freezePlayerPos: 0
   skillSpawnAudioSource: {fileID: 0}
   skillDestroyAudioSource: {fileID: 0}
