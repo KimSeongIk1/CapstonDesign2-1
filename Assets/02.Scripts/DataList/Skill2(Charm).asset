@@ -27,7 +27,7 @@ MonoBehaviour:
   spawnPosy: 0
   skillFire: 1
   skillPenetrate: 0
-  skillSpeed: 6
+  skillSpeed: 8
   projectilePrefab: {fileID: 1577204655605397387, guid: 653b2dc091fcbea45a441cdb5d6aa798, type: 3}
   ExplosionPrefab: {fileID: 1657587993043581274, guid: f8912132feb995a45ba3afae0838261a, type: 3}
   freezePlayerPos: 0

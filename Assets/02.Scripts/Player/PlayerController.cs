@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
     TouchingDirection touchingDirection; //땅이나 벽에 닿아있는 방향을 판단
     Damageable damagable; //데미지를 받을 수 있는지 여부를 판단
 
+    [SerializeField] private bool getKeyIgnore = false; // 모든 입력 무시 여부
     //현재 캐릭터의 이동 속도
     public float CurrentMoveSpeed
     {
@@ -189,7 +190,10 @@ public class PlayerController : MonoBehaviour
     //이동 입력 액션 감지
     public void OnMove(InputAction.CallbackContext context)
     {
-        moveInput = context.ReadValue<Vector2>();
+        if (!getKeyIgnore)
+        {
+            moveInput = context.ReadValue<Vector2>();
+        }
         if (IsAlive)
         {
             IsMoving = moveInput != Vector2.zero;
@@ -215,7 +219,7 @@ public class PlayerController : MonoBehaviour
     //달리기 입력 액션 감지
     public void OnRun(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && !getKeyIgnore)
         {
             IsRunning = true;
             audioSource.Play();
@@ -229,7 +233,7 @@ public class PlayerController : MonoBehaviour
     public void OnJump(InputAction.CallbackContext context)
     {
         // TODO Check if alive as well
-        if (context.started && touchingDirection.IsGrounded && CanMove)
+        if (context.started && touchingDirection.IsGrounded && CanMove && !getKeyIgnore)
         {
             animator.SetTrigger(AnimationStrings.jumpTrgger);
             if (context.started )
@@ -281,7 +285,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("스태미나가 부족합니다");
             return;
         }
-        if (context.started && touchingDirection.IsGrounded == false)
+        if (context.started && touchingDirection.IsGrounded == false && !getKeyIgnore)
         {
             Debug.Log("공중공격");
             animator.SetTrigger(AnimationStrings.airAttackTrigger);
@@ -297,7 +301,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (context.started && touchingDirection.IsGrounded == true)
+        if (context.started && touchingDirection.IsGrounded == true && !getKeyIgnore)
         {
             StaminaValue -= staminaUse;
             //soundObj.GetComponent<AudioMange>().AttackSound(1);
@@ -323,7 +327,7 @@ public class PlayerController : MonoBehaviour
     }
     public void OnSkill1(InputAction.CallbackContext context)   // A키, 기둥 소환 공격
     {
-        if (context.started && touchingDirection.IsGrounded == true) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
+        if (context.started && touchingDirection.IsGrounded == true && skillOn == false && !getKeyIgnore) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
         {
             Debug.Log("스킬사용 A");
             selectedSkillIndex = 0;
@@ -341,7 +345,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     public void OnSkill2(InputAction.CallbackContext context) { // S키, 부적 날리기
-        if (context.started && touchingDirection.IsGrounded == true && skillOn == false) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
+        if (context.started && touchingDirection.IsGrounded == true && skillOn == false && !getKeyIgnore) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
         {
             Debug.Log("스킬사용 S");
             selectedSkillIndex = 1;
@@ -359,21 +363,20 @@ public class PlayerController : MonoBehaviour
         }
     }
     public void OnSkill3(InputAction.CallbackContext context) { // D키, 지옥귀 소환
-        selectedSkillIndex = 2; 
-        if (context.started && touchingDirection.IsGrounded == true && skillOn == false) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
+        if (context.started && touchingDirection.IsGrounded == true && skillOn == false && !getKeyIgnore) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
         {
             print("스킬 사용 D");
-            selectedSkillIndex = 1;
+            selectedSkillIndex = 2;
             if (manaValueNow >= skillList[selectedSkillIndex].manaCost)  // 기존 조건(쿨다운) + 마나 소모량이 일정 이상이면 스킬 실행
             {
                 skillOn = true;    // 반복 스킬 사용 방지
-                animator.SetTrigger(AnimationStrings.SkillTrigger2);    // 스킬 사용 캐릭터 애니메이션 실행
+                animator.SetTrigger(AnimationStrings.SkillTrigger3);    // 스킬 사용 캐릭터 애니메이션 실행
                 manaValueNow -= skillList[selectedSkillIndex].manaCost; // 마나 소모량에 따라 감소
                 StartCoroutine(SkillSpawn(selectedSkillIndex));  // 스킬 프리팹 생성
             }
             else
             {
-                Debug.Log("스킬사용 S 실패");
+                Debug.Log("스킬사용 D 실패");
             }
         }
     }
@@ -445,8 +448,6 @@ public class PlayerController : MonoBehaviour
         set
         {
             _isDash = value;
-            //animator.SetBool(AnimationStrings.isDash, value);
-            //animator.SetTrigger(AnimationStrings.isDash);
         }
     }
     public float CurrentDashSpeed
@@ -523,9 +524,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public void DoDash(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && DashOn && !getKeyIgnore)
         {
             //animator.SetBool(AnimationStrings.isDash, true);
+            animator.SetTrigger(AnimationStrings.doDash);
             print("대쉬입력");
             StartCoroutine(Dash());
         }
@@ -550,7 +552,7 @@ public class PlayerController : MonoBehaviour
     }
     public void SkillChangeZ(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && !getKeyIgnore)
         {
             // animator.SetBool(AnimationStrings.isTeleport, true);
             Debug.Log("스킬 변경 Z");
@@ -558,7 +560,7 @@ public class PlayerController : MonoBehaviour
     }
     public void SkillChangeX(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && !getKeyIgnore)
         {
             //animator.SetBool(AnimationStrings.isTeleport, true);
             Debug.Log("스킬 변경 C");

@@ -467,7 +467,7 @@ MonoBehaviour:
   skillList:
   - {fileID: 11400000, guid: be75b62789258c840892a082ab7dc88b, type: 2}
   - {fileID: 11400000, guid: 14fe66e55d4794742a01f271972db435, type: 2}
-  - {fileID: 11400000, guid: 14fe66e55d4794742a01f271972db435, type: 2}
+  - {fileID: 11400000, guid: d66821c16f0dff74f8f18c69f49ab371, type: 2}
   idleDashSpeed: 7
   walkDashSpeed: 10
   runDashSpeed: 7

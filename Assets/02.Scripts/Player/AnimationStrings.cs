@@ -27,5 +27,5 @@ internal class AnimationStrings //애니메이션 파라미터 이름들 모아둔 클래스
     internal static string SkillTrigger2 = "Skill2";
     internal static string SkillTrigger3 = "Skill3";
     internal static string SkillTrigger4 = "Skill4";
-    internal static string isRush = "isRush";
+    internal static string doDash = "doDash";
 }
