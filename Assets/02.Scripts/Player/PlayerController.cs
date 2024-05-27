@@ -22,10 +22,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float airWalkSpeed = 6f; //공중에 떠있는 상태에서 이동 속도
     [SerializeField] private float jumpImpulse = 8f; //점프하는 힘
     //UI
-    [SerializeField] private int staminaValueNow = 60; //staminaMaxValue = 100;//스태미나 값
-    [SerializeField] private int staminaUse = 20;//스태미나 사용값
-    [SerializeField] private int staminaRecover = 50;//스태미나 회복량
-    public int manaValueNow = 60;  //manaMaxValue = 100;//마나 값
     [SerializeField] private bool skillOn = true;    //스킬 활성화 여부
     [SerializeField] private bool DashOn = true;     //대쉬 활성화 여부
     [SerializeField] private bool skillManaCheck = false; //스킬 사용 마나 확인 여부
@@ -47,10 +43,7 @@ public class PlayerController : MonoBehaviour
     private AudioSource audioSource;
     public GameObject soundObj;
     public AudioSource skillAudio;
-    //이벤트
-    public UnityEvent<int,int> staminaChanged; // 스태미나 사용 시 발생하는 유니티 이벤트
-    //public UnityEvent<int, int> staminaCharge; // 스태미나 회복 시 발생하는 유니티 이벤트
-    
+
     Vector2 moveInput; //입력 방향
     TouchingDirection touchingDirection; //땅이나 벽에 닿아있는 방향을 판단
     Damageable damagable; //데미지를 받을 수 있는지 여부를 판단
@@ -109,7 +102,6 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rb;
     Animator animator;
-    private InputAction attackAction;
 
     //컴포넌트 캐싱
     private void Awake()
@@ -133,17 +125,8 @@ public class PlayerController : MonoBehaviour
         if (rb.velocity.x < walkMaxAcceleration*(-1) && moveInput.x==(-1) && !IsDash)
             rb.velocity = new Vector2(walkMaxAcceleration * (-1), rb.velocity.y); // 오른쪽 걷기 시 연속된 가속으로 인한 최대 이동속도 제한
         animator.SetFloat(AnimationStrings.yVelocity, rb.velocity.y); 
-        /*if(manaValueNow == 100)
-        {
-            skillOn = true;
-        }*/
-        if(staminaValueNow <= staminaMaxValue)
-        {
-            staminaValueNow += staminaRecover;//* (int)Time.deltaTime;
-        }
     }
-    [SerializeField]
-    private bool _isRunning = false;
+    [SerializeField] private bool _isRunning = false;
    
     //캐릭터가 달리고 있는지에 대한 여부
     public bool IsRunning
@@ -251,40 +234,9 @@ public class PlayerController : MonoBehaviour
             //}
         }
     }
-    [SerializeField]
-    private int staminaMaxValue = 100; //    최대 스태미나
-    public int MaxStamina
-    {
-        get
-        {
-            return staminaMaxValue;
-        }
-        set
-        {
-            staminaMaxValue = value;
-        }
-    }
-    //[SerializeField]
-    //private int staminaValueNowTest = 100; //현재 스태미나
-    public int StaminaValue
-    {
-        get
-        {
-            return staminaValueNow;
-        }
-        set
-        {
-            staminaValueNow = value;
-            staminaChanged?.Invoke(staminaValueNow, MaxStamina);
-        }
-    }
     public void AirAttack(InputAction.CallbackContext context)
     {
-        if (StaminaValue < 20)
-        {
-            Debug.Log("스태미나가 부족합니다");
-            return;
-        }
+
         if (context.started && touchingDirection.IsGrounded == false && !getKeyIgnore)
         {
             Debug.Log("공중공격");
@@ -295,15 +247,9 @@ public class PlayerController : MonoBehaviour
     //공격
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (StaminaValue < 20)
-        {
-            Debug.Log("스태미나가 부족합니다");
-            return;
-        }
 
         if (context.started && touchingDirection.IsGrounded == true && !getKeyIgnore)
         {
-            StaminaValue -= staminaUse;
             //soundObj.GetComponent<AudioMange>().AttackSound(1);
             Debug.Log("기본공격");
             animator.SetTrigger(AnimationStrings.attackTrigger);
@@ -311,9 +257,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-    [SerializeField]
-    private int manaMaxValue = 100; //    최대 마나
+    //스킬 관련 항목
+    [SerializeField] private int manaMaxValue = 100; // 최대 마나
+    [SerializeField] private int manaValueNow = 100; // 현재 마나 값
     public int MaxMana
     {
         get
@@ -380,13 +326,13 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    public void OnSkill4(InputAction.CallbackContext context) { // F키, 스킬 미정
-        selectedSkillIndex = 3;
-        print("스킬 사용 F");
-    }
+    //public void OnSkill4(InputAction.CallbackContext context) { // F키, 스킬 미정
+    //    selectedSkillIndex = 3;
+    //    print("스킬 사용 F");
+    //}
     public IEnumerator SkillSpawn(int selectedSkillIndex) { // 스킬 스폰 시스템
         // 스킬 사용 로직
-        PlayerSkill playerSkill;
+        //PlayerSkill playerSkill;
         Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y);    // 스킬 스폰 지점 구하기
         yield return new WaitForSeconds(skillList[selectedSkillIndex].spawnDelay);
         if (transform.localScale.x >= 0) // 플레이어가 오른쪽을 바라보고 있을 경우 == true
@@ -486,6 +432,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    [SerializeField]
     public float CurrentDashDuration
     {
         get {
@@ -521,7 +468,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    [SerializeField]
     public void DoDash(InputAction.CallbackContext context)
     {
         if (context.started && DashOn && !getKeyIgnore)
