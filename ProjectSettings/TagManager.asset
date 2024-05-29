@@ -11,6 +11,7 @@ TagManager:
   - BossHealth
   - PlayerAttack
   - PlayerUI
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -20,15 +21,15 @@ TagManager:
   - UI
   - Ground
   - Player
-  - Enemy
-  - PlayerHitBox
-  - EnemyHitBox
-  - GroundDetection
+  - PlayerProjectile
   - PlayerSommon
-  - PlayerAttack
-  - Boss
+  - Enemy
+  - EnemyProjectile
+  - 
   - BossAttack
+  - Boss
   - BossHitBox
+  - PlayerAttack
   - 
   - 
   - 
@@ -50,4 +51,19 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Enemy
+    uniqueID: 2670615499
+    locked: 0
+  - name: Boss
+    uniqueID: 2509448577
+    locked: 0
+  - name: Player
+    uniqueID: 1019042709
+    locked: 0
+  - name: EnemyProjectile
+    uniqueID: 3663252055
+    locked: 0
+  - name: PlayerProjectile
+    uniqueID: 3251538929
     locked: 0
