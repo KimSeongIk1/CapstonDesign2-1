@@ -10,7 +10,7 @@ public class Boss_Controller : MonoBehaviour
 
 
     Animator animator;
-    private int speedx = 3; // µ¹Áø ¼Óµµ
+    private int speedx = 3; // ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
     Rigidbody2D rigid2D;
     public GameObject cameraObj;
     public GameObject player;
@@ -19,16 +19,16 @@ public class Boss_Controller : MonoBehaviour
     private Vector2 playerPos;
     private SpriteRenderer sprite;
 
-    //¹ø°³ ÆÐÅÏ °ü·Ã
-    private GameObject backSprite; //¹ø°³ ÆÐÅÏÀÇ ¹è°æ ¿ÀºêÁ§Æ®
-    private SpriteRenderer backSpriteAlpha; //À§ ¹è°æÀÇ ¾ËÆÄ°ªÀ» Á¶ÀýÇÏ±â À§ÇÑ º¯¼ö
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    private GameObject backSprite; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+    private SpriteRenderer backSpriteAlpha; //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ä°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-    //ÆÐÅÏ ÇÁ¸®ÆÕ
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public GameObject[] objPrefab;
 
-    //ÆÐÅÏ ½ÃÀÛ °ü·Ã º¯¼ö
-    [SerializeField] private int startPatternNum; //Ã¹¹øÂ°·Î ½ÃÀÛÇÒ ÆÐÅÏ
-    [SerializeField] private int patternRange; //ÆÐÅÏÀÇ °³¼ö¸¦ ÁöÁ¤
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    [SerializeField] private int startPatternNum; //Ã¹ï¿½ï¿½Â°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    [SerializeField] private int patternRange; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -39,103 +39,103 @@ public class Boss_Controller : MonoBehaviour
         NextPatternPlay(startPatternNum);
     }
 
-    //ÇÃ·¹ÀÌ¾î ¹æÇâÀ» º¸´Â ·ÎÁ÷
+    //ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     void LookPlayer()
     {
-        DIRECTION = (player.GetComponent<Transform>().position.x < transform.position.x ? -1 : 1); //player¿Í ÀÚ½Å(º¸½º)ÀÇ xÁÂÇ¥¸¦ ºñ±³ÇØ¼­ Àû´çÇÑ »ó¼ö¸¦ DIRECTION¿¡ ÀúÀåÇÑ´Ù.
+        DIRECTION = (player.GetComponent<Transform>().position.x < transform.position.x ? -1 : 1); //playerï¿½ï¿½ ï¿½Ú½ï¿½(ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ xï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ DIRECTIONï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
         float scale = transform.localScale.z;
-        transform.localScale = new Vector3(DIRECTION * -1 * scale, scale, scale); //DIRECTIONº¯¼ö¸¦ ÀÌ¿ëÇØ¼­ playerÂÊÀ» ¹Ù¶óº¸µµ·ÏÇÑ´Ù.
+        transform.localScale = new Vector3(DIRECTION * -1 * scale, scale, scale); //DIRECTIONï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½Ø¼ï¿½ playerï¿½ï¿½ï¿½ï¿½ ï¿½Ù¶óº¸µï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
     }
 
-    // 0.µ¹Áø ÆÐÅÏ
+    // 0.ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public bool isBroken = false;
     [SerializeField] private GameObject[] rushObj;
     [SerializeField] private GameObject rushRange;
     IEnumerator Rush()
     {
-        Debug.Log("µ¹Áø ÆÐÅÏ »ç¿ë");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½");
 
-        LookPlayer();//ÇÃ·¹ÀÌ¾î ¹æÇâÀ» ÇâÇÔ
-        animator.SetBool("RushReady", true);//µ¹Áø ÁØºñ ¾Ö´Ï¸ÞÀÌ¼Ç Àç»ý
-        //tartCoroutine(EffectRange(rushRange)); //°ø°Ý ¹üÀ§ Ç¥½Ã
+        LookPlayer();//ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        animator.SetBool("RushReady", true);//ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½
+        //tartCoroutine(EffectRange(rushRange)); //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
         yield return StartCoroutine(EffectRange(rushRange));
 
-        //µ¹Áø ½ÃÀÛ
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         animator.SetBool("RushReady", false);
         animator.SetBool("Rush", true);
         isBroken = false;
-        rushObj[0].SetActive(true); //ÇÇ°Ý ¹Ú½º È°¼ºÈ­
-        rushObj[1].SetActive(true); //ÀÌÆåÆ® È°¼ºÈ­
+        rushObj[0].SetActive(true); //ï¿½Ç°ï¿½ ï¿½Ú½ï¿½ È°ï¿½ï¿½È­
+        rushObj[1].SetActive(true); //ï¿½ï¿½ï¿½ï¿½Æ® È°ï¿½ï¿½È­
     
         while (!isBroken)
         {
             yield return new WaitForSeconds(0.1f);
-            if (speedx > rigid2D.velocity.x * DIRECTION) //AddForce¸¦ ÀÌ¿ëÇØ¼­ ÀÚ¿¬½º·´°Ô ¿òÁ÷ÀÌµµ·Ï ÇÏµÇ speedxº¸´Ù ºü¸£Áö ¾Êµµ·ÏÇÑ´Ù.
+            if (speedx > rigid2D.velocity.x * DIRECTION) //AddForceï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½Ø¼ï¿½ ï¿½Ú¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½Ïµï¿½ speedxï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
             {
                 rigid2D.AddForce(transform.right * DIRECTION * 1000);
 
             }
-            cameraObj.GetComponent<CameraMange>().Dolmpulse(); // Ä«¸Þ¶ó Èçµé¸²
+            cameraObj.GetComponent<CameraMange>().Dolmpulse(); // Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½é¸²
 
         }
 
         yield return new WaitForSeconds(2);
 
-        rushObj[0].SetActive(false); //ÇÇ°Ý ¹Ú½º ºñÈ°¼ºÈ­
-        rushObj[1].SetActive(false); //ÀÌÆåÆ® ºñÈ°¼ºÈ­
+        rushObj[0].SetActive(false); //ï¿½Ç°ï¿½ ï¿½Ú½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
+        rushObj[1].SetActive(false); //ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È°ï¿½ï¿½È­
 
         animator.SetBool("Rush", false);
         yield return new WaitForSeconds(3);
 
-        NextPatternPlay(Random.Range(0, patternRange)); //·£´ýÇÑ ´ÙÀ½ ÆÐÅÏ ½ÇÇà
+        NextPatternPlay(Random.Range(0, patternRange)); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
-    // 1. ÇÒÄû±â(°¡·Î) ÆÐÅÏ
+    // 1. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½
     [SerializeField] GameObject[] horizontalObj;
     [SerializeField] GameObject horizontalRange;
     IEnumerator Horizontal()
     {
-        Debug.Log("ÇÒÄû±â(°¡·Î) ÆÐÅÏ");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½");
         LookPlayer();
         yield return new WaitForSeconds(1);
 
-        StartCoroutine(EffectRange(horizontalRange)); //°ø°Ý ¹üÀ§ º¸ÀÌ±â
-        yield return StartCoroutine(EffectRange(horizontalRange)); //EffectRange ÄÚ·çÆ¾À» ³¡³¯¶§±îÁö ´ë±â
+        StartCoroutine(EffectRange(horizontalRange)); //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½
+        yield return StartCoroutine(EffectRange(horizontalRange)); //EffectRange ï¿½Ú·ï¿½Æ¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         animator.SetTrigger("Horizontal");
         yield return new WaitForSeconds(3);
 
         NextPatternPlay(Random.Range(0, patternRange));
     }
-    // 2.ÇÒÄû±â(¼¼·Î) ÆÐÅÏ
+    // 2.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½
     [SerializeField] private GameObject[] verticalObj;
     [SerializeField] private GameObject[] verticalRange;
     IEnumerator Vertical()
     {
-        Debug.Log("ÇÒÄû±â(¼¼·Î) ÆÐÅÏ");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½");
         LookPlayer();
         yield return new WaitForSeconds(1);
 
         
         playerPos = player.transform.position;
         StartCoroutine(EffectRange(verticalRange[0]));      
-        yield return StartCoroutine(EffectRange(verticalRange[1])); //EffectRange ÄÚ·çÆ¾À» ³¡³¯¶§±îÁö ´ë±â
+        yield return StartCoroutine(EffectRange(verticalRange[1])); //EffectRange ï¿½Ú·ï¿½Æ¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         animator.SetTrigger("Vertical");
         //effectRangePrefab[0].transform.position = playerPos;
-        //verticalObj[0].transform.position = playerPos; //ÇÒÄû±â ¿ÀºêÁ§Æ®°¡ ÇÃ·¹ÀÌ¾î À§Ä¡·Î ÀÌµ¿
+        //verticalObj[0].transform.position = playerPos; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ìµï¿½
         yield return new WaitForSeconds(3f);
         NextPatternPlay(Random.Range(0, patternRange));
     }
 
-    // 3.¹ø°³ ÆÐÅÏ
-    [SerializeField] private GameObject[] thunderEffectObj; //¹ø°³ ÆÐÅÏ ÀÌÆåÆ®
-    [SerializeField] private GameObject[] thunderObj; //¹ø°³ ¿ÀºêÁ§Æ®
-    [SerializeField] private GameObject[] thunderRange; //°ø°Ý ¹üÀ§
+    // 3.ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    [SerializeField] private GameObject[] thunderEffectObj; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+    [SerializeField] private GameObject[] thunderObj; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+    [SerializeField] private GameObject[] thunderRange; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     IEnumerator Thunder()
     {
-        Debug.Log("¹ø°³ ÆÐÅÏ");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
         thunderEffectObj[1].SetActive(true);
         thunderEffectObj[2].SetActive(true);
-        // ¾ËÆÄ °ªÀ» º¯°æÇÏ¿© ¹è°æÀ» ¾îµÓ°Ô ÇÏ´Â ·ÎÁ÷
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ó°ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
         do
         {
             Color color = backSpriteAlpha.color;
@@ -166,7 +166,7 @@ public class Boss_Controller : MonoBehaviour
             thunderObj[i + 3].SetActive(false);
             yield return new WaitForSeconds(0.5f);
         }
-        // ¾ËÆÄ °ªÀ» º¯°æÇÏ¿© ¹è°æÀ» ¹à°Ô ÇÏ´Â ·ÎÁ÷
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
         do
         {
             Color color = backSpriteAlpha.color;
@@ -181,12 +181,12 @@ public class Boss_Controller : MonoBehaviour
         NextPatternPlay(Random.Range(0, patternRange));
     }
 
-    // 4.Áþ¹â±â ÆÐÅÏ
+    // 4.ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField] private GameObject stompObj;
     [SerializeField] private GameObject stompRange;
     IEnumerator Stomp() 
     {
-        Debug.Log("Áþ¹â±â ÆÐÅÏ");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
         for(int i = 0; i < 3; i++)
         {
             StartCoroutine(EffectRange(stompRange));
@@ -205,11 +205,11 @@ public class Boss_Controller : MonoBehaviour
 
         NextPatternPlay(Random.Range(0, patternRange));
     }
-    // 5.¼ø°£ÀÌµ¿ ÆÐÅÏ
+    // 5.ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField] private GameObject[] teleportObj;
     IEnumerator Teleport()
     {
-        Debug.Log("ÅÚ·¹Æ÷Æ® ÆÐÅÏ");
+        Debug.Log("ï¿½Ú·ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½");
         teleportObj[0].SetActive(true);
         do
         {
@@ -240,13 +240,13 @@ public class Boss_Controller : MonoBehaviour
         NextPatternPlay(Random.Range(0, patternRange));
     }
 
-    // 6.¹ß¾Ç ÆÐÅÏ . º¸½º Ã¼·Â 5ÆÛ ÀÌÇÏ½Ã ÆÐÅÏ
+    // 6.ï¿½ß¾ï¿½ ï¿½ï¿½ï¿½ï¿½ . ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½ 5ï¿½ï¿½ ï¿½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField] private GameObject[] groggyObj;
     [SerializeField] private GameObject[] groggyRange;
     public IEnumerator Groggy()
     {
         yield return new WaitForSeconds(2f);
-        //ÆÐÅÏ ½ÃÀÛ
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         for (int i = 0; i < 3; i++)
         {
             if (ready != true) yield return null;
@@ -260,7 +260,7 @@ public class Boss_Controller : MonoBehaviour
         NextPatternPlay(6);
 
     }
-    // ´ÙÀ½À¸·Î ½ÃÀÛµÇ´Â ÆÐÅÏÀ» ÁöÁ¤ÇØÁÖ´Â ·ÎÁ÷
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÛµÇ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
     public void NextPatternPlay(int nextPattern)
     {
         switch (nextPattern)
@@ -289,11 +289,11 @@ public class Boss_Controller : MonoBehaviour
         }
     }
 
-    //°ø°Ý ¹üÀ§ Ç¥½Ã
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
     IEnumerator EffectRange(GameObject rangeObject)
     {
         
-        Debug.Log("°ø°Ý¹üÀ§ Ç¥½Ã");
+        Debug.Log("ï¿½ï¿½ï¿½Ý¹ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½");
         float fadeCount = 0;
         Color rangeColor = rangeObject.GetComponent<SpriteRenderer>().color;
         rangeColor.a = 0;
