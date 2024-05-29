@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{E06DAB05-369E-F71E-2CEA-D6755A5A9507}</ProjectGuid>
+    <ProjectGuid>{2914A968-C9E7-176D-ACE3-A1681AB2BD65}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -60,36 +60,33 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.21f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\10.Other\JS\PlayerSkillMange.cs" />
+    <Compile Include="Assets\02.Scripts\Boss\BossSpawn.cs" />
+    <Compile Include="Assets\02.Scripts\Player\Skill\SkillData.cs" />
     <Compile Include="Assets\02.Scripts\Player\AnimationStrings.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Scenes\CameraMagnets\CameraMagnetTargetController.cs" />
     <Compile Include="Assets\02.Scripts\Player\Panel_GameOver.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Shared\Scripts\SimpleElevator.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Scenes\Anywhere Door\PlayerLookAt.cs" />
-    <Compile Include="Assets\02.Scripts\Player\StaminaBar.cs" />
     <Compile Include="Assets\02.Scripts\Events\BossRoom_Approach.cs" />
-    <Compile Include="Assets\10.Other\JS\Scripts\TestButton.cs" />
     <Compile Include="Assets\02.Scripts\Events\Fall_Death.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Shared\Scripts\SpawnInCircle.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Shared\Scripts\PlayerMoveOnSphere.cs" />
-    <Compile Include="Assets\10.Other\JS\Scripts\Enemy_Data.cs" />
-    <Compile Include="Assets\02.Scripts\Player\SteminaSystem.cs" />
     <Compile Include="Assets\02.Scripts\Enemy\Scarecrow\Scarecrow.cs" />
-    <Compile Include="Assets\Boss\Boss_Skill.cs" />
     <Compile Include="Assets\02.Scripts\DetectionZone.cs" />
     <Compile Include="Assets\02.Scripts\Events\NextStage.cs" />
+    <Compile Include="Assets\02.Scripts\Boss\CameraMange.cs" />
     <Compile Include="Assets\02.Scripts\ParallaxEffect.cs" />
     <Compile Include="Assets\02.Scripts\StateMachine\SetFloatBehaiviour.cs" />
+    <Compile Include="Assets\02.Scripts\Boss\ColliderActions.cs" />
+    <Compile Include="Assets\02.Scripts\Boss\BossHealth.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Scenes\Anywhere Door\PlayerMovement.cs" />
-    <Compile Include="Assets\02.Scripts\Player\MP_Manage.cs" />
+    <Compile Include="Assets\02.Scripts\Player\Skill\PlayerSkill.cs" />
     <Compile Include="Assets\02.Scripts\UI&amp;System\UIManager.cs" />
     <Compile Include="Assets\02.Scripts\Attack.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Scenes\2D\LoseSightWhenTargetsFallsOffThePlatform.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Scenes\CameraMagnets\CameraMagnetProperty.cs" />
-    <Compile Include="Assets\10.Other\JS\Boss\Boss_Controller.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Shared\Scripts\PlayerMovePhysics.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Scenes\DualTarget\PointAtAimTarget.cs" />
-    <Compile Include="Assets\02.Scripts\Player\SkillData.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Scenes\3rdPersonWithAimMode\ActivateOnKeypress.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Shared\Scripts\MixingCameraBlend.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Scenes\Scripting\ScriptingExample.cs" />
@@ -97,38 +94,41 @@
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Scenes\2D\MouseScrollZoom2D.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Shared\Models\UnityCharacter\Scripts\CharacterMovement2D.cs" />
     <Compile Include="Assets\02.Scripts\Damageable.cs" />
+    <Compile Include="Assets\02.Scripts\UI&amp;System\DataManager.cs" />
+    <Compile Include="Assets\02.Scripts\Player\Skill\SkillData_Summon.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Shared\Scripts\ExampleHelpWindow.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Scenes\BossCamera\CustomLockCameraY.cs" />
+    <Compile Include="Assets\02.Scripts\Boss\SceneJump.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Shared\Models\UnityCharacter\Scripts\CharacterMovementNoCamera.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Shared\Models\UnityCharacter\Scripts\CharacterMovement.cs" />
+    <Compile Include="Assets\02.Scripts\Boss\Hit.cs" />
     <Compile Include="Assets\02.Scripts\UI&amp;System\HealthBar.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Scenes\FadeOutNearbyObjects\CinemachineFadeOutNearbyObjects.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Shared\Scripts\InvokeEventFromInspector.cs" />
-    <Compile Include="Assets\02.Scripts\Player\PlayerSkill.cs" />
+    <Compile Include="Assets\02.Scripts\Player\Skill\SkillData_Sub.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Scenes\BossCamera\BossLookAt.cs" />
-    <Compile Include="Assets\Boss\Boss_Move.cs" />
-    <Compile Include="Assets\10.Other\JS\Boss\Skill\Horizontal.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Shared\Scripts\ActivateCamOnPlay.cs" />
     <Compile Include="Assets\02.Scripts\Player\TouchingDirection.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Scenes\DualTarget\MoveAimTarget.cs" />
+    <Compile Include="Assets\02.Scripts\Boss\StopRush.cs" />
     <Compile Include="Assets\02.Scripts\Player\PlayerController.cs" />
-    <Compile Include="Assets\10.Other\JS\Scripts\Enemy_Spawn.cs" />
     <Compile Include="Assets\02.Scripts\UI&amp;System\HealthText.cs" />
+    <Compile Include="Assets\02.Scripts\Boss\DueogsiniIntro.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Shared\Scripts\PlayerMove.cs" />
+    <Compile Include="Assets\02.Scripts\Boss\BossNameShower.cs" />
     <Compile Include="Assets\02.Scripts\Events\CharacterEvents.cs" />
+    <Compile Include="Assets\02.Scripts\Player\Skill\PlayerSkill_summon.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Shared\Scripts\ActivateCameraWithDistance.cs" />
-    <Compile Include="Assets\10.Other\JS\Scripts\AudioMange.cs" />
+    <Compile Include="Assets\02.Scripts\Boss\Boss_Controller.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Scenes\Anywhere Door\TagChanger.cs" />
-    <Compile Include="Assets\10.Other\JS\Scripts\CameraMange.cs" />
-    <Compile Include="Assets\Boss\AlertBox.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Shared\Scripts\InputSystemHelper.cs" />
     <Compile Include="Assets\02.Scripts\StateMachine\SetBoolBehaviour.cs" />
+    <Compile Include="Assets\02.Scripts\Player\Skill\PlayerSkill_Sub.cs" />
     <Compile Include="Assets\02.Scripts\StateMachine\FadeRemoveBehaviour.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Scenes\Trigger volumes\GenericTrigger.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Shared\Scripts\ThirdPersonFollowDistanceModifier.cs" />
-    <Compile Include="Assets\10.Other\JS\Boss\Skill\ColliderActions.cs" />
-    <Compile Include="Assets\Boss\Boss.cs" />
     <Compile Include="Assets\02.Scripts\Events\Sting.cs" />
+    <Compile Include="Assets\02.Scripts\Player\Skill\MP_Manage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\09.UnityEngne\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -139,6 +139,7 @@
     <None Include="Assets\09.UnityEngne\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\09.UnityEngne\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\04.Images\TileMap\FP_Complete_v1.0\license.txt" />
+    <None Include="Assets\05.Materials\Boss\PaintWhite.shader" />
     <None Include="Assets\09.UnityEngne\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Scenes\Anywhere Door\ScreenCutoutShader.shader" />
     <None Include="Assets\09.UnityEngne\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
@@ -150,7 +151,6 @@
     <None Include="Assets\09.UnityEngne\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\09.UnityEngne\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\09.UnityEngne\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\10.Other\BigManJD\readme.txt" />
     <None Include="Assets\09.UnityEngne\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\09.UnityEngne\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\09.UnityEngne\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
@@ -1153,7 +1153,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="AimingRig.csproj">
-      <Project>{F19A60A9-953D-FCCD-B763-BF970027D685}</Project>
+      <Project>{A143DF66-D2CC-9DCD-7079-75AC2470CE37}</Project>
       <Name>AimingRig</Name>
     </ProjectReference>
   </ItemGroup>

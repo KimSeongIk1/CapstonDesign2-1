@@ -1,0 +1,139 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ssyn9\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\CapstonDesign24_05_27\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2914A968-C9E7-176D-ACE3-A1681AB2BD65}|Assembly-CSharp.csproj|c:\\users\\ssyn9\\onedrive\\\uBC14\uD0D5 \uD654\uBA74\\capstondesign24_05_27\\assets\\02.scripts\\boss\\boss_controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2914A968-C9E7-176D-ACE3-A1681AB2BD65}|Assembly-CSharp.csproj|solutionrelative:assets\\02.scripts\\boss\\boss_controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2914A968-C9E7-176D-ACE3-A1681AB2BD65}|Assembly-CSharp.csproj|C:\\Users\\ssyn9\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\CapstonDesign24_05_27\\assets\\02.scripts\\boss\\stoprush.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2914A968-C9E7-176D-ACE3-A1681AB2BD65}|Assembly-CSharp.csproj|solutionrelative:assets\\02.scripts\\boss\\stoprush.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2914A968-C9E7-176D-ACE3-A1681AB2BD65}|Assembly-CSharp.csproj|C:\\Users\\ssyn9\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\CapstonDesign24_05_27\\assets\\02.scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2914A968-C9E7-176D-ACE3-A1681AB2BD65}|Assembly-CSharp.csproj|solutionrelative:assets\\02.scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2914A968-C9E7-176D-ACE3-A1681AB2BD65}|Assembly-CSharp.csproj|C:\\Users\\ssyn9\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\CapstonDesign24_05_27\\assets\\02.scripts\\boss\\hit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2914A968-C9E7-176D-ACE3-A1681AB2BD65}|Assembly-CSharp.csproj|solutionrelative:assets\\02.scripts\\boss\\hit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2914A968-C9E7-176D-ACE3-A1681AB2BD65}|Assembly-CSharp.csproj|C:\\Users\\ssyn9\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\CapstonDesign24_05_27\\assets\\02.scripts\\statemachine\\setboolbehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2914A968-C9E7-176D-ACE3-A1681AB2BD65}|Assembly-CSharp.csproj|solutionrelative:assets\\02.scripts\\statemachine\\setboolbehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2914A968-C9E7-176D-ACE3-A1681AB2BD65}|Assembly-CSharp.csproj|C:\\Users\\ssyn9\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\CapstonDesign24_05_27\\assets\\02.scripts\\boss\\bossnameshower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2914A968-C9E7-176D-ACE3-A1681AB2BD65}|Assembly-CSharp.csproj|solutionrelative:assets\\02.scripts\\boss\\bossnameshower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2914A968-C9E7-176D-ACE3-A1681AB2BD65}|Assembly-CSharp.csproj|C:\\Users\\ssyn9\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\CapstonDesign24_05_27\\assets\\02.scripts\\player\\skill\\mp_manage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2914A968-C9E7-176D-ACE3-A1681AB2BD65}|Assembly-CSharp.csproj|solutionrelative:assets\\02.scripts\\player\\skill\\mp_manage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Boss_Controller.cs",
+              "DocumentMoniker": "C:\\Users\\ssyn9\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\CapstonDesign24_05_27\\Assets\\02.Scripts\\Boss\\Boss_Controller.cs",
+              "RelativeDocumentMoniker": "Assets\\02.Scripts\\Boss\\Boss_Controller.cs",
+              "ToolTip": "C:\\Users\\ssyn9\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\CapstonDesign24_05_27\\Assets\\02.Scripts\\Boss\\Boss_Controller.cs",
+              "RelativeToolTip": "Assets\\02.Scripts\\Boss\\Boss_Controller.cs",
+              "ViewState": "AQIAANMAAAAAAAAAAADwv+oAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T08:26:26.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StopRush.cs",
+              "DocumentMoniker": "C:\\Users\\ssyn9\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\CapstonDesign24_05_27\\Assets\\02.Scripts\\Boss\\StopRush.cs",
+              "RelativeDocumentMoniker": "Assets\\02.Scripts\\Boss\\StopRush.cs",
+              "ToolTip": "C:\\Users\\ssyn9\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\CapstonDesign24_05_27\\Assets\\02.Scripts\\Boss\\StopRush.cs",
+              "RelativeToolTip": "Assets\\02.Scripts\\Boss\\StopRush.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwkAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T08:26:13.685Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SetBoolBehaviour.cs",
+              "DocumentMoniker": "C:\\Users\\ssyn9\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\CapstonDesign24_05_27\\Assets\\02.Scripts\\StateMachine\\SetBoolBehaviour.cs",
+              "RelativeDocumentMoniker": "Assets\\02.Scripts\\StateMachine\\SetBoolBehaviour.cs",
+              "ToolTip": "C:\\Users\\ssyn9\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\CapstonDesign24_05_27\\Assets\\02.Scripts\\StateMachine\\SetBoolBehaviour.cs",
+              "RelativeToolTip": "Assets\\02.Scripts\\StateMachine\\SetBoolBehaviour.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAzwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T08:33:27.774Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BossNameShower.cs",
+              "DocumentMoniker": "C:\\Users\\ssyn9\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\CapstonDesign24_05_27\\Assets\\02.Scripts\\Boss\\BossNameShower.cs",
+              "RelativeDocumentMoniker": "Assets\\02.Scripts\\Boss\\BossNameShower.cs",
+              "ToolTip": "C:\\Users\\ssyn9\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\CapstonDesign24_05_27\\Assets\\02.Scripts\\Boss\\BossNameShower.cs",
+              "RelativeToolTip": "Assets\\02.Scripts\\Boss\\BossNameShower.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T08:25:49.408Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MP_Manage.cs",
+              "DocumentMoniker": "C:\\Users\\ssyn9\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\CapstonDesign24_05_27\\Assets\\02.Scripts\\Player\\Skill\\MP_Manage.cs",
+              "RelativeDocumentMoniker": "Assets\\02.Scripts\\Player\\Skill\\MP_Manage.cs",
+              "ToolTip": "C:\\Users\\ssyn9\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\CapstonDesign24_05_27\\Assets\\02.Scripts\\Player\\Skill\\MP_Manage.cs",
+              "RelativeToolTip": "Assets\\02.Scripts\\Player\\Skill\\MP_Manage.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T08:24:07.844Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PlayerController.cs",
+              "DocumentMoniker": "C:\\Users\\ssyn9\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\CapstonDesign24_05_27\\Assets\\02.Scripts\\Player\\PlayerController.cs",
+              "RelativeDocumentMoniker": "Assets\\02.Scripts\\Player\\PlayerController.cs",
+              "ToolTip": "C:\\Users\\ssyn9\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\CapstonDesign24_05_27\\Assets\\02.Scripts\\Player\\PlayerController.cs",
+              "RelativeToolTip": "Assets\\02.Scripts\\Player\\PlayerController.cs",
+              "ViewState": "AQIAAIAAAAAAAAAAAAAmwK4AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T07:54:13.821Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Hit.cs",
+              "DocumentMoniker": "C:\\Users\\ssyn9\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\CapstonDesign24_05_27\\Assets\\02.Scripts\\Boss\\Hit.cs",
+              "RelativeDocumentMoniker": "Assets\\02.Scripts\\Boss\\Hit.cs",
+              "ToolTip": "C:\\Users\\ssyn9\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\CapstonDesign24_05_27\\Assets\\02.Scripts\\Boss\\Hit.cs",
+              "RelativeToolTip": "Assets\\02.Scripts\\Boss\\Hit.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T08:45:20.029Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
