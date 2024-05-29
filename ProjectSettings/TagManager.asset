@@ -4,14 +4,19 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Ground
   - Wall
+  - PlayerProjectile
+  - PlayerSommon
+  - Enemy
+  - EnemyProjectile
   - Boss
+  - BossProjectile
+  - UI
   - BossName
   - IntroFire
   - BossHealth
   - PlayerAttack
-  - PlayerUI
-  - Ground
   layers:
   - Default
   - TransparentFX
@@ -25,11 +30,11 @@ TagManager:
   - PlayerSommon
   - Enemy
   - EnemyProjectile
-  - 
-  - BossAttack
   - Boss
-  - BossHitBox
-  - PlayerAttack
+  - BossProjectile
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -57,6 +62,9 @@ TagManager:
     locked: 0
   - name: Boss
     uniqueID: 2509448577
+    locked: 0
+  - name: PlayerSommon
+    uniqueID: 3975699729
     locked: 0
   - name: Player
     uniqueID: 1019042709

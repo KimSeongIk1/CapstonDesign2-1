@@ -457,10 +457,6 @@ MonoBehaviour:
   runMaxAcceleration: 10
   airWalkSpeed: 3
   jumpImpulse: 9.5
-  staminaValueNow: 60
-  staminaUse: 20
-  staminaRecover: 30
-  manaValueNow: 100
   skillOn: 0
   DashOn: 1
   skillManaCheck: 0
@@ -480,26 +476,12 @@ MonoBehaviour:
   walkingSound: {fileID: 0}
   soundObj: {fileID: 0}
   skillAudio: {fileID: 5335038429288257449}
-  staminaChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  getKeyIgnore: 0
   _isMoving: 0
   _isRunning: 0
   _isFacingRight: 1
-  staminaMaxValue: 100
   manaMaxValue: 100
+  manaValueNow: 100
   _isDash: 0
 --- !u!114 &5119084955187140151
 MonoBehaviour:
@@ -666,7 +648,7 @@ GameObject:
   - component: {fileID: 6406789968687083469}
   - component: {fileID: 5306742449836375026}
   - component: {fileID: 6876304870611192255}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: SwordAttack3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -864,7 +846,7 @@ GameObject:
   - component: {fileID: 7285401682242590715}
   - component: {fileID: 1576499987879343795}
   - component: {fileID: 6518427889843755047}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: AirAttack1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1060,7 +1042,7 @@ GameObject:
   - component: {fileID: 6716445563356361600}
   - component: {fileID: 6451108064715982659}
   - component: {fileID: 870483245329983319}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: SwordAttack1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1258,7 +1240,7 @@ GameObject:
   - component: {fileID: 1586212612134061579}
   - component: {fileID: 2837982242225701515}
   - component: {fileID: 3344760313561361552}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: SwordAttack2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1462,7 +1444,7 @@ GameObject:
   - component: {fileID: 2091303253615013857}
   - component: {fileID: 2919160295912403348}
   - component: {fileID: 688257234198827465}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: AirAttack2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1732,9 +1714,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2579736208620568576}
-  - component: {fileID: 7711668986358393927}
   - component: {fileID: 5335038429288257449}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: AudioGM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1756,20 +1737,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3490926457350336301}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7711668986358393927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7303987841012513043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5166a58f4f5fcf44d8ac38dc3e2e7b56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  SkillaudioSources: []
 --- !u!82 &5335038429288257449
 AudioSource:
   m_ObjectHideFlags: 0
