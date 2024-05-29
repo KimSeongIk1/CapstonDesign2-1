@@ -6,6 +6,7 @@ public class StopRush : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameObject.Find("Dueogsini").GetComponent<Boss_Controller>().isBroken = true;
+        if(collision.CompareTag("Wall"))
+            GameObject.Find("Dueogsini").GetComponent<Boss_Controller>().isBroken = true;
     }
 }

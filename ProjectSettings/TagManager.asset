@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Wall
   - Boss
+  - BossName
+  - IntroFire
+  - BossHealth
+  - PlayerAttack
+  - PlayerUI
   layers:
   - Default
   - TransparentFX
@@ -20,10 +25,10 @@ TagManager:
   - EnemyHitBox
   - GroundDetection
   - PlayerSommon
-  - 
-  - 
-  - 
-  - 
+  - PlayerAttack
+  - Boss
+  - BossAttack
+  - BossHitBox
   - 
   - 
   - 
@@ -40,9 +45,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2863109859
+    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: 
-    uniqueID: 2863109859
     locked: 0

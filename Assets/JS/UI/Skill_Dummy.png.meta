@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 451c39c33eabdb748b1eecb3427c3e6c
+guid: a7bbbb22170b99344ba2210210250210
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uC2A4\uD0AC \uD504\uB808\uC784_0"
+      name: Skill_Dummy_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 22
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f26ab1852292c5d429fd00a80a06ffcb
-      internalID: -2008963469
+      spriteID: 0094c9a0ffbde2e4f83b93c6582b1c29
+      internalID: -1148403127
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC2A4\uD0AC \uD504\uB808\uC784_1"
+      name: Skill_Dummy_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 22
         y: 0
-        width: 64
-        height: 64
+        width: 22
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a011a8b908b47804b929f8efbcd24072
-      internalID: -1804146234
+      spriteID: 3c4067e34ad3aa141a861ccb60f1bb91
+      internalID: 1771280136
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC2A4\uD0AC \uD504\uB808\uC784_2"
+      name: Skill_Dummy_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 44
         y: 0
-        width: 64
-        height: 64
+        width: 22
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8bd0890bb5868a4aa2416e276c7e9d7
-      internalID: -1058485551
+      spriteID: 4ad55279226e6af4db26f2cf9d126ded
+      internalID: -1529100994
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\uC2A4\uD0AC \uD504\uB808\uC784_3"
+      name: Skill_Dummy_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 66
         y: 0
-        width: 64
-        height: 64
+        width: 22
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,8 +200,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f4ba49e8cab61e46b05d08d288efe60
-      internalID: -2116295777
+      spriteID: 1ce84929e19754d48bad3e94d8108104
+      internalID: -1913515826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill_Dummy_4
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 0
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 267c0d748d6a09547a329a13386f8749
+      internalID: -813990534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill_Dummy_5
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 0
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad8c44f187f9326418a620a574e6778e
+      internalID: -1892504256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill_Dummy_6
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 0
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cdfd18749d75cb4fae4f83a01f08627
+      internalID: -595464759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill_Dummy_7
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 0
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cc00902891db304dbacc6003e028715
+      internalID: 1439997794
       vertices: []
       indices: 
       edges: []
@@ -217,10 +301,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\uC2A4\uD0AC \uD504\uB808\uC784_0": -2008963469
-      "\uC2A4\uD0AC \uD504\uB808\uC784_1": -1804146234
-      "\uC2A4\uD0AC \uD504\uB808\uC784_2": -1058485551
-      "\uC2A4\uD0AC \uD504\uB808\uC784_3": -2116295777
+      Skill_Dummy_0: -1148403127
+      Skill_Dummy_1: 1771280136
+      Skill_Dummy_2: -1529100994
+      Skill_Dummy_3: -1913515826
+      Skill_Dummy_4: -813990534
+      Skill_Dummy_5: -1892504256
+      Skill_Dummy_6: -595464759
+      Skill_Dummy_7: 1439997794
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

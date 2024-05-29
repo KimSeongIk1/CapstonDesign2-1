@@ -8,7 +8,7 @@ using UnityEngine.Events;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirection),typeof(Damageable))]
-
+//0차 작업자 : 김성익
 //1차 작업자 : 김재성
 //2차 작업 및 수정자 : 김장후
 public class PlayerController : MonoBehaviour
@@ -259,7 +259,7 @@ public class PlayerController : MonoBehaviour
 
     //스킬 관련 항목
     [SerializeField] private int manaMaxValue = 100; // 최대 마나
-    [SerializeField] private int manaValueNow = 100; // 현재 마나 값
+    [SerializeField] public int manaValueNow = 100; // 현재 마나 값
     public int MaxMana
     {
         get
