@@ -1758,6 +1758,22 @@ PrefabInstance:
       propertyPath: skillAudio
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6987759318676887170, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
+      propertyPath: doubleTapTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6987759318676887170, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
+      propertyPath: startDoubleTapCurTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6987759318676887170, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
+      propertyPath: endDoubleTapDetectTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6987759318676887170, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
+      propertyPath: startDoubleTapDetectTime
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7303987841012513043, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
@@ -7090,7 +7106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6660742757795491113, guid: 7740875b9c1af5e4db9a3f56fd56860f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.463594
+      value: 13.461743
       objectReference: {fileID: 0}
     - target: {fileID: 6660742757795491113, guid: 7740875b9c1af5e4db9a3f56fd56860f, type: 3}
       propertyPath: m_LocalPosition.y

@@ -36,7 +36,7 @@
                     "name": "Run",
                     "type": "Value",
                     "id": "838adfea-07b9-41d4-ab4c-7e2212e5143b",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true

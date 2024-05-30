@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using static UnityEngine.RuleTile.TilingRuleOutput;
+using JetBrains.Annotations;
+using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirection),typeof(Damageable))]
 //0차 작업자 : 김성익
@@ -21,6 +23,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float runMaxAcceleration = 10f; //뛰기 최대 가속값
     [SerializeField] private float airWalkSpeed = 6f; //공중에 떠있는 상태에서 이동 속도
     [SerializeField] private float jumpImpulse = 8f; //점프하는 힘
+    
+
+   
     //UI
     [SerializeField] private bool skillOn = true;    //스킬 활성화 여부
     [SerializeField] private bool DashOn = true;     //대쉬 활성화 여부
@@ -50,18 +55,109 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private bool getKeyIgnore = false; // 모든 입력 무시 여부
     //현재 캐릭터의 이동 속도
+    
+    Rigidbody2D rb;
+    Animator animator;
+
+
+    public float startDoubleTapCurTime = 0;   // 더블탭 감지 타이머
+    public float startDoubleTapDetectTime;   // 더블탭 감지 활성 시간
+    public float endDoubleTapCurTime = 0;   // 더블탭 감지 타이머
+    public float endDoubleTapDetectTime;   // 더블탭 감지 활성 시간
+
+
+    [SerializeField] private int tapCount;
+    //컴포넌트 캐싱
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        touchingDirection = GetComponent<TouchingDirection>();
+        damagable = GetComponent<Damageable>();
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    private void FixedUpdate()
+    {
+        if (!damagable.LockVelocity)
+            //rb.velocity = new Vector2(moveInput.x * CurrentMoveSpeed, rb.velocity.y);
+
+         rb.AddForce(new Vector2(moveInput.x * CurrentMoveSpeed, 0), ForceMode2D.Impulse); //Addforce로 인한 가속 형태의 이동
+
+
+        if (rb.velocity.x > walkMaxAcceleration && moveInput.x == 1 && !IsDash)
+            rb.velocity = new Vector2(walkMaxAcceleration, rb.velocity.y); // 오른쪽 걷기 시 연속된 가속으로 인한 최대 이동속도 제한
+        if (rb.velocity.x < walkMaxAcceleration*(-1) && moveInput.x==(-1) && !IsDash)
+            rb.velocity = new Vector2(walkMaxAcceleration * (-1), rb.velocity.y); // 오른쪽 걷기 시 연속된 가속으로 인한 최대 이동속도 제한
+        animator.SetFloat(AnimationStrings.yVelocity, rb.velocity.y); 
+    }
+    private void Update() {
+        
+        if (tapCount > 0 && startDoubleTapCurTime <= startDoubleTapDetectTime)
+        {
+            print("시작");
+                startDoubleTapCurTime += Time.deltaTime;
+                print(startDoubleTapCurTime);
+            if (startDoubleTapCurTime >= startDoubleTapDetectTime)
+            {
+                tapCount = 0;
+                startDoubleTapCurTime = 0;
+            }
+            else if (startDoubleTapCurTime < startDoubleTapDetectTime && tapCount == 2)
+            {
+                IsRun = true;
+            }
+        }
+        if (IsRun && moveInput.x == 0)
+        {
+            endDoubleTapCurTime += Time.deltaTime;
+            if (endDoubleTapCurTime >= endDoubleTapDetectTime)
+            {
+                startDoubleTapCurTime = 0;
+                endDoubleTapCurTime = 0;
+                IsRun = false;
+                tapCount = 0;
+            }  
+        }
+
+    }
+    public bool _isMove = false;
+    //캐릭터가 이동하고 있는지 여부 확인
+    private bool IsMove { get
+        {
+            return _isMove;
+        }
+        set {
+            _isMove = value;
+            animator.SetBool(AnimationStrings.isMoving, value);
+        }
+     }
+    public bool _isRun = false;
+    //캐릭터가 달리고 있는지에 대한 여부
+    private bool IsRun
+    {
+        get
+        {
+            return _isRun;
+        }
+        set
+        {
+            _isRun = value;
+            animator.SetBool(AnimationStrings.isRunning, value);
+        }
+    }
     public float CurrentMoveSpeed
     {
         get
         {
-            if (CanMove)
+            if (_isMove)
             {
-                if (IsMoving && !touchingDirection.IsOnWall)
+                if (IsMove && !touchingDirection.IsOnWall)
                 {
                     //땅에 있는 경우
                     if (touchingDirection.IsGrounded)
                     {
-                        if (IsRunning)
+                        if (IsRun)
                         {
                             return runSpeed;
                         }
@@ -86,68 +182,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    [SerializeField]
-    private bool _isMoving = false;
-
-    //캐릭터가 이동하고 있는지 여부 확인
-    public bool IsMoving { get
-        {
-            return _isMoving;
-        }
-        private set {
-            _isMoving = value;
-            animator.SetBool(AnimationStrings.isMoving, value);
-        }
-     }
-
-    Rigidbody2D rb;
-    Animator animator;
-
-    //컴포넌트 캐싱
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        touchingDirection = GetComponent<TouchingDirection>();
-        damagable = GetComponent<Damageable>();
-        audioSource = GetComponent<AudioSource>();
-    }
-
-    private void FixedUpdate()
-    {
-        if (!damagable.LockVelocity)
-            //rb.velocity = new Vector2(moveInput.x * CurrentMoveSpeed, rb.velocity.y);
-            
-             rb.AddForce(new Vector2(moveInput.x * CurrentMoveSpeed, 0), ForceMode2D.Impulse); //Addforce로 인한 가속 형태의 이동
-        
-        if (rb.velocity.x > walkMaxAcceleration && moveInput.x == 1 && !IsDash)
-            rb.velocity = new Vector2(walkMaxAcceleration, rb.velocity.y); // 오른쪽 걷기 시 연속된 가속으로 인한 최대 이동속도 제한
-        if (rb.velocity.x < walkMaxAcceleration*(-1) && moveInput.x==(-1) && !IsDash)
-            rb.velocity = new Vector2(walkMaxAcceleration * (-1), rb.velocity.y); // 오른쪽 걷기 시 연속된 가속으로 인한 최대 이동속도 제한
-        animator.SetFloat(AnimationStrings.yVelocity, rb.velocity.y); 
-    }
-    [SerializeField] private bool _isRunning = false;
-   
-    //캐릭터가 달리고 있는지에 대한 여부
-    public bool IsRunning
-    {
-        get
-        {
-            return _isRunning;
-        }
-        set
-        {
-            _isRunning = value;
-            animator.SetBool(AnimationStrings.isRunning, value);
-        }
-    }
     public bool _isFacingRight = true;
-    //캐릭터가 이동 가능한지 여부
-    public bool CanMove { get
-        {
-            return animator.GetBool(AnimationStrings.canMove);
-        } 
-    }
     public bool IsAlive
     {
         get
@@ -170,22 +205,32 @@ public class PlayerController : MonoBehaviour
             _isFacingRight = value;
         }
     }
+
     //이동 입력 액션 감지
     public void OnMove(InputAction.CallbackContext context)
     {
         if (!getKeyIgnore)
         {
             moveInput = context.ReadValue<Vector2>();
+            if(context.started)
+            {
+                tapCount++;
+            }
         }
+
         if (IsAlive)
         {
-            IsMoving = moveInput != Vector2.zero;
+            IsMove = moveInput != Vector2.zero;
             SetFacingDirection(moveInput);
         }
         else
         {
-            IsMoving = false;
+            IsMove = false;
         }
+    }
+    //달리기 입력 액션 감지
+    public void OnRun() {
+        IsRun = true;
     }
     //입력값에 따른 방향
     private void SetFacingDirection(Vector2 moveInput)
@@ -199,24 +244,25 @@ public class PlayerController : MonoBehaviour
         IsFacingRight = false;
         }
     }
+    
     //달리기 입력 액션 감지
-    public void OnRun(InputAction.CallbackContext context)
-    {
-        if (context.started && !getKeyIgnore)
+    /*    public void OnRun(InputAction.CallbackContext context)
         {
-            IsRunning = true;
-            audioSource.Play();
-        } else if (context.canceled)
-        {
-            IsRunning = false;
-            audioSource.Stop();
-        }
-    }
+            if (context.started && !getKeyIgnore)
+            {
+                IsRunning = true;
+                audioSource.Play();
+            } else if (context.canceled)
+            {
+                IsRunning = false;
+                audioSource.Stop();
+            }
+        }*/
     //점프 입력 액션 감지
     public void OnJump(InputAction.CallbackContext context)
     {
         // TODO Check if alive as well
-        if (context.started && touchingDirection.IsGrounded && CanMove && !getKeyIgnore)
+        if (context.started && touchingDirection.IsGrounded && IsMove && !getKeyIgnore)
         {
             animator.SetTrigger(AnimationStrings.jumpTrgger);
             if (context.started )
@@ -400,14 +446,14 @@ public class PlayerController : MonoBehaviour
     {
         get
         {
-            if (CanMove)
+            if (IsMove)
             {
-                if (IsMoving && !touchingDirection.IsOnWall)
+                if (IsMove && !touchingDirection.IsOnWall)
                 {
                     //땅에 있는 경우
                     if (touchingDirection.IsGrounded)
                     {
-                        if (IsRunning)
+                        if (IsRun)
                         {
                             return runDashSpeed;
                         }
@@ -436,14 +482,14 @@ public class PlayerController : MonoBehaviour
     public float CurrentDashDuration
     {
         get {
-            if (CanMove)
+            if (IsMove)
             {
-                if (IsMoving && !touchingDirection.IsOnWall)
+                if (IsMove && !touchingDirection.IsOnWall)
                 {
                     //땅에 있는 경우
                     if (touchingDirection.IsGrounded)
                     {
-                        if (IsRunning)
+                        if (IsRun)
                         {
                             return runDashDuration;
                         }
@@ -487,7 +533,6 @@ public class PlayerController : MonoBehaviour
             float originalGraviry = rb.gravityScale;
             rb.gravityScale = 0f;
             rb.velocity = new Vector2(transform.localScale.x * CurrentDashSpeed, 0f);
-            print(touchingDirection.IsGrounded + "이다다다다");
             yield return new WaitForSeconds(CurrentDashDuration);
             rb.gravityScale = originalGraviry;
             _isDash = false;
