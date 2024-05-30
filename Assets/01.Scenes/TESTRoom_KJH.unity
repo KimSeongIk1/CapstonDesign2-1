@@ -138,7 +138,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6648211185071265184, guid: 7d24e2d2e62bd4cf68c0f8fc049d6780, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6648211185439405730, guid: 7d24e2d2e62bd4cf68c0f8fc049d6780, type: 3}
       propertyPath: m_LocalScale.x
@@ -198,7 +198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6648211185439405731, guid: 7d24e2d2e62bd4cf68c0f8fc049d6780, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6648211185439405731, guid: 7d24e2d2e62bd4cf68c0f8fc049d6780, type: 3}
       propertyPath: m_IsActive
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 93899991}
   - component: {fileID: 93899992}
   - component: {fileID: 93899993}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: GroggyAttack 3
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 112718493}
   - component: {fileID: 112718495}
   - component: {fileID: 112718494}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: GroggyAttack 3 Range
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -502,7 +502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2053294201975440586, guid: b9f66b91759bf4d12a29fe537b6e15d3, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2053294201975440586, guid: b9f66b91759bf4d12a29fe537b6e15d3, type: 3}
       propertyPath: m_IsActive
@@ -527,7 +527,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 214891248}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: ThunderBolt L2
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
@@ -565,7 +565,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 234872231}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -655,7 +655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5635442070561424941, guid: b37f4afd0bbe34e099d2597ad78d0d19, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5635442070561424941, guid: b37f4afd0bbe34e099d2597ad78d0d19, type: 3}
       propertyPath: m_IsActive
@@ -941,7 +941,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 427199564141168535, guid: a677770afb2d04956954e3b2476a7985, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 427199564141168535, guid: a677770afb2d04956954e3b2476a7985, type: 3}
       propertyPath: m_IsActive
@@ -1015,7 +1015,7 @@ GameObject:
   - component: {fileID: 363038581}
   - component: {fileID: 363038580}
   - component: {fileID: 363038579}
-  m_Layer: 15
+  m_Layer: 14
   m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
@@ -1284,7 +1284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5635442070561424941, guid: b37f4afd0bbe34e099d2597ad78d0d19, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5635442070561424941, guid: b37f4afd0bbe34e099d2597ad78d0d19, type: 3}
       propertyPath: m_IsActive
@@ -1593,7 +1593,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 478944872}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: ThunderBolt L1
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
@@ -1631,7 +1631,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 482589002}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: ThunderBolt L2 Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1754,6 +1754,10 @@ PrefabInstance:
       propertyPath: cameraObj
       value: 
       objectReference: {fileID: 412542954}
+    - target: {fileID: 6987759318676887170, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
+      propertyPath: skillAudio
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7303987841012513043, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
@@ -1826,7 +1830,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5635442070561424941, guid: b37f4afd0bbe34e099d2597ad78d0d19, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5635442070561424941, guid: b37f4afd0bbe34e099d2597ad78d0d19, type: 3}
       propertyPath: m_IsActive
@@ -1920,7 +1924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 955524252249327304, guid: 6b7701bbf9117db4896e8d3a083f7c37, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 955524252249327304, guid: 6b7701bbf9117db4896e8d3a083f7c37, type: 3}
       propertyPath: m_IsActive
@@ -2020,7 +2024,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 581182792}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: ThunderBolt R3
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
@@ -2053,7 +2057,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 591140199}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: ThunderBolt R2
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
@@ -2249,7 +2253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5635442070561424941, guid: b37f4afd0bbe34e099d2597ad78d0d19, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5635442070561424941, guid: b37f4afd0bbe34e099d2597ad78d0d19, type: 3}
       propertyPath: m_IsActive
@@ -2279,7 +2283,7 @@ GameObject:
   - component: {fileID: 631218669}
   - component: {fileID: 631218668}
   - component: {fileID: 631218667}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: HorizontalEffect
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
@@ -2584,7 +2588,7 @@ GameObject:
   - component: {fileID: 655023768}
   - component: {fileID: 655023767}
   - component: {fileID: 655023766}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2674,7 +2678,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 667792491}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: 6.Groggy
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -2711,7 +2715,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 680648089}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: ThunderBolt R1
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
@@ -2821,7 +2825,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5635442070561424941, guid: b37f4afd0bbe34e099d2597ad78d0d19, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5635442070561424941, guid: b37f4afd0bbe34e099d2597ad78d0d19, type: 3}
       propertyPath: m_IsActive
@@ -3086,7 +3090,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5635442070561424941, guid: b37f4afd0bbe34e099d2597ad78d0d19, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5635442070561424941, guid: b37f4afd0bbe34e099d2597ad78d0d19, type: 3}
       propertyPath: m_IsActive
@@ -3168,7 +3172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2053294201975440586, guid: b9f66b91759bf4d12a29fe537b6e15d3, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2053294201975440586, guid: b9f66b91759bf4d12a29fe537b6e15d3, type: 3}
       propertyPath: m_IsActive
@@ -3261,7 +3265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5635442070561424941, guid: b37f4afd0bbe34e099d2597ad78d0d19, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5635442070561424941, guid: b37f4afd0bbe34e099d2597ad78d0d19, type: 3}
       propertyPath: m_IsActive
@@ -3288,7 +3292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 860081491}
   - component: {fileID: 860081490}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: LeftRange
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -3373,7 +3377,7 @@ GameObject:
   - component: {fileID: 870801807}
   - component: {fileID: 870801808}
   - component: {fileID: 870801809}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: GroggyAttack 1
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
@@ -3540,7 +3544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5635442070561424941, guid: b37f4afd0bbe34e099d2597ad78d0d19, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5635442070561424941, guid: b37f4afd0bbe34e099d2597ad78d0d19, type: 3}
       propertyPath: m_IsActive
@@ -3611,7 +3615,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 973546463}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: Objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3700,7 +3704,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7954511571834059514, guid: 4d537678b61934513a768ae6afa64deb, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7954511571834059514, guid: 4d537678b61934513a768ae6afa64deb, type: 3}
       propertyPath: m_IsActive
@@ -3720,7 +3724,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1028585597}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: ThunderBolt R1 Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3754,7 +3758,7 @@ GameObject:
   - component: {fileID: 1038229389}
   - component: {fileID: 1038229391}
   - component: {fileID: 1038229390}
-  m_Layer: 16
+  m_Layer: 14
   m_Name: BossHitBox
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
@@ -3903,7 +3907,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1168314487}
   - component: {fileID: 1168314486}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: RightRange
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -6132,7 +6136,7 @@ GameObject:
   - component: {fileID: 1237370266}
   - component: {fileID: 1237370267}
   - component: {fileID: 1237370268}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: GroggyAttack 2
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
@@ -6356,7 +6360,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1255200894}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: Objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6391,7 +6395,7 @@ GameObject:
   - component: {fileID: 1266253435}
   - component: {fileID: 1266253437}
   - component: {fileID: 1266253436}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -6552,7 +6556,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5635442070561424941, guid: b37f4afd0bbe34e099d2597ad78d0d19, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5635442070561424941, guid: b37f4afd0bbe34e099d2597ad78d0d19, type: 3}
       propertyPath: m_IsActive
@@ -6635,7 +6639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2053294201975440586, guid: b9f66b91759bf4d12a29fe537b6e15d3, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2053294201975440586, guid: b9f66b91759bf4d12a29fe537b6e15d3, type: 3}
       propertyPath: m_IsActive
@@ -6655,7 +6659,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1333859396}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: ThunderBolt R2 Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6687,7 +6691,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1358545437}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6853,7 +6857,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1412817458}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6887,7 +6891,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1417518025}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6925,7 +6929,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1451507638}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: ThunderBolt L1 Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7086,7 +7090,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6660742757795491113, guid: 7740875b9c1af5e4db9a3f56fd56860f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.461512
+      value: 13.463594
       objectReference: {fileID: 0}
     - target: {fileID: 6660742757795491113, guid: 7740875b9c1af5e4db9a3f56fd56860f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7118,7 +7122,7 @@ GameObject:
   - component: {fileID: 1503957341}
   - component: {fileID: 1503957340}
   - component: {fileID: 1503957343}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: VerticalEffectLeft
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
@@ -7371,7 +7375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2053294201975440586, guid: b9f66b91759bf4d12a29fe537b6e15d3, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2053294201975440586, guid: b9f66b91759bf4d12a29fe537b6e15d3, type: 3}
       propertyPath: m_IsActive
@@ -7391,7 +7395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1529322851}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: ThunderBolt L3 Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7432,7 +7436,7 @@ GameObject:
   - component: {fileID: 1547422317}
   - component: {fileID: 1547422319}
   - component: {fileID: 1547422320}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: Earthquake
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
@@ -7680,7 +7684,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1563894162}
   - component: {fileID: 1563894161}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: HorizontalEffectRange
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -7819,7 +7823,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1592116015}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: 5.Teleport
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -7854,7 +7858,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1605963337}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: Objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7889,7 +7893,7 @@ GameObject:
   - component: {fileID: 1610926009}
   - component: {fileID: 1610926011}
   - component: {fileID: 1610926012}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: Effect
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -8066,7 +8070,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6436324989013520631, guid: aa2a3b2181e8d4cab882154bef5763ef, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6436324989013520631, guid: aa2a3b2181e8d4cab882154bef5763ef, type: 3}
       propertyPath: m_IsActive
@@ -8142,7 +8146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 955524252249327304, guid: 6b7701bbf9117db4896e8d3a083f7c37, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 955524252249327304, guid: 6b7701bbf9117db4896e8d3a083f7c37, type: 3}
       propertyPath: m_IsActive
@@ -8423,7 +8427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5635442070561424941, guid: b37f4afd0bbe34e099d2597ad78d0d19, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5635442070561424941, guid: b37f4afd0bbe34e099d2597ad78d0d19, type: 3}
       propertyPath: m_IsActive
@@ -8855,7 +8859,7 @@ GameObject:
   - component: {fileID: 1777911160}
   - component: {fileID: 1777911162}
   - component: {fileID: 1777911161}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: GroggyAttack 2 Range
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -8983,7 +8987,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1783922948}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9093,7 +9097,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1799711434}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9323,7 +9327,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1885007152}
   - component: {fileID: 1885007153}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: GroggyAttack 1 Range
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -9463,7 +9467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2053294201975440586, guid: b9f66b91759bf4d12a29fe537b6e15d3, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2053294201975440586, guid: b9f66b91759bf4d12a29fe537b6e15d3, type: 3}
       propertyPath: m_IsActive
@@ -9558,7 +9562,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1904435937}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9596,7 +9600,7 @@ GameObject:
   - component: {fileID: 1911136535}
   - component: {fileID: 1911136534}
   - component: {fileID: 1911136537}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: VerticalEffectRight
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
@@ -9764,7 +9768,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1920703347}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: ThunderBolt R3 Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9796,7 +9800,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1965631679}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9892,7 +9896,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5635442070561424941, guid: b37f4afd0bbe34e099d2597ad78d0d19, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5635442070561424941, guid: b37f4afd0bbe34e099d2597ad78d0d19, type: 3}
       propertyPath: m_IsActive
@@ -9975,7 +9979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2053294201975440586, guid: b9f66b91759bf4d12a29fe537b6e15d3, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2053294201975440586, guid: b9f66b91759bf4d12a29fe537b6e15d3, type: 3}
       propertyPath: m_IsActive
@@ -10072,7 +10076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5635442070561424941, guid: b37f4afd0bbe34e099d2597ad78d0d19, type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5635442070561424941, guid: b37f4afd0bbe34e099d2597ad78d0d19, type: 3}
       propertyPath: m_IsActive
@@ -10097,7 +10101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2125775598}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: ThunderBolt L3
   m_TagString: Untagged
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
@@ -10230,7 +10234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1951588878789369971}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: 2.Vertical
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -10298,7 +10302,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2039337553270876137}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: 3.Thunder
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -10314,7 +10318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5285765891491298407}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: 4.Stomp
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -10452,7 +10456,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1807746236433479998}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: 1.Horizontal
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
