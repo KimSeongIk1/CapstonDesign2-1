@@ -125,6 +125,7 @@
     <Compile Include="Assets\02.Scripts\Events\CharacterEvents.cs" />
     <Compile Include="Assets\02.Scripts\Player\Skill\PlayerSkill_summon.cs" />
     <Compile Include="Assets\02.Scripts\Enemy\Biseog_attack_Behaviour.cs" />
+    <Compile Include="Assets\02.Scripts\UI&amp;System\MainMenu.cs" />
     <Compile Include="Assets\09.UnityEngne\Samples\Cinemachine\2.9.7\Cinemachine Example Scenes\Shared\Scripts\ActivateCameraWithDistance.cs" />
     <Compile Include="Assets\02.Scripts\Boss\Boss_Controller.cs" />
     <Compile Include="Assets\02.Scripts\Enemy\Dokkaebibul\EnemyShooting.cs" />

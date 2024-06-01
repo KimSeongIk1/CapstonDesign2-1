@@ -854,6 +854,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "MainMenu",
+            "id": "ed3149c8-ba8b-4698-8fe3-08f5527a4775",
+            "actions": [
+                {
+                    "name": "GameStart",
+                    "type": "Button",
+                    "id": "a3b3562f-1574-4a54-934b-5f1c6ec0e41f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c6443b82-fad4-4b38-b101-c1e23f1c5275",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GameStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
