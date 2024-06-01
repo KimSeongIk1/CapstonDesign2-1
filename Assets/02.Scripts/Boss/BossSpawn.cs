@@ -17,10 +17,10 @@ public class BossSpawn : MonoBehaviour
     }
     IEnumerator BossIntro()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         introFire.SetActive(false);
         introBoss.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(5f);
         introBoss.SetActive(false);
         boss.SetActive(true);
 
