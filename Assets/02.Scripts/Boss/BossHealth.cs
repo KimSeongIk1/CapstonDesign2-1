@@ -31,7 +31,7 @@ public class BossHealth : MonoBehaviour
         if (HpBarSlider != null)
             HpBarSlider.value = curHealth / maxHealth;
     }
-
+    
     public void Damage(float damage) //* 데미지 받는 함수
     {
         //if (maxHealth == 0 || curHealth <= 0) //* 이미 체력 0이하면 패스
@@ -40,23 +40,30 @@ public class BossHealth : MonoBehaviour
         //    return;
         //}
         curHealth -= damage;
-        Debug.Log("보스가 " + damage + " 만큼의 데미지를 받음");
         Debug.Log("보스의 현재 체력 " + curHealth);
         CheckHp(); //* 체력 갱신
-        if (curHealth < 50f && death != true && animator.GetBool("Groggy") == false)
-        {
-            //GameObject.Find("Dueogsini").GetComponent<Animator>().SetBool("Groggy", true);
-            animator.SetBool("Groggy", true);
-            Debug.Log("체력이 5퍼 미만");
-            Boss_Controller boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss_Controller>();
-            boss.StartCoroutine(boss.Groggy());
-        }
+        //if (curHealth < 50f && death != true && animator.GetBool("Groggy") == false)
+        //{
+        //    //GameObject.Find("Dueogsini").GetComponent<Animator>().SetBool("Groggy", true);
+        //    animator.SetBool("Groggy",true);
+        //    Debug.Log("체력이 5퍼 미만");
+        //    Boss_Controller boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss_Controller>();
+        //    boss.StartCoroutine(boss.Groggy());
+        //}
         if (curHealth <= 0)
-        {
+        { 
             death = true;
             animator.SetBool("Groggy", false);
             //animator = GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>();
             animator.SetTrigger("Die"); //* 체력이 0 이하라 죽음
+            StartCoroutine(GameClear());
+            Debug.Log("코루틴 시작");
         }
+    }
+    [SerializeField] private GameObject clearPanel;
+    IEnumerator GameClear()
+    {
+        yield return new WaitForSeconds(3f);
+        clearPanel.SetActive(true);
     }
 }

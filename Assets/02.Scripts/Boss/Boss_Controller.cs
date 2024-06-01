@@ -23,8 +23,6 @@ public class Boss_Controller : MonoBehaviour
     private GameObject backSprite; //���� ������ ��� ������Ʈ
     private SpriteRenderer backSpriteAlpha; //�� ����� ���İ��� �����ϱ� ���� ����
 
-    //���� ������
-    public GameObject[] objPrefab;
 
     //���� ���� ���� ����
     [SerializeField] private int startPatternNum; //ù��°�� ������ ����
@@ -66,7 +64,7 @@ public class Boss_Controller : MonoBehaviour
         isBroken = false;
         rushObj[0].SetActive(true); //�ǰ� �ڽ� Ȱ��ȭ
         rushObj[1].SetActive(true); //����Ʈ Ȱ��ȭ
-    
+
         while (!isBroken)
         {
             yield return new WaitForSeconds(0.1f);
@@ -102,6 +100,7 @@ public class Boss_Controller : MonoBehaviour
         StartCoroutine(EffectRange(horizontalRange)); //���� ���� ���̱�
         yield return StartCoroutine(EffectRange(horizontalRange)); //EffectRange �ڷ�ƾ�� ���������� ���
         animator.SetTrigger("Horizontal");
+        horizontalObj[0].SetActive(true);
         yield return new WaitForSeconds(3);
 
         NextPatternPlay(Random.Range(0, patternRange));
@@ -115,11 +114,16 @@ public class Boss_Controller : MonoBehaviour
         LookPlayer();
         yield return new WaitForSeconds(1);
 
-        
+
         playerPos = player.transform.position;
-        StartCoroutine(EffectRange(verticalRange[0]));      
-        yield return StartCoroutine(EffectRange(verticalRange[1])); //EffectRange �ڷ�ƾ�� ���������� ���
+        StartCoroutine(EffectRange(verticalRange[0]));
+        yield return new WaitForSeconds(0.5f);
+        yield return StartCoroutine(EffectRange(verticalRange[1])); //EffectRange �ڷ�ƾ�� ���������� ���       
         animator.SetTrigger("Vertical");
+        yield return new WaitForSeconds(0.5f);
+        verticalObj[0].SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        verticalObj[1].SetActive(true);
         //effectRangePrefab[0].transform.position = playerPos;
         //verticalObj[0].transform.position = playerPos; //������ ������Ʈ�� �÷��̾� ��ġ�� �̵�
         yield return new WaitForSeconds(3f);
@@ -133,6 +137,7 @@ public class Boss_Controller : MonoBehaviour
     IEnumerator Thunder()
     {
         Debug.Log("���� ����");
+        
         thunderEffectObj[1].SetActive(true);
         thunderEffectObj[2].SetActive(true);
         // ���� ���� �����Ͽ� ����� ��Ӱ� �ϴ� ����
@@ -144,13 +149,15 @@ public class Boss_Controller : MonoBehaviour
             yield return null;
         } while (backSpriteAlpha.color.a <= 0.5f);
         animator.SetTrigger("Thunder");
+        thunderEffectObj[0].SetActive(true);
         yield return new WaitForSeconds(0.5f);
-        for(int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++)
         {
+            animator.SetTrigger("Thunder");
             StartCoroutine(EffectRange(thunderRange[0]));
             StartCoroutine(EffectRange(thunderRange[1]));
         }
-        
+
         yield return new WaitForSeconds(2f);
         for (int i = 0; i < 3; i++)
         {
@@ -167,6 +174,7 @@ public class Boss_Controller : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
         // ���� ���� �����Ͽ� ����� ��� �ϴ� ����
+        thunderEffectObj[0].SetActive(false);
         do
         {
             Color color = backSpriteAlpha.color;
@@ -184,10 +192,10 @@ public class Boss_Controller : MonoBehaviour
     // 4.����� ����
     [SerializeField] private GameObject stompObj;
     [SerializeField] private GameObject stompRange;
-    IEnumerator Stomp() 
+    IEnumerator Stomp()
     {
         Debug.Log("����� ����");
-        for(int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++)
         {
             StartCoroutine(EffectRange(stompRange));
             yield return new WaitForSeconds(1f);
@@ -233,9 +241,12 @@ public class Boss_Controller : MonoBehaviour
         } while (sprite.color.a <= 1f);
         teleportObj[1].SetActive(false);
         teleportObj[2].SetActive(false);
-        effectObj[6].SetActive(true);
+        teleportObj[3].SetActive(true);
+        
+        //teleportObj[3].SetActive(true);
         yield return new WaitForSeconds(0.5f);
-        effectObj[6].SetActive(false);
+        teleportObj[3].SetActive(false);
+        // teleportObj[3].SetActive(false);
         yield return new WaitForSeconds(2);
         NextPatternPlay(Random.Range(0, patternRange));
     }
@@ -245,13 +256,16 @@ public class Boss_Controller : MonoBehaviour
     [SerializeField] private GameObject[] groggyRange;
     public IEnumerator Groggy()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(5f);
+        animator.SetBool("Groggy", false);
         //���� ����
         for (int i = 0; i < 3; i++)
         {
+            
             if (ready != true) yield return null;
-            StartCoroutine(EffectRange(groggyRange[0]));
+            StartCoroutine(EffectRange(groggyRange[i]));
             yield return new WaitForSeconds(2.5f);
+            animator.SetTrigger("GroggyAttack");
             groggyObj[i].SetActive(true);
             yield return new WaitForSeconds(0.5f);
             groggyObj[i].SetActive(false);
@@ -275,7 +289,7 @@ public class Boss_Controller : MonoBehaviour
                 StartCoroutine(Vertical());
                 break;
             case 3:
-                StartCoroutine(Thunder());               
+                StartCoroutine(Thunder());
                 break;
             case 4:
                 StartCoroutine(Stomp());
@@ -292,21 +306,21 @@ public class Boss_Controller : MonoBehaviour
     //���� ���� ǥ��
     IEnumerator EffectRange(GameObject rangeObject)
     {
-        
+
         Debug.Log("���ݹ��� ǥ��");
         float fadeCount = 0;
         Color rangeColor = rangeObject.GetComponent<SpriteRenderer>().color;
         rangeColor.a = 0;
 
         rangeObject.SetActive(true);
-        while(fadeCount < 1.0f)
+        while (fadeCount < 1.0f)
         {
             fadeCount += 0.01f;
             yield return new WaitForSeconds(0.01f);
-            rangeObject.GetComponent<SpriteRenderer>().color = new Color(255,0,0,fadeCount);
+            rangeObject.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, fadeCount);
 
         }
-        while (fadeCount >=0f)
+        while (fadeCount >= 0f)
         {
             fadeCount -= 0.05f;
             yield return new WaitForSeconds(0.01f);
@@ -320,11 +334,15 @@ public class Boss_Controller : MonoBehaviour
     }
 
 
-    [SerializeField] private GameObject[] effectObj;
-    public void EnableObj(int num)
+    //[SerializeField] private GameObject[] effectObj;
+    //public void EnableObj(int num)
+    //{
+    //    effectObj[num].SetActive(true);
+    //}
+
+    public void DestroyObj()
     {
-        effectObj[num].SetActive(true);
+        Destroy(this.gameObject);
+        
     }
-
-
 }

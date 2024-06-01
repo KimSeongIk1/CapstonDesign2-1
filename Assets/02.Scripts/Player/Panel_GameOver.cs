@@ -20,16 +20,21 @@ public class Panel_GameOver : MonoBehaviour
     public void OnClick_Retry() // '재도전' 버튼을 클릭하며 호출 되어질 함수
     {
         Scene nowScene = SceneManager.GetActiveScene(); //현재 활성화된 씬 불러옴
-        switch (nowScene.name)
-        {
-            case "GameplayScene":
-                SceneManager.LoadScene("GameplayScene");
-                break;
-            case "Boss_1":
-                SceneManager.LoadScene("Boss_1");
-                break;
-        }
-                //SceneManager.LoadScene("GameplayScene"); // SceneManager의 LoadScene 함수를 사용하여 현재 신 'GameScene'을 다시 불러오도록 시킨다.
-                                             // 같은 신을 다시 불러오면 게임이 재시작 된다.
+        SceneManager.LoadScene(nowScene.buildIndex);
+        //switch (nowScene)
+        //{
+        //    case 0:
+        //        SceneManager.LoadScene(0);
+        //        break;
+        //    case 1:
+        //        SceneManager.LoadScene(1);
+        //        break;
+        //}
+        //SceneManager.LoadScene("GameplayScene"); // SceneManager의 LoadScene 함수를 사용하여 현재 신 'GameScene'을 다시 불러오도록 시킨다.
+        // 같은 신을 다시 불러오면 게임이 재시작 된다.
+    }
+    public void OnClick_MainMenu() // 메인화면 버튼을 클릭하며 호출 되어질 함수
+    {
+        SceneManager.LoadScene(0); //메인화면으로
     }
 }
