@@ -15,7 +15,7 @@ public class ColliderActions : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision) // 콜라이더에 접촉하는 동안 발생
     {
-        if (collision.gameObject.name == "Player") // 콜라이더를 가진 오브젝트가 플레이어라면 플레이어의 데미지 함수 호출
+        if (collision.gameObject.tag == "Player") // 콜라이더를 가진 오브젝트가 플레이어라면 플레이어의 데미지 함수 호출
         {
             Debug.Log("충돌!");
             target.GetComponent<Damageable>().Hit(damage, knockBack);
