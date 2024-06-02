@@ -123,9 +123,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &7245321534394353236
 MonoBehaviour:
@@ -344,6 +344,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 7b97712f-d37c-42b4-87c9-8a4026779a93
     m_ActionName: Player/Skill4[/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a3b3562f-1574-4a54-934b-5f1c6ec0e41f
+    m_ActionName: MainMenu/GameStart[/Keyboard/anyKey]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -468,6 +472,7 @@ MonoBehaviour:
   walkDashSpeed: 10
   runDashSpeed: 7
   airDashSpeed: 7
+  idleDashDuration: 0.1
   walkDashDuration: 0.1
   runDashDuration: 0.1
   airDashDuration: 0.1
@@ -477,8 +482,13 @@ MonoBehaviour:
   soundObj: {fileID: 0}
   skillAudio: {fileID: 5335038429288257449}
   getKeyIgnore: 0
-  _isMoving: 0
-  _isRunning: 0
+  startDoubleTapCurTime: 0
+  startDoubleTapDetectTime: 0
+  endDoubleTapCurTime: 0
+  endDoubleTapDetectTime: 0
+  tapCount: 0
+  _isMove: 0
+  _isRun: 0
   _isFacingRight: 1
   manaMaxValue: 100
   manaValueNow: 100

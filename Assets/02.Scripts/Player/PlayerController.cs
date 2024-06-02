@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float walkDashSpeed = 7f; // 걷는 도중 회피 속도
     [SerializeField] private float runDashSpeed = 7f; // 뛰는 도중 회피 속도
     [SerializeField] private float airDashSpeed = 7f; // 공중 회피 속도
+    [SerializeField] private float idleDashDuration = 0.1f;
     [SerializeField] private float walkDashDuration = 0.1f; // 회피 지속 시간
     [SerializeField] private float runDashDuration = 0.1f; // 회피 지속 시간
     [SerializeField] private float airDashDuration = 0.1f; // 회피 지속 시간
@@ -84,12 +85,23 @@ public class PlayerController : MonoBehaviour
 
          rb.AddForce(new Vector2(moveInput.x * CurrentMoveSpeed, 0), ForceMode2D.Impulse); //Addforce로 인한 가속 형태의 이동
 
-
-        if (rb.velocity.x > walkMaxAcceleration && moveInput.x == 1 && !IsDash)
-            rb.velocity = new Vector2(walkMaxAcceleration, rb.velocity.y); // 오른쪽 걷기 시 연속된 가속으로 인한 최대 이동속도 제한
-        if (rb.velocity.x < walkMaxAcceleration*(-1) && moveInput.x==(-1) && !IsDash)
-            rb.velocity = new Vector2(walkMaxAcceleration * (-1), rb.velocity.y); // 오른쪽 걷기 시 연속된 가속으로 인한 최대 이동속도 제한
-        animator.SetFloat(AnimationStrings.yVelocity, rb.velocity.y); 
+        if (!IsRun)
+        {
+            if (rb.velocity.x > walkMaxAcceleration && moveInput.x == 1 && !IsDash)
+                rb.velocity = new Vector2(walkMaxAcceleration, rb.velocity.y); // 오른쪽 걷기 시 연속된 가속으로 인한 최대 이동속도 제한
+            if (rb.velocity.x < walkMaxAcceleration * (-1) && moveInput.x == (-1) && !IsDash)
+                rb.velocity = new Vector2(walkMaxAcceleration * (-1), rb.velocity.y); // 왼쪽 걷기 시 연속된 가속으로 인한 최대 이동속도 제한
+            animator.SetFloat(AnimationStrings.yVelocity, rb.velocity.y);
+        }
+        else
+        {
+            if (rb.velocity.x > runMaxAcceleration && moveInput.x == 1 && !IsDash)
+                rb.velocity = new Vector2(runMaxAcceleration, rb.velocity.y); // 오른쪽 뛰기 시 연속된 가속으로 인한 최대 이동속도 제한
+            if (rb.velocity.x < runMaxAcceleration * (-1) && moveInput.x == (-1) && !IsDash)
+                rb.velocity = new Vector2(runMaxAcceleration * (-1), rb.velocity.y); // 왼쪽 뛰기 시 연속된 가속으로 인한 최대 이동속도 제한
+            animator.SetFloat(AnimationStrings.yVelocity, rb.velocity.y);
+        }
+        
     }
     private void Update() {
         
@@ -211,7 +223,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!getKeyIgnore)
         {
-            moveInput = context.ReadValue<Vector2>();
+                moveInput = context.ReadValue<Vector2>();
             if(context.started)
             {
                 tapCount++;
@@ -262,7 +274,7 @@ public class PlayerController : MonoBehaviour
     public void OnJump(InputAction.CallbackContext context)
     {
         // TODO Check if alive as well
-        if (context.started && touchingDirection.IsGrounded && IsMove && !getKeyIgnore)
+        if (context.started && touchingDirection.IsGrounded && !getKeyIgnore)
         {
             animator.SetTrigger(AnimationStrings.jumpTrgger);
             if (context.started )
@@ -446,30 +458,27 @@ public class PlayerController : MonoBehaviour
     {
         get
         {
-            if (IsMove)
+            if (!touchingDirection.IsOnWall)
             {
-                if (IsMove && !touchingDirection.IsOnWall)
+                //땅에 있는 경우
+                if (touchingDirection.IsGrounded)
                 {
-                    //땅에 있는 경우
-                    if (touchingDirection.IsGrounded)
+                    if (IsMove && IsRun)
                     {
-                        if (IsRun)
-                        {
-                            return runDashSpeed;
-                        }
-                        else
-                        {
-                            return walkDashSpeed;
-                        }
+                        return runDashSpeed;
+                    }
+                    else if (IsMove && !IsRun)
+                    {
+                        return walkDashSpeed;
                     }
                     else
                     {
-                        return airDashSpeed;
+                        return idleDashSpeed;
                     }
                 }
                 else
                 {
-                    return idleDashSpeed;
+                    return airDashSpeed;
                 }
             }
             else
@@ -482,30 +491,27 @@ public class PlayerController : MonoBehaviour
     public float CurrentDashDuration
     {
         get {
-            if (IsMove)
+            if (!touchingDirection.IsOnWall)
             {
-                if (IsMove && !touchingDirection.IsOnWall)
+                //땅에 있는 경우
+                if (touchingDirection.IsGrounded)
                 {
-                    //땅에 있는 경우
-                    if (touchingDirection.IsGrounded)
+                    if (IsMove && IsRun)
                     {
-                        if (IsRun)
-                        {
-                            return runDashDuration;
-                        }
-                        else
-                        {
-                            return walkDashDuration;
-                        }
+                        return runDashDuration;
+                    }
+                    else if(IsMove && !IsRun)
+                    {
+                        return walkDashDuration;
                     }
                     else
                     {
-                        return airDashDuration;
+                        return idleDashDuration;
                     }
                 }
                 else
                 {
-                    return walkDashDuration;
+                    return airDashDuration;
                 }
             }
             else
@@ -516,7 +522,7 @@ public class PlayerController : MonoBehaviour
     }
     public void DoDash(InputAction.CallbackContext context)
     {
-        if (context.started && DashOn && !getKeyIgnore)
+        if (context.started && DashOn && IsMove && !getKeyIgnore)
         {
             //animator.SetBool(AnimationStrings.isDash, true);
             animator.SetTrigger(AnimationStrings.doDash);
@@ -531,10 +537,13 @@ public class PlayerController : MonoBehaviour
             DashOn = false;
             _isDash = true;
             float originalGraviry = rb.gravityScale;
+            rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
             rb.gravityScale = 0f;
-            rb.velocity = new Vector2(transform.localScale.x * CurrentDashSpeed, 0f);
+            print(CurrentDashDuration);
+            rb.velocity = new Vector2((transform.localScale.x) * CurrentDashSpeed, 0f);
             yield return new WaitForSeconds(CurrentDashDuration);
             rb.gravityScale = originalGraviry;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             _isDash = false;
             yield return new WaitForSeconds(dashCooltime);
             DashOn = true;
