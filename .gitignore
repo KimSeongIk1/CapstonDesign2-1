@@ -3,3 +3,5 @@ Logs
 obj
 AimingRig.csproj
 .vs
+Temp
+Assembly-CSharp.csproj
