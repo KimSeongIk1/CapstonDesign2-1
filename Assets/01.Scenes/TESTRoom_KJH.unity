@@ -1703,18 +1703,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3490926457350336301, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490926457350336301, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490926457350336301, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490926457350336301, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.38
       objectReference: {fileID: 0}
@@ -1763,52 +1751,16 @@ PrefabInstance:
       value: PlayerAttack
       objectReference: {fileID: 0}
     - target: {fileID: 6987759318676887170, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
-      propertyPath: runSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6987759318676887170, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
       propertyPath: cameraObj
       value: 
       objectReference: {fileID: 412542954}
-    - target: {fileID: 6987759318676887170, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
-      propertyPath: walkSpeed
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 6987759318676887170, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
       propertyPath: skillAudio
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6987759318676887170, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
-      propertyPath: airDashSpeed
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6987759318676887170, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
-      propertyPath: runDashSpeed
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6987759318676887170, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
       propertyPath: doubleTapTime
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6987759318676887170, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
-      propertyPath: idleDashSpeed
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6987759318676887170, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
-      propertyPath: walkDashSpeed
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6987759318676887170, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
-      propertyPath: runDashDuration
-      value: 0.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 6987759318676887170, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
-      propertyPath: runMaxAcceleration
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6987759318676887170, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
-      propertyPath: walkMaxAcceleration
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6987759318676887170, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
       propertyPath: startDoubleTapCurTime
@@ -1821,14 +1773,6 @@ PrefabInstance:
     - target: {fileID: 6987759318676887170, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
       propertyPath: startDoubleTapDetectTime
       value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8103297110593958061, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
-      propertyPath: m_Interpolate
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8103297110593958061, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -4259,9 +4203,41 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1201264157}
+    m_ColliderPaths:
+    - - X: 110000000
+        Y: -50000000
+      - X: 100000000
+        Y: -50000000
+      - X: 100000000
+        Y: 70000000
+      - X: 70000000
+        Y: 70000000
+      - X: 70000000
+        Y: -10000000
+      - X: -80000000
+        Y: -10000000
+      - X: -80000000
+        Y: 60000000
+      - X: -110000000
+        Y: 60000000
+      - X: -110000000
+        Y: -60000000
+      - X: 110000000
+        Y: -60000000
   m_CompositePaths:
-    m_Paths: []
+    m_Paths:
+    - - {x: 10.99997, y: -6}
+      - {x: 10.99997, y: -5}
+      - {x: 10, y: -4.9999704}
+      - {x: 9.99997, y: 7}
+      - {x: 7, y: 6.9999704}
+      - {x: 6.9999704, y: -1}
+      - {x: -8, y: -0.9999706}
+      - {x: -8.00003, y: 6}
+      - {x: -11, y: 5.999971}
+      - {x: -10.99997, y: -6}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -4302,7 +4278,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 1201264153}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 3b4e730b6b0a88f4f933a641f8b82695, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4324,7 +4300,7 @@ TilemapCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
@@ -7130,7 +7106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6660742757795491113, guid: 7740875b9c1af5e4db9a3f56fd56860f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.461112
+      value: 13.461743
       objectReference: {fileID: 0}
     - target: {fileID: 6660742757795491113, guid: 7740875b9c1af5e4db9a3f56fd56860f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8168,12 +8144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14c654d7c4189bf4d92e1d9adf9dad3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boss: {fileID: 0}
-  canvas: {fileID: 0}
-  introCamera: {fileID: 0}
-  mainCamera: {fileID: 0}
-  introFire: {fileID: 0}
-  introBoss: {fileID: 0}
 --- !u!1001 &1657390772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8387,7 +8357,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 255
   HpBarSlider: {fileID: 1701313173}
-  clearPanel: {fileID: 0}
 --- !u!1001 &1727939645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10447,6 +10416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraObj: {fileID: 412542954}
   player: {fileID: 408173993}
+  objPrefab: []
   startPatternNum: 7
   patternRange: 6
   isBroken: 0
@@ -10492,6 +10462,7 @@ MonoBehaviour:
   - {fileID: 1885007151}
   - {fileID: 1777911159}
   - {fileID: 112718492}
+  effectObj: []
 --- !u!1 &7799731666420906909
 GameObject:
   m_ObjectHideFlags: 0
