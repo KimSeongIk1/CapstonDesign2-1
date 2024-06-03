@@ -17,7 +17,7 @@ public class GameClear : MonoBehaviour
     }
     public IEnumerator GameClearLogic()
     {
-        animator.SetBool("Death", true);
+        
         bossUI.SetActive(false);
         yield return new WaitForSeconds(1f);
         mainCamera.SetActive(false);

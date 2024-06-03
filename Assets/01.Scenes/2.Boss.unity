@@ -1504,8 +1504,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   HpBarSlider: {fileID: 393405083}
+  boss: {fileID: 7382446689994588604}
   bossHitBox: {fileID: 1038229388}
-  gameClearObj: {fileID: 0}
+  gameClearObj: {fileID: 1422714900}
 --- !u!114 &393405083
 MonoBehaviour:
   m_ObjectHideFlags: 0

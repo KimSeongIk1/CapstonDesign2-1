@@ -17,13 +17,14 @@ public class BossHealth : MonoBehaviour
     //    curHealth = maxHealth;
     //}
     public Slider HpBarSlider;
+    [SerializeField] private GameObject boss;
     [SerializeField] private GameObject bossHitBox;
     [SerializeField] private GameObject gameClearObj;
     private void Start()
     {
         //maxHealth = HpBarSlider.value;
         curHealth = maxHealth;
-
+        animator = boss.GetComponent<Animator>();
         Debug.Log("최대 체력 : " + maxHealth);
         Debug.Log("현재 체력 : " + curHealth);
     }
@@ -56,8 +57,10 @@ public class BossHealth : MonoBehaviour
         {
             bossHitBox.SetActive(false);
             StopAllCoroutines();
-            //GameClear gameClear = gameClearObj.GetComponent<GameClear>();
-            //gameClear.StartCoroutine(gameClear.GameClearLogic());
+            animator.SetBool("Death", true);
+            
+            GameClear gameClear = gameClearObj.GetComponent<GameClear>();
+            gameClear.StartCoroutine(gameClear.GameClearLogic());
             Debug.Log("코루틴 시작");
         }
     }
