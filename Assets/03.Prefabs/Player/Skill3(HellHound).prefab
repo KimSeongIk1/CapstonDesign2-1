@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8049925492446985055}
   - component: {fileID: 1374280055230230487}
   - component: {fileID: 442015505069058650}
+  - component: {fileID: 5012839622259218984}
   m_Layer: 12
   m_Name: Skill3(HellHound)
   m_TagString: Untagged
@@ -202,3 +203,17 @@ MonoBehaviour:
   isInvincible: 0
   invincibilityTime: 0.25
   damageTest: 0
+--- !u!114 &5012839622259218984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019930671860705011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d546025de90f003498b81c7bf98680d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillData: {fileID: 0}
+  playerDistance: {x: 0, y: 0}

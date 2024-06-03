@@ -27,10 +27,10 @@ public class PlayerController : MonoBehaviour
 
    
     //UI
-    [SerializeField] private bool skillOn = true;    //스킬 활성화 여부
+    public bool skillOn = true;    //스킬 활성화 여부
     [SerializeField] private bool DashOn = true;     //대쉬 활성화 여부
     [SerializeField] private bool skillManaCheck = false; //스킬 사용 마나 확인 여부
-    private int selectedSkillIndex = 0; // 선택된 스킬 인덱스
+    public int selectedSkillIndex = 0; // 선택된 스킬 인덱스
     public SkillData[] skillList;// 사용 가능한 스킬 목록
     //회피기
     [SerializeField] private float idleDashSpeed = 7f;
@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
         {
             print("시작");
                 startDoubleTapCurTime += Time.deltaTime;
-                print(startDoubleTapCurTime);
+                //print(startDoubleTapCurTime);
             if (startDoubleTapCurTime >= startDoubleTapDetectTime)
             {
                 tapCount = 0;
