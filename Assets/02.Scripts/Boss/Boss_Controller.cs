@@ -154,8 +154,8 @@ public class Boss_Controller : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             animator.SetTrigger("Thunder");
-            StartCoroutine(EffectRange(thunderRange[0]));
-            StartCoroutine(EffectRange(thunderRange[1]));
+            StartCoroutine(EffectRange(thunderRange[i]));
+            StartCoroutine(EffectRange(thunderRange[i+1]));
         }
 
         yield return new WaitForSeconds(2f);

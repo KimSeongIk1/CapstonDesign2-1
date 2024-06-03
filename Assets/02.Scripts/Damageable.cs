@@ -137,6 +137,7 @@ public class Damageable : MonoBehaviour
 
     public void GameOver() //  새로 추가된 함수
     {
+        this.gameObject.GetComponent<PlayerController>().getKeyIgnore = true; // 죽으면 플레이어 못 움직임
         Debug.Log("GameOver");
         Stop(); 
         panel_GameOver.Show(); // 게임오버 팝업

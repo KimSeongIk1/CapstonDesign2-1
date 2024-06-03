@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameSceneMove : MonoBehaviour
 {
@@ -22,20 +23,52 @@ public class GameSceneMove : MonoBehaviour
         SceneManager.LoadScene(nextSceneIndex);
     }
 
+    //24_06_03 재성이가 잠시 주석처리했다.
+
     // 적들이 모두 죽었는지 체크합니다.
-    private void Update()
-    {
-        // enemyContainer의 자식 오브젝트가 모두 제거되었는지 확인합니다.
-        if (enemyContainer.transform.childCount == 0)
-        {
-            StartCoroutine(LoadNextSceneWithDelay());
-        }
-    }
+    //private void Update()
+    //{
+    //    // enemyContainer의 자식 오브젝트가 모두 제거되었는지 확인합니다.
+    //    if (enemyContainer.transform.childCount == 0)
+    //    {
+    //        StartCoroutine(LoadNextSceneWithDelay());
+    //    }
+    //}
 
     // 지연 후 다음 씬을 로드합니다.
     private IEnumerator LoadNextSceneWithDelay()
     {
         yield return new WaitForSeconds(delayBeforeNextScene);
         LoadNextScene();
+    }
+
+    [SerializeField] private float fadeSpeed = 5f;
+    [SerializeField] private GameObject backImg;
+    Image image;
+    //private IEnumerator FadeIn()
+    //{
+    //    while (image.color.a > 255)
+    //    {
+    //        Color color = image.color;
+    //        color.a -= Time.deltaTime * fadeSpeed;
+    //        image.color = color;
+    //        yield return null;
+    //    }
+    //}   
+    private void Start()
+    {
+        image = backImg.GetComponent<Image>();
+        StartCoroutine(FadeOut());
+    }
+    private IEnumerator FadeOut()
+    {
+        //image.color = backImg.GetComponent<Image>().color;
+        while (image.color.a > 0)
+        {
+            Color color = image.color;
+            color.a -= Time.deltaTime * fadeSpeed;
+            image.color = color;
+            yield return null;
+        }
     }
 }
