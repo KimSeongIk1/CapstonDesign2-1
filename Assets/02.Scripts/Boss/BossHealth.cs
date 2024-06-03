@@ -56,8 +56,8 @@ public class BossHealth : MonoBehaviour
         {
             bossHitBox.SetActive(false);
             StopAllCoroutines();
-            GameClear gameClear = gameClearObj.GetComponent<GameClear>();
-            yield return gameClear.StartCoroutine(gameClear.GameClearLogic());
+            //GameClear gameClear = gameClearObj.GetComponent<GameClear>();
+            //gameClear.StartCoroutine(gameClear.GameClearLogic());
             Debug.Log("코루틴 시작");
         }
     }
