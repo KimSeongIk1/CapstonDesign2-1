@@ -10,9 +10,11 @@ public class BossSpawn : MonoBehaviour
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private GameObject introFire;
     [SerializeField] private GameObject introBoss;
+    [SerializeField] private GameObject player;
 
     private void Start()
     {
+        player.GetComponent<PlayerController>().getKeyIgnore = true;
         StartCoroutine(BossIntro());
     }
     IEnumerator BossIntro()
@@ -27,6 +29,7 @@ public class BossSpawn : MonoBehaviour
         yield return new WaitForSeconds(1f);
         introCamera.SetActive(false);
         mainCamera.SetActive(true);
+        player.GetComponent<PlayerController>().getKeyIgnore = false;
         yield return new WaitForSeconds(0.5f);
         canvas.SetActive(true);
         yield return new WaitForSeconds(3f);

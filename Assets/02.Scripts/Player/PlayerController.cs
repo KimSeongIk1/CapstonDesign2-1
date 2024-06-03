@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     TouchingDirection touchingDirection; //땅이나 벽에 닿아있는 방향을 판단
     Damageable damagable; //데미지를 받을 수 있는지 여부를 판단
 
-    [SerializeField] private bool getKeyIgnore = false; // 모든 입력 무시 여부
+    public bool getKeyIgnore = false; // 모든 입력 무시 여부
     //현재 캐릭터의 이동 속도
     
     Rigidbody2D rb;

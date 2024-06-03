@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static System.Net.Mime.MediaTypeNames;
@@ -7,7 +8,7 @@ using static System.Net.Mime.MediaTypeNames;
 public class BossHealth : MonoBehaviour
 {
     protected float curHealth; //* 현재 체력
-    private bool death = false;
+   // private bool death = false;
     public float maxHealth; //* 최대 체력
     private Animator animator;
     //public void SetHp(float amount) //*Hp설정
@@ -16,12 +17,13 @@ public class BossHealth : MonoBehaviour
     //    curHealth = maxHealth;
     //}
     public Slider HpBarSlider;
+    [SerializeField] private GameObject bossHitBox;
+    [SerializeField] private GameObject gameClearObj;
     private void Start()
     {
         //maxHealth = HpBarSlider.value;
         curHealth = maxHealth;
-        //Debug.Log("amount : " + amount);
-        animator = GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>();
+
         Debug.Log("최대 체력 : " + maxHealth);
         Debug.Log("현재 체력 : " + curHealth);
     }
@@ -51,19 +53,13 @@ public class BossHealth : MonoBehaviour
         //    boss.StartCoroutine(boss.Groggy());
         //}
         if (curHealth <= 0)
-        { 
-            death = true;
-            animator.SetBool("Groggy", false);
-            //animator = GameObject.FindGameObjectWithTag("Boss").GetComponent<Animator>();
-            animator.SetTrigger("Die"); //* 체력이 0 이하라 죽음
-            StartCoroutine(GameClear());
+        {
+            bossHitBox.SetActive(false);
+            StopAllCoroutines();
+            GameClear gameClear = gameClearObj.GetComponent<GameClear>();
+            yield return gameClear.StartCoroutine(gameClear.GameClearLogic());
             Debug.Log("코루틴 시작");
         }
     }
-    [SerializeField] private GameObject clearPanel;
-    IEnumerator GameClear()
-    {
-        yield return new WaitForSeconds(3f);
-        clearPanel.SetActive(true);
-    }
+
 }
