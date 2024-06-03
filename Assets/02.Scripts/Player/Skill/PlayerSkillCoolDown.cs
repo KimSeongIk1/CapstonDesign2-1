@@ -24,10 +24,12 @@ public class PlayerSkillCoolDown : MonoBehaviour
         print(skillImdex+"이야이야이");
         float nowtime = skillList[skillImdex].cooldown;
         SkillIcon[skillImdex].fillAmount = 0;
-        if (nowtime > 0){
+        while(nowtime > 0)
+        {
             nowtime -= Time.deltaTime;
             SkillIcon[skillImdex].fillAmount = (nowtime / skillList[skillImdex].cooldown);
         }
+            
         yield return null;
     }
 }
