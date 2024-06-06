@@ -5,9 +5,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
-using static UnityEngine.RuleTile.TilingRuleOutput;
-using JetBrains.Annotations;
-using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirection),typeof(Damageable))]
 //0차 작업자 : 김성익
@@ -23,15 +20,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float runMaxAcceleration = 10f; //뛰기 최대 가속값
     [SerializeField] private float airWalkSpeed = 6f; //공중에 떠있는 상태에서 이동 속도
     [SerializeField] private float jumpImpulse = 8f; //점프하는 힘
-    
-
-   
     //UI
-    public bool skillOn = true;    //스킬 활성화 여부
-    [SerializeField] private bool DashOn = true;     //대쉬 활성화 여부
-    [SerializeField] private bool skillManaCheck = false; //스킬 사용 마나 확인 여부
+    
+    [SerializeField] private bool DashOn = true; //대쉬 활성화 여부
+    
     public int selectedSkillIndex = 0; // 선택된 스킬 인덱스
-    public SkillData[] skillList;// 사용 가능한 스킬 목록
+    //public SkillData[] skillList;// 사용 가능한 스킬 목록
     //회피기
     [SerializeField] private float idleDashSpeed = 7f;
     [SerializeField] private float walkDashSpeed = 7f; // 걷는 도중 회피 속도
@@ -107,7 +101,7 @@ public class PlayerController : MonoBehaviour
         
         if (tapCount > 0 && startDoubleTapCurTime <= startDoubleTapDetectTime)
         {
-            print("시작");
+            //print("시작");
                 startDoubleTapCurTime += Time.deltaTime;
                 //print(startDoubleTapCurTime);
             if (startDoubleTapCurTime >= startDoubleTapDetectTime)
@@ -328,113 +322,6 @@ public class PlayerController : MonoBehaviour
         {
             manaMaxValue = value;
         }
-    }
-    public void OnSkill1(InputAction.CallbackContext context)   // A키, 기둥 소환 공격
-    {
-        if (context.started && touchingDirection.IsGrounded == true && skillOn == false && !getKeyIgnore) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
-        {
-            Debug.Log("스킬사용 A");
-            selectedSkillIndex = 0;
-            if (skillOn == false && manaValueNow >= skillList[selectedSkillIndex].manaCost)  // 기존 조건(쿨다운) + 마나 소모량이 일정 이상이면 스킬 실행
-            {
-                skillOn = true;    // 반복 스킬 사용 방지
-                animator.SetTrigger(AnimationStrings.SkillTrigger1);    // 스킬 사용 캐릭터 애니메이션 실행
-                manaValueNow -= skillList[selectedSkillIndex].manaCost; // 마나 소모량에 따라 감소
-                StartCoroutine(SkillSpawn(selectedSkillIndex));  // 스킬 프리팹 생성
-            }
-            else
-            {
-                Debug.Log("스킬사용 A 실패");
-            }
-        }
-    }
-    public void OnSkill2(InputAction.CallbackContext context) { // S키, 부적 날리기
-        if (context.started && touchingDirection.IsGrounded == true && skillOn == false && !getKeyIgnore) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
-        {
-            Debug.Log("스킬사용 S");
-            selectedSkillIndex = 1;
-            if (manaValueNow >= skillList[selectedSkillIndex].manaCost)  // 기존 조건(쿨다운) + 마나 소모량이 일정 이상이면 스킬 실행
-            {
-                skillOn = true;    // 반복 스킬 사용 방지
-                animator.SetTrigger(AnimationStrings.SkillTrigger2);    // 스킬 사용 캐릭터 애니메이션 실행
-                manaValueNow -= skillList[selectedSkillIndex].manaCost; // 마나 소모량에 따라 감소
-                StartCoroutine(SkillSpawn(selectedSkillIndex));  // 스킬 프리팹 생성
-            }
-            else
-            {
-                Debug.Log("스킬사용 S 실패");
-            }
-        }
-    }
-    public void OnSkill3(InputAction.CallbackContext context) { // D키, 지옥귀 소환
-        if (context.started && touchingDirection.IsGrounded == true && skillOn == false && !getKeyIgnore) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
-        {
-            print("스킬 사용 D");
-            selectedSkillIndex = 2;
-            if (manaValueNow >= skillList[selectedSkillIndex].manaCost)  // 기존 조건(쿨다운) + 마나 소모량이 일정 이상이면 스킬 실행
-            {
-                skillOn = true;    // 반복 스킬 사용 방지
-                animator.SetTrigger(AnimationStrings.SkillTrigger3);    // 스킬 사용 캐릭터 애니메이션 실행
-                manaValueNow -= skillList[selectedSkillIndex].manaCost; // 마나 소모량에 따라 감소
-                StartCoroutine(SkillSpawn(selectedSkillIndex));  // 스킬 프리팹 생성
-            }
-            else
-            {
-                Debug.Log("스킬사용 D 실패");
-            }
-        }
-    }
-    //public void OnSkill4(InputAction.CallbackContext context) { // F키, 스킬 미정
-    //    selectedSkillIndex = 3;
-    //    print("스킬 사용 F");
-    //}
-    public IEnumerator SkillSpawn(int selectedSkillIndex) { // 스킬 스폰 시스템
-        // 스킬 사용 로직
-        //PlayerSkill playerSkill;
-        Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y);    // 스킬 스폰 지점 구하기
-        yield return new WaitForSeconds(skillList[selectedSkillIndex].spawnDelay);
-        if (transform.localScale.x >= 0) // 플레이어가 오른쪽을 바라보고 있을 경우 == true
-        {
-            skillList[selectedSkillIndex].projectilePrefab.GetComponent<SpriteRenderer>().flipX = false;
-            spawnPosition = new Vector2(transform.position.x + skillList[selectedSkillIndex].spawnPosx, transform.position.y + skillList[selectedSkillIndex].spawnPosy);
-            GameObject skill = Instantiate(skillList[selectedSkillIndex].projectilePrefab, spawnPosition, Quaternion.identity);
-            skill.name = skillList[selectedSkillIndex].name; // 스킬 데이터에 따른 인스펙터 이름 변경
-            if(skillList[selectedSkillIndex].freezePlayerPos == true)
-            {
-                rb.constraints = RigidbodyConstraints2D.FreezeAll;
-                Invoke("PlayerFreezeStop",skillList[selectedSkillIndex].duration);
-            }
-
-            Destroy(skill, skillList[selectedSkillIndex].duration);
-            print(skill + "스킬 사용. 우");
-        }
-        else
-        {
-            skillList[selectedSkillIndex].projectilePrefab.GetComponent<SpriteRenderer>().flipX = true;
-            spawnPosition = new Vector2(transform.position.x - skillList[selectedSkillIndex].spawnPosx, transform.position.y + skillList[selectedSkillIndex].spawnPosy);
-            GameObject skill = Instantiate(skillList[selectedSkillIndex].projectilePrefab, spawnPosition, Quaternion.identity);
-            skill.name = skillList[selectedSkillIndex].name; // 스킬 데이터에 따른 인스펙터 이름 변경
-            
-            if (skillList[selectedSkillIndex].freezePlayerPos == true)
-            {
-                rb.constraints = RigidbodyConstraints2D.FreezeAll;
-                Invoke("PlayerFreezeStop", skillList[selectedSkillIndex].duration);
-            }
-
-            Destroy(skill, skillList[selectedSkillIndex].duration);
-            print(skill + "스킬 사용. 좌");
-        }
-        skillAudio.clip = skillList[selectedSkillIndex].skillSpawnAudioSource;  // skillAudio 자식 오브젝트에 사용할 사운드 할당 및 실행
-        skillAudio.Play();
-
-        //cameraObj.GetComponent<CameraMange>().VibrateForTime(0.5f);
-
-        yield return new WaitForSeconds(skillList[selectedSkillIndex].cooldown); // 쿨타임 카운트
-        skillOn = false;     // 스킬 재사용 가능 전환
-
-    }
-    public void PlayerFreezeStop() {
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
     //캐릭터가 적에게 맞아 데미지를 입고 날라가는 넉백 효과
     public void OnHit(int damage, Vector2 knockback) 

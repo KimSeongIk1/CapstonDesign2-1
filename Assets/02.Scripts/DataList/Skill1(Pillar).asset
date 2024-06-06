@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Skill1(Pillar)
   m_EditorClassIdentifier: 
   skillName: Skill1
-  skillIcon: {fileID: 390966853, guid: ae2ef62c66463414e9877ebef9f45158, type: 3}
-  cooldown: 0
-  manaCost: 40
+  skillNum: 0
+  skillIcon: {fileID: 21300000, guid: ee3f69c8b7ac124458330605d3729b3d, type: 3}
+  cooldown: 2
+  manaCost: 0
   damage: 50
+  attackSpeed: 0
   range: 3000
   spawnDelay: 0
   duration: 0.95
@@ -26,7 +28,6 @@ MonoBehaviour:
   skillFire: 0
   skillPenetrate: 0
   skillSpeed: 0
-  skillDestoryTime: 0
   projectilePrefab: {fileID: 8368436044975621090, guid: a9e6263b0665102409d42f034353e992, type: 3}
   ExplosionPrefab: {fileID: 0}
   freezePlayerPos: 1

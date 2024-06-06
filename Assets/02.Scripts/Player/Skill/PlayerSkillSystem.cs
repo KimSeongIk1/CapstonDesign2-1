@@ -1,0 +1,167 @@
+using JetBrains.Annotations;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
+
+public class PlayerSkillystem : MonoBehaviour
+{
+    public Image[] SkillIcon = new Image[4];
+    public Image[] SkillIconShadow = new Image[4];
+    public SkillData[] skillList;// 사용 가능한 스킬 목록
+    public PlayerController player;
+    //public bool skillOn;
+    public bool[] skillOn = new bool[4];//스킬 활성화 여부
+    public bool skillCoolDown = false; // 스킬 쿨타임 진행중 여부;
+    //[SerializeField] private bool skillManaCheck = false; //스킬 사용 마나 확인 여부
+    Rigidbody2D rb;
+    Animator animator;
+    TouchingDirection touchingDirection;
+    [SerializeField] int selectedSkillIndex;
+    [SerializeField] private bool isCoolDown = false;
+    [SerializeField] private bool isSkill = false;
+    private void Awake() {
+        rb = player.GetComponent<Rigidbody2D>();
+        animator = player.GetComponent<Animator>();
+        touchingDirection = player.GetComponent<TouchingDirection>();
+        for (int i = 0; i < skillList.Length; i++)
+        {
+            skillList[i] = skillList[i];
+            SkillIcon[i].sprite = skillList[i].skillIcon;
+            SkillIconShadow[i].sprite = skillList[i].skillIcon;
+        }
+    }
+    void Update()
+    {
+        //print(player.skillOn + " " + isCoolDown);
+/*        if (skillOn[player.selectedSkillIndex] && !isCoolDown) // 스킬 비활성화(쿨다운)중이면
+        {
+            print("진입");
+            isCoolDown = true;
+            
+        }*/
+    }
+    public void OnSkill1(InputAction.CallbackContext context)   // A키, 기둥 소환 공격
+    {
+        if (context.started && touchingDirection.IsGrounded && !player.getKeyIgnore) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
+        {
+            selectedSkillIndex = 0;
+            Debug.Log("스킬사용 A");
+            if (!skillOn[selectedSkillIndex] && player.manaValueNow >= skillList[selectedSkillIndex].manaCost)  // 기존 조건(쿨다운) + 마나 소모량이 일정 이상이면 스킬 실행
+            {
+                skillOn[selectedSkillIndex] = true;    // 반복 스킬 사용 방지
+                animator.SetTrigger(AnimationStrings.SkillTrigger1);    // 스킬 사용 캐릭터 애니메이션 실행
+                player.manaValueNow -= skillList[selectedSkillIndex].manaCost; // 마나 소모량에 따라 감소
+                StartCoroutine(SkillSpawn(selectedSkillIndex));  // 스킬 프리팹 생성
+            }
+            else
+            {
+                Debug.Log("스킬사용 A 실패");
+            }
+        }
+    }
+    public void OnSkill2(InputAction.CallbackContext context) { // S키, 부적 날리기
+
+        if (context.started && touchingDirection.IsGrounded && !player.getKeyIgnore) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
+        {
+            selectedSkillIndex = 1;
+            Debug.Log("스킬사용 S");
+            if (!skillOn[selectedSkillIndex] && player.manaValueNow >= skillList[selectedSkillIndex].manaCost)  // 기존 조건(쿨다운) + 마나 소모량이 일정 이상이면 스킬 실행
+            {
+                skillOn[selectedSkillIndex] = true;    // 반복 스킬 사용 방지
+                animator.SetTrigger(AnimationStrings.SkillTrigger2);    // 스킬 사용 캐릭터 애니메이션 실행
+                player.manaValueNow -= skillList[selectedSkillIndex].manaCost; // 마나 소모량에 따라 감소
+                StartCoroutine(SkillSpawn(selectedSkillIndex));  // 스킬 프리팹 생성
+            }
+            else
+            {
+                Debug.Log("스킬사용 S 실패");
+            }
+        }
+    }
+    void OnSkill3(InputAction.CallbackContext context) { // D키, 지옥귀 소환
+        
+        if (context.started && touchingDirection.IsGrounded && !player.getKeyIgnore) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
+        {
+            print("스킬 사용 D");
+            selectedSkillIndex = 2;
+            if (!skillOn[selectedSkillIndex] && player.manaValueNow >= skillList[selectedSkillIndex].manaCost)  // 기존 조건(쿨다운) + 마나 소모량이 일정 이상이면 스킬 실행
+            {
+                skillOn[selectedSkillIndex] = true;    // 반복 스킬 사용 방지
+                animator.SetTrigger(AnimationStrings.SkillTrigger3);    // 스킬 사용 캐릭터 애니메이션 실행
+                player.manaValueNow -= skillList[selectedSkillIndex].manaCost; // 마나 소모량에 따라 감소
+                StartCoroutine(SkillSpawn(selectedSkillIndex));  // 스킬 프리팹 생성
+            }
+            else
+            {
+                Debug.Log("스킬사용 D 실패");
+            }
+        }
+    }
+    //public void OnSkill4(InputAction.CallbackContext context) { // F키, 스킬 미정
+    //    selectedSkillIndex = 3;
+    //    print("스킬 사용 F");
+    //}
+    IEnumerator SkillSpawn(int selectedSkillIndex) { // 스킬 스폰 시스템
+        // 스킬 사용 로직
+        //PlayerSkill playerSkill;
+        isSkill = true;
+        Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y);    // 스킬 스폰 지점 구하기
+        yield return new WaitForSeconds(skillList[selectedSkillIndex].spawnDelay);
+        if (transform.localScale.x >= 0) // 플레이어가 오른쪽을 바라보고 있을 경우 == true
+        {
+            skillList[selectedSkillIndex].projectilePrefab.GetComponent<SpriteRenderer>().flipX = false;
+            spawnPosition = new Vector2(transform.position.x + skillList[selectedSkillIndex].spawnPosx, transform.position.y + skillList[selectedSkillIndex].spawnPosy);
+            GameObject skill = Instantiate(skillList[selectedSkillIndex].projectilePrefab, spawnPosition, Quaternion.identity);
+            skill.name = skillList[selectedSkillIndex].name; // 스킬 데이터에 따른 인스펙터 이름 변경
+            if (skillList[selectedSkillIndex].freezePlayerPos == true)
+            {
+                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                Invoke("PlayerFreezeStop", skillList[selectedSkillIndex].duration);
+            }
+
+            Destroy(skill, skillList[selectedSkillIndex].duration);
+            print(skill + "스킬 사용. 우");
+        }
+        else
+        {
+            skillList[selectedSkillIndex].projectilePrefab.GetComponent<SpriteRenderer>().flipX = true;
+            spawnPosition = new Vector2(transform.position.x - skillList[selectedSkillIndex].spawnPosx, transform.position.y + skillList[selectedSkillIndex].spawnPosy);
+            GameObject skill = Instantiate(skillList[selectedSkillIndex].projectilePrefab, spawnPosition, Quaternion.identity);
+            skill.name = skillList[selectedSkillIndex].name; // 스킬 데이터에 따른 인스펙터 이름 변경
+
+            if (skillList[selectedSkillIndex].freezePlayerPos == true)
+            {
+                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                Invoke("PlayerFreezeStop", skillList[selectedSkillIndex].duration);
+            }
+
+            Destroy(skill, skillList[selectedSkillIndex].duration);
+            print(skill + "스킬 사용. 좌");
+        }
+        //skillAudio.clip = skillList[selectedSkillIndex].skillSpawnAudioSource;  // skillAudio 자식 오브젝트에 사용할 사운드 할당 및 실행
+        //skillAudio.Play();
+
+        //cameraObj.GetComponent<CameraMange>().VibrateForTime(0.5f);
+        isSkill = false;
+        StartCoroutine(SkillCoolDown(selectedSkillIndex));
+        //yield return new WaitForSeconds(skillList[selectedSkillIndex].cooldown); // 쿨타임 카운트
+    }
+    IEnumerator SkillCoolDown(int selectedSkillIndex) {
+        float nowtime = 0;
+        int SkillIndex = selectedSkillIndex;
+        SkillIcon[SkillIndex].fillAmount = 0f;
+        while (nowtime <= skillList[SkillIndex].cooldown)
+        {
+            nowtime += Time.deltaTime;
+            SkillIcon[SkillIndex].fillAmount = nowtime / skillList[SkillIndex].cooldown;
+            yield return null;
+        }
+        skillOn[SkillIndex] = false;     // 스킬 재사용 가능 전환
+    }
+    void PlayerFreezeStop() {
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
+}
