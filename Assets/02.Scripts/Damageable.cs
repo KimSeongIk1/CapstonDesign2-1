@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 // 1차 작성자 : 김재성  2차 작성자 : 김장후
 public class Damageable : MonoBehaviour
@@ -9,6 +10,7 @@ public class Damageable : MonoBehaviour
     public UnityEvent<int, Vector2> damageableHit; // 데미지 받았을 때 발생하는 유니티 이벤트
     public UnityEvent<int, int> healthChanged; // 체력 변화 시 발생하는 유니티 이벤트
     public Panel_GameOver panel_GameOver;
+    public Image hpBar;
     private bool death = false;
     public LayerMask playerMask;
     public LayerMask EnemyMask;
@@ -90,6 +92,9 @@ public class Damageable : MonoBehaviour
 
     private void Update() //무적 시간 상태면 누적 시간 갱신하고, 무적이 끝났을 경우 무적 상태 해제
     {
+        if (hpBar != null) // 만약 hpBar 이미지가 할당되었다면
+            hpBar.fillAmount = ((float)_health / (float)_maxHealth); // hpBar fillAmount값 변경
+
         if (isInvincible)
         {
             if (timeSinceHit > invincibilityTime)

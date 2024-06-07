@@ -5,7 +5,7 @@ using UnityEngine.UI;
 // 작성자 : 김장후
 public class MP_Manage : MonoBehaviour
 {
-    public Image manaImg;                // 마나 게이지 UI
+    public Image mpBar;                // 마나 게이지 UI
     public GameObject playerObj;        // 플레이어 오브젝트
     PlayerController playerController;  // 플레이어 컨트롤러 스크립트
     private void Awake() {
@@ -35,7 +35,10 @@ public class MP_Manage : MonoBehaviour
         {
             manaImg.fillAmount = 1f;
         }*/ //과거 원형 마나 게이지 구현방법
-        // 아직구현안함
+        if (mpBar != null) // 만약 mpBar 이미지가 할당되었다면
+            mpBar.fillAmount = ((float)playerController.manaValueNow / (float)playerController.MaxMana); // hpBar fillAmount값 변경
+
+        print((playerController.manaValueNow / playerController.MaxMana));
     }
     public void MpCharge()
     {
