@@ -82,7 +82,6 @@ public class PlayerSkillystem : MonoBehaviour
         }
     }
     void OnSkill3(InputAction.CallbackContext context) { // D키, 지옥귀 소환
-        
         if (context.started && touchingDirection.IsGrounded && !player.getKeyIgnore) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
         {
             print("스킬 사용 D");

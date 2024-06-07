@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6945156116559103867}
   m_Layer: 13
   m_Name: Skill2
-  m_TagString: Untagged
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 2042269853, guid: e2c27645f6c2c804998c9bdac10ac4f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.22, y: 0.59}
