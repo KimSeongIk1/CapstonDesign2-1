@@ -25,6 +25,7 @@ MonoBehaviour:
   knockback: {x: 0, y: 0}
   spawnPosx: 2.7
   spawnPosy: 0
+  motionTime: 0.5
   skillFire: 1
   skillPenetrate: 0
   skillSpeed: 8

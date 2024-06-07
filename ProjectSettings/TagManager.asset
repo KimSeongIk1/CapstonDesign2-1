@@ -16,7 +16,6 @@ TagManager:
   - BossName
   - IntroFire
   - BossHealth
-  - PlayerAttack
   layers:
   - Default
   - TransparentFX

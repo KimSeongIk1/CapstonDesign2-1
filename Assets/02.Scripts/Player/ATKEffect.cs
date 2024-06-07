@@ -12,6 +12,7 @@ public class ATKEffect : MonoBehaviour
     public int randomEffectType;
     public float hitSpawnRange;
     public Vector2 hitEffectPos;
+    public float destroyTime = 2;
 
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -26,7 +27,7 @@ public class ATKEffect : MonoBehaviour
     private void SpawnEffect() {
 
         GameObject effect = Instantiate(HitEffect[Random.Range(randomEffectType, HitEffect.Length)],hitEffectPos,Quaternion.identity);
-        Destroy(effect,2f);
+        Destroy(effect,destroyTime);
     }
     IEnumerator ActiveEffect() {
 

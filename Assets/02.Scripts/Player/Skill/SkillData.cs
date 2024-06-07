@@ -22,6 +22,7 @@ public class SkillData : ScriptableObject
     public Vector2 knockback; // 넉백 거리
     public float spawnPosx = 2; // 생성 위치 X
     public float spawnPosy; // 생성 위치 Y
+    public float motionTime; // 스킬 모션 시간
     [Header("스킬 발사")]
     public bool skillFire; // 스킬 프리팹 발사 여부
     public bool skillPenetrate; // 발사체 관통 여부

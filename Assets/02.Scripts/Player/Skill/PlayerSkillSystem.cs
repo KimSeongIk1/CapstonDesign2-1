@@ -45,7 +45,7 @@ public class PlayerSkillystem : MonoBehaviour
     }
     public void OnSkill1(InputAction.CallbackContext context)   // A키, 기둥 소환 공격
     {
-        if (context.started && touchingDirection.IsGrounded && !player.getKeyIgnore) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
+        if (context.started && touchingDirection.IsGrounded && !player.getKeyIgnore && !isSkill) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
         {
             selectedSkillIndex = 0;
             Debug.Log("스킬사용 A");
@@ -64,7 +64,7 @@ public class PlayerSkillystem : MonoBehaviour
     }
     public void OnSkill2(InputAction.CallbackContext context) { // S키, 부적 날리기
 
-        if (context.started && touchingDirection.IsGrounded && !player.getKeyIgnore) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
+        if (context.started && touchingDirection.IsGrounded && !player.getKeyIgnore && !isSkill) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
         {
             selectedSkillIndex = 1;
             Debug.Log("스킬사용 S");
@@ -82,7 +82,7 @@ public class PlayerSkillystem : MonoBehaviour
         }
     }
     void OnSkill3(InputAction.CallbackContext context) { // D키, 지옥귀 소환
-        if (context.started && touchingDirection.IsGrounded && !player.getKeyIgnore) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
+        if (context.started && touchingDirection.IsGrounded && !player.getKeyIgnore && !isSkill) // 스킬 활성화(쿨다운이 끝나있는지) 여부 및 땅에 있는 지 확인
         {
             print("스킬 사용 D");
             selectedSkillIndex = 2;
@@ -106,44 +106,48 @@ public class PlayerSkillystem : MonoBehaviour
     IEnumerator SkillSpawn(int selectedSkillIndex) { // 스킬 스폰 시스템
         // 스킬 사용 로직
         //PlayerSkill playerSkill;
-        isSkill = true;
-        Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y);    // 스킬 스폰 지점 구하기
-        yield return new WaitForSeconds(skillList[selectedSkillIndex].spawnDelay);
-        if (transform.localScale.x >= 0) // 플레이어가 오른쪽을 바라보고 있을 경우 == true
+        if(!isSkill) // 스킬의 모션 연사 방지
         {
-            skillList[selectedSkillIndex].projectilePrefab.GetComponent<SpriteRenderer>().flipX = false;
-            spawnPosition = new Vector2(transform.position.x + skillList[selectedSkillIndex].spawnPosx, transform.position.y + skillList[selectedSkillIndex].spawnPosy);
-            GameObject skill = Instantiate(skillList[selectedSkillIndex].projectilePrefab, spawnPosition, Quaternion.identity);
-            skill.name = skillList[selectedSkillIndex].name; // 스킬 데이터에 따른 인스펙터 이름 변경
-            if (skillList[selectedSkillIndex].freezePlayerPos == true)
+            isSkill = true;
+            Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y);    // 스킬 스폰 지점 구하기
+            yield return new WaitForSeconds(skillList[selectedSkillIndex].spawnDelay);
+            if (transform.localScale.x >= 0) // 플레이어가 오른쪽을 바라보고 있을 경우 == true
             {
-                rb.constraints = RigidbodyConstraints2D.FreezeAll;
-                Invoke("PlayerFreezeStop", skillList[selectedSkillIndex].duration);
+                skillList[selectedSkillIndex].projectilePrefab.GetComponent<SpriteRenderer>().flipX = false;
+                spawnPosition = new Vector2(transform.position.x + skillList[selectedSkillIndex].spawnPosx, transform.position.y + skillList[selectedSkillIndex].spawnPosy);
+                GameObject skill = Instantiate(skillList[selectedSkillIndex].projectilePrefab, spawnPosition, Quaternion.identity);
+                skill.name = skillList[selectedSkillIndex].name; // 스킬 데이터에 따른 인스펙터 이름 변경
+                if (skillList[selectedSkillIndex].freezePlayerPos == true)
+                {
+                    rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                    Invoke("PlayerFreezeStop", skillList[selectedSkillIndex].duration);
+                }
+
+                Destroy(skill, skillList[selectedSkillIndex].duration);
+                print(skill + "스킬 사용. 우");
             }
-
-            Destroy(skill, skillList[selectedSkillIndex].duration);
-            print(skill + "스킬 사용. 우");
-        }
-        else
-        {
-            skillList[selectedSkillIndex].projectilePrefab.GetComponent<SpriteRenderer>().flipX = true;
-            spawnPosition = new Vector2(transform.position.x - skillList[selectedSkillIndex].spawnPosx, transform.position.y + skillList[selectedSkillIndex].spawnPosy);
-            GameObject skill = Instantiate(skillList[selectedSkillIndex].projectilePrefab, spawnPosition, Quaternion.identity);
-            skill.name = skillList[selectedSkillIndex].name; // 스킬 데이터에 따른 인스펙터 이름 변경
-
-            if (skillList[selectedSkillIndex].freezePlayerPos == true)
+            else
             {
-                rb.constraints = RigidbodyConstraints2D.FreezeAll;
-                Invoke("PlayerFreezeStop", skillList[selectedSkillIndex].duration);
-            }
+                skillList[selectedSkillIndex].projectilePrefab.GetComponent<SpriteRenderer>().flipX = true;
+                spawnPosition = new Vector2(transform.position.x - skillList[selectedSkillIndex].spawnPosx, transform.position.y + skillList[selectedSkillIndex].spawnPosy);
+                GameObject skill = Instantiate(skillList[selectedSkillIndex].projectilePrefab, spawnPosition, Quaternion.identity);
+                skill.name = skillList[selectedSkillIndex].name; // 스킬 데이터에 따른 인스펙터 이름 변경
 
-            Destroy(skill, skillList[selectedSkillIndex].duration);
-            print(skill + "스킬 사용. 좌");
+                if (skillList[selectedSkillIndex].freezePlayerPos == true)
+                {
+                    rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                    Invoke("PlayerFreezeStop", skillList[selectedSkillIndex].duration);
+                }
+
+                Destroy(skill, skillList[selectedSkillIndex].duration);
+                print(skill + "스킬 사용. 좌");
+            }
+            
         }
         //skillAudio.clip = skillList[selectedSkillIndex].skillSpawnAudioSource;  // skillAudio 자식 오브젝트에 사용할 사운드 할당 및 실행
         //skillAudio.Play();
-
         //cameraObj.GetComponent<CameraMange>().VibrateForTime(0.5f);
+        yield return new WaitForSeconds(skillList[selectedSkillIndex].motionTime);
         isSkill = false;
         StartCoroutine(SkillCoolDown(selectedSkillIndex));
         //yield return new WaitForSeconds(skillList[selectedSkillIndex].cooldown); // 쿨타임 카운트
