@@ -31,7 +31,6 @@ public class Hit : MonoBehaviour // 보스가 피격 받으면 생기는 이벤트를 관리하는 
     }
     IEnumerator HitSprite() // 피격시 색상값이 변하는 효과를 줌
     {
-        
         sprite.material = whiteFlashMaterial;
         yield return new WaitForSeconds(0.5f);
         sprite.material = originMaterial;

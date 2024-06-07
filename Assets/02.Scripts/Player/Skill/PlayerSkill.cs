@@ -24,7 +24,7 @@ public class PlayerSkill : MonoBehaviour
 
         if (collision.tag.Equals("Enemy") || collision.tag.Equals("Boss"))  // 태그값이 보스나 적일 경우
         {
-            Damageable damageable = collision.GetOrAddComponent<Damageable>();   // 해당 적의 Damageable스크립트 접근
+            Damageable damageable = collision.GetComponent<Damageable>();   // 해당 적의 Damageable스크립트 접근 (즉, 맞는 대상에게 Damageable 스크립트가 있어야 함)
             damageable.Hit(skillData.damage,skillData.knockback);           // 데미지 및 넉백 적용
             print("1차 감지");
 

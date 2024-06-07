@@ -22,7 +22,7 @@ MonoBehaviour:
   range: 3000
   spawnDelay: 0
   duration: 0.95
-  knockback: {x: 0, y: 0}
+  knockback: {x: 2, y: 0}
   spawnPosx: 2
   spawnPosy: -0.425
   skillFire: 0

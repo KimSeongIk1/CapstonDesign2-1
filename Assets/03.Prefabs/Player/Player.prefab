@@ -36,7 +36,7 @@ Transform:
   m_GameObject: {fileID: 965410921847728569}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 200.65, y: -9.792, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -680,6 +680,7 @@ GameObject:
   - component: {fileID: 6406789968687083469}
   - component: {fileID: 5306742449836375026}
   - component: {fileID: 6876304870611192255}
+  - component: {fileID: 8009723073600025578}
   m_Layer: 13
   m_Name: SwordAttack3
   m_TagString: PlayerAttack
@@ -770,6 +771,7 @@ MonoBehaviour:
   knockback: {x: 2, y: 2}
   mpMange: {fileID: 965410921847728569}
   ATKSound: {fileID: 6876304870611192255}
+  mpCharge: 1
 --- !u!82 &6876304870611192255
 AudioSource:
   m_ObjectHideFlags: 0
@@ -866,6 +868,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8009723073600025578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2249861228310768427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd00dc10e938d0b47a678b341f6d5fb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HitEffect:
+  - {fileID: 6587771082744117233, guid: 87753ad03cfa1514f936067eb5c6cbf5, type: 3}
+  - {fileID: 3611709043885293367, guid: c6429a5dd02145a429a5493a2374c946, type: 3}
+  origin: {x: 0, y: 0}
+  randomEffectType: 0
+  hitSpawnRange: 0.5
+  hitEffectPos: {x: 0, y: 0}
 --- !u!1 &2262764620627568730
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,6 +987,7 @@ MonoBehaviour:
   knockback: {x: 0, y: 3}
   mpMange: {fileID: 965410921847728569}
   ATKSound: {fileID: 6518427889843755047}
+  mpCharge: 1
 --- !u!82 &6518427889843755047
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1074,6 +1096,7 @@ GameObject:
   - component: {fileID: 6716445563356361600}
   - component: {fileID: 6451108064715982659}
   - component: {fileID: 870483245329983319}
+  - component: {fileID: 6149930160116612628}
   m_Layer: 13
   m_Name: SwordAttack1
   m_TagString: PlayerAttack
@@ -1093,7 +1116,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6015887101429611412}
   m_Father: {fileID: 3490926457350336301}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &6716445563356361600
@@ -1140,8 +1164,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.008882776, y: 0.45406926}
-      - {x: -0.16224489, y: 0.11943503}
+    - - {x: 0.16279493, y: 0.41817537}
+      - {x: -0.045081712, y: 0.39072093}
+      - {x: -0.14593394, y: 0.21820362}
+      - {x: -0.16483063, y: 0.05867237}
       - {x: 0.1335871, y: 0.11265409}
       - {x: 0.08134634, y: -0.07880356}
       - {x: 0.4199697, y: -0.038084917}
@@ -1164,6 +1190,7 @@ MonoBehaviour:
   knockback: {x: 2, y: 2}
   mpMange: {fileID: 965410921847728569}
   ATKSound: {fileID: 870483245329983319}
+  mpCharge: 1
 --- !u!82 &870483245329983319
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1260,6 +1287,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6149930160116612628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2381223593268079685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd00dc10e938d0b47a678b341f6d5fb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HitEffect:
+  - {fileID: 6587771082744117233, guid: 87753ad03cfa1514f936067eb5c6cbf5, type: 3}
+  - {fileID: 3611709043885293367, guid: c6429a5dd02145a429a5493a2374c946, type: 3}
+  origin: {x: 0, y: 0}
+  randomEffectType: 0
+  hitSpawnRange: 0.5
+  hitEffectPos: {x: 0, y: 0}
 --- !u!1 &2503592888564867260
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,6 +1318,7 @@ GameObject:
   - component: {fileID: 1586212612134061579}
   - component: {fileID: 2837982242225701515}
   - component: {fileID: 3344760313561361552}
+  - component: {fileID: 8269186256310633601}
   m_Layer: 13
   m_Name: SwordAttack2
   m_TagString: PlayerAttack
@@ -1368,6 +1415,7 @@ MonoBehaviour:
   knockback: {x: 2, y: 2}
   mpMange: {fileID: 965410921847728569}
   ATKSound: {fileID: 3344760313561361552}
+  mpCharge: 1
 --- !u!82 &3344760313561361552
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1464,6 +1512,109 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8269186256310633601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2503592888564867260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd00dc10e938d0b47a678b341f6d5fb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HitEffect:
+  - {fileID: 6587771082744117233, guid: 87753ad03cfa1514f936067eb5c6cbf5, type: 3}
+  - {fileID: 3611709043885293367, guid: c6429a5dd02145a429a5493a2374c946, type: 3}
+  origin: {x: 0, y: 0}
+  randomEffectType: 0
+  hitSpawnRange: 0.5
+  hitEffectPos: {x: 0, y: 0}
+--- !u!1 &3483576762182510202
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6015887101429611412}
+  - component: {fileID: 616279307203089374}
+  m_Layer: 13
+  m_Name: SwordAttackCol2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6015887101429611412
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3483576762182510202}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2476348366715405306}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &616279307203089374
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3483576762182510202}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.32546777, y: 0.26560134}
+      - {x: 0.2050945, y: 0.29410568}
+      - {x: 0.19006327, y: 0.2313511}
+      - {x: 0.1939796, y: 0.095477305}
+      - {x: 0.08989725, y: -0.10744046}
+      - {x: 0.40877733, y: -0.059018}
+      - {x: 0.40869182, y: 0.17571832}
+  m_UseDelaunayMesh: 0
 --- !u!1 &6326716442155557784
 GameObject:
   m_ObjectHideFlags: 0
@@ -1660,6 +1811,7 @@ MonoBehaviour:
   knockback: {x: 0, y: 3}
   mpMange: {fileID: 965410921847728569}
   ATKSound: {fileID: 0}
+  mpCharge: 1
 --- !u!1 &6695453922060818003
 GameObject:
   m_ObjectHideFlags: 0

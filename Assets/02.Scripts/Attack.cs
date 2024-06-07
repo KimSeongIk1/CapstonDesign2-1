@@ -10,6 +10,7 @@ public class Attack : MonoBehaviour
     public Vector2 knockback = Vector2.zero;
     public GameObject mpMange;
     public AudioSource ATKSound;
+    public bool mpCharge;   // 공격 정중 시 마나 충전 여부
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
@@ -23,7 +24,8 @@ public class Attack : MonoBehaviour
             if(gotHit)
             {
                 Debug.Log(collision.name + " hit for " + attackDamage);
-                mpMange.GetComponent<MP_Manage>().MpCharge();
+                if(mpCharge)
+                    mpMange.GetComponent<MP_Manage>().MpCharge();
             }
            
         }
