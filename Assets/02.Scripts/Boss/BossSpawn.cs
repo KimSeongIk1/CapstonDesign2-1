@@ -8,10 +8,9 @@ public class BossSpawn : MonoBehaviour
     [SerializeField] private GameObject canvas;
     [SerializeField] private GameObject introCamera;
     [SerializeField] private GameObject mainCamera;
-    [SerializeField] private GameObject introFire;
-    [SerializeField] private GameObject introBoss;
+    //[SerializeField] private GameObject introFire;
+    [SerializeField] private GameObject introEffect;
     [SerializeField] private GameObject player;
-
     private void Start()
     {
         player.GetComponent<PlayerController>().getKeyIgnore = true;
@@ -19,14 +18,15 @@ public class BossSpawn : MonoBehaviour
     }
     IEnumerator BossIntro()
     {
-        yield return new WaitForSeconds(5f);
-        introFire.SetActive(false);
-        introBoss.SetActive(true);
-        yield return new WaitForSeconds(5f);
-        introBoss.SetActive(false);
+        yield return new WaitForSeconds(3f);
+       // introFire.SetActive(false);
+        introEffect.SetActive(true);
+        yield return new WaitForSeconds(0.52f);
         boss.SetActive(true);
-
-        yield return new WaitForSeconds(1f);
+        introEffect.SetActive(false);
+        
+        yield return new WaitForSeconds(3.1f);
+        //boss.GetComponent<Animator>().SetTrigger("Intro");
         introCamera.SetActive(false);
         mainCamera.SetActive(true);
         player.GetComponent<PlayerController>().getKeyIgnore = false;

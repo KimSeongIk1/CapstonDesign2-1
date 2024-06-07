@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.U2D;
 using UnityEngine.UI;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -20,6 +21,7 @@ public class BossHealth : MonoBehaviour
     [SerializeField] private GameObject boss;
     [SerializeField] private GameObject bossHitBox;
     [SerializeField] private GameObject gameClearObj;
+    private Material originMater;
     private void Start()
     {
         //maxHealth = HpBarSlider.value;
@@ -58,7 +60,8 @@ public class BossHealth : MonoBehaviour
             bossHitBox.SetActive(false);
             StopAllCoroutines();
             animator.SetBool("Death", true);
-            
+            originMater = bossHitBox.GetComponent<Hit>().originMaterial;
+            boss.GetComponent<SpriteRenderer>().material = originMater;
             GameClear gameClear = gameClearObj.GetComponent<GameClear>();
             gameClear.StartCoroutine(gameClear.GameClearLogic());
             Debug.Log("코루틴 시작");

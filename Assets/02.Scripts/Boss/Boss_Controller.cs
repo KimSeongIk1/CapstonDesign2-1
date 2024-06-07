@@ -22,7 +22,7 @@ public class Boss_Controller : MonoBehaviour
     //���� ���� ����
     private GameObject backSprite; //���� ������ ��� ������Ʈ
     private SpriteRenderer backSpriteAlpha; //�� ����� ���İ��� �����ϱ� ���� ����
-
+    private SpriteRenderer bossColor;
 
     //���� ���� ���� ����
     [SerializeField] private int startPatternNum; //ù��°�� ������ ����
@@ -34,9 +34,22 @@ public class Boss_Controller : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         backSprite = GameObject.Find("ThunderBackGround");
         backSpriteAlpha = backSprite.GetComponent<SpriteRenderer>();
+        bossColor = this.gameObject.GetComponent<SpriteRenderer>();
+        StartCoroutine(Inttro());
         NextPatternPlay(startPatternNum);
     }
-
+    IEnumerator Inttro()
+    {
+        do
+        {
+            Color color = bossColor.color;
+            color.r += Time.deltaTime * 0.5f;
+            color.g += Time.deltaTime * 0.5f;
+            color.b += Time.deltaTime * 0.5f;
+            bossColor.color = color;
+            yield return null;
+        } while (bossColor.color.r <= 1f);
+    }
     //�÷��̾� ������ ���� ����
     void LookPlayer()
     {
