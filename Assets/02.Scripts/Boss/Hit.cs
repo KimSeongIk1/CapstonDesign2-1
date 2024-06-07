@@ -10,7 +10,7 @@ public class Hit : MonoBehaviour // 보스가 피격 받으면 생기는 이벤트를 관리하는 
     private int hitDamage;
 
     [SerializeField] private Material whiteFlashMaterial;
-    private Material originMaterial;
+    public Material originMaterial;
     private void Awake()
     {
         sprite = GameObject.FindGameObjectWithTag("Boss").GetComponent<SpriteRenderer>();
