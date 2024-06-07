@@ -11040,11 +11040,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &2102760058 stripped
-PolygonCollider2D:
-  m_CorrespondingSourceObject: {fileID: 1274808878898984547, guid: a7912f2ec0643304ba454bdd1b0fe273, type: 3}
-  m_PrefabInstance: {fileID: 8192958609307485030}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2138456176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11194,15 +11189,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2113192437089873873, guid: a7912f2ec0643304ba454bdd1b0fe273, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9
+      value: 9.61
       objectReference: {fileID: 0}
     - target: {fileID: 2113192437089873873, guid: a7912f2ec0643304ba454bdd1b0fe273, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.73395956
+      value: 0.854
       objectReference: {fileID: 0}
     - target: {fileID: 2113192437089873873, guid: a7912f2ec0643304ba454bdd1b0fe273, type: 3}
       propertyPath: m_LocalPosition.z
       value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2113192437089873873, guid: a7912f2ec0643304ba454bdd1b0fe273, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2113192437089873873, guid: a7912f2ec0643304ba454bdd1b0fe273, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2113192437089873873, guid: a7912f2ec0643304ba454bdd1b0fe273, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2203363569679712915, guid: a7912f2ec0643304ba454bdd1b0fe273, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11220,33 +11227,17 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 2138456177}
-    - target: {fileID: 4934474127697133147, guid: a7912f2ec0643304ba454bdd1b0fe273, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4934474127697133147, guid: a7912f2ec0643304ba454bdd1b0fe273, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5810812126628616456, guid: a7912f2ec0643304ba454bdd1b0fe273, type: 3}
       propertyPath: m_BoundingShape2D
       value: 
-      objectReference: {fileID: 2102760058}
+      objectReference: {fileID: 0}
     - target: {fileID: 6961054536396827681, guid: a7912f2ec0643304ba454bdd1b0fe273, type: 3}
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 2138456178}
-    - target: {fileID: 6961054536396827681, guid: a7912f2ec0643304ba454bdd1b0fe273, type: 3}
-      propertyPath: m_Lens.OrthographicSize
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 7823306612034860089, guid: a7912f2ec0643304ba454bdd1b0fe273, type: 3}
       propertyPath: m_Name
       value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 8336653659570526792, guid: a7912f2ec0643304ba454bdd1b0fe273, type: 3}
-      propertyPath: orthographic size
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
