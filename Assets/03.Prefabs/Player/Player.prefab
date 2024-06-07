@@ -546,7 +546,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   panel_GameOver: {fileID: 0}
-  hpBarSlider: {fileID: 0}
+  hpBar: {fileID: 0}
   playerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -767,7 +767,7 @@ GameObject:
   - component: {fileID: 6876304870611192255}
   m_Layer: 13
   m_Name: SwordAttack3
-  m_TagString: PlayerAttack
+  m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -835,8 +835,8 @@ PolygonCollider2D:
       - {x: 0.050850675, y: -0.001316715}
       - {x: 0.14098339, y: -0.136661}
       - {x: 0.45726767, y: -0.19221687}
-      - {x: 0.87327665, y: -0.06750797}
-      - {x: 0.88881826, y: 0.18672755}
+      - {x: 1.1099792, y: -0.14969635}
+      - {x: 1.158396, y: 0.26891592}
       - {x: 0.4994854, y: 0.27669078}
   m_UseDelaunayMesh: 0
 --- !u!114 &5306742449836375026
@@ -873,9 +873,9 @@ MonoBehaviour:
   - {fileID: 3611709043885293367, guid: c6429a5dd02145a429a5493a2374c946, type: 3}
   origin: {x: 0, y: 0}
   randomEffectType: 0
-  hitSpawnRange: 0.5
+  hitSpawnRange: 0.6
   hitEffectPos: {x: 0, y: 0}
-  destroyTime: 2
+  destroyTime: 0.5
 --- !u!82 &6876304870611192255
 AudioSource:
   m_ObjectHideFlags: 0
@@ -987,7 +987,7 @@ GameObject:
   - component: {fileID: 6518427889843755047}
   m_Layer: 8
   m_Name: AirAttack1
-  m_TagString: PlayerAttack
+  m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1091,9 +1091,9 @@ MonoBehaviour:
   - {fileID: 3611709043885293367, guid: c6429a5dd02145a429a5493a2374c946, type: 3}
   origin: {x: 0, y: 0}
   randomEffectType: 0
-  hitSpawnRange: 0.5
+  hitSpawnRange: 0.6
   hitEffectPos: {x: 0, y: 0}
-  destroyTime: 2
+  destroyTime: 0.5
 --- !u!82 &6518427889843755047
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1205,7 +1205,7 @@ GameObject:
   - component: {fileID: 870483245329983319}
   m_Layer: 13
   m_Name: SwordAttack1
-  m_TagString: PlayerAttack
+  m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1314,9 +1314,9 @@ MonoBehaviour:
   - {fileID: 3611709043885293367, guid: c6429a5dd02145a429a5493a2374c946, type: 3}
   origin: {x: 0, y: 0}
   randomEffectType: 0
-  hitSpawnRange: 0.5
+  hitSpawnRange: 0.6
   hitEffectPos: {x: 0, y: 0}
-  destroyTime: 2
+  destroyTime: 0.5
 --- !u!82 &870483245329983319
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1428,7 +1428,7 @@ GameObject:
   - component: {fileID: 3344760313561361552}
   m_Layer: 13
   m_Name: SwordAttack2
-  m_TagString: PlayerAttack
+  m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1541,9 +1541,9 @@ MonoBehaviour:
   - {fileID: 3611709043885293367, guid: c6429a5dd02145a429a5493a2374c946, type: 3}
   origin: {x: 0, y: 0}
   randomEffectType: 0
-  hitSpawnRange: 0.5
+  hitSpawnRange: 0.6
   hitEffectPos: {x: 0, y: 0}
-  destroyTime: 2
+  destroyTime: 0.5
 --- !u!82 &3344760313561361552
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1651,7 +1651,7 @@ GameObject:
   - component: {fileID: 6015887101429611412}
   - component: {fileID: 616279307203089374}
   m_Layer: 13
-  m_Name: SwordAttackCol2
+  m_Name: Col2Attack1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1739,7 +1739,7 @@ GameObject:
   - component: {fileID: 2919160295912403348}
   m_Layer: 8
   m_Name: AirAttack2
-  m_TagString: PlayerAttack
+  m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1843,9 +1843,9 @@ MonoBehaviour:
   - {fileID: 3611709043885293367, guid: c6429a5dd02145a429a5493a2374c946, type: 3}
   origin: {x: 0, y: 0}
   randomEffectType: 0
-  hitSpawnRange: 0.5
+  hitSpawnRange: 0.6
   hitEffectPos: {x: 0, y: 0}
-  destroyTime: 2
+  destroyTime: 0.5
 --- !u!82 &2919160295912403348
 AudioSource:
   m_ObjectHideFlags: 0
