@@ -9,7 +9,7 @@ using static System.Net.Mime.MediaTypeNames;
 public class BossHealth : MonoBehaviour
 {
     protected float curHealth; //* 현재 체력
-   // private bool death = false;
+    public bool death = false;
     public float maxHealth; //* 최대 체력
     private Animator animator;
     //public void SetHp(float amount) //*Hp설정
@@ -30,7 +30,21 @@ public class BossHealth : MonoBehaviour
         Debug.Log("최대 체력 : " + maxHealth);
         Debug.Log("현재 체력 : " + curHealth);
     }
-
+    private void Update()
+    {
+        if (curHealth <= 0 && death == false)
+        {
+            death = true;
+            bossHitBox.SetActive(false);
+            
+            animator.SetBool("Death", true);
+            originMater = bossHitBox.GetComponent<Hit>().originMaterial;
+            boss.GetComponent<SpriteRenderer>().material = originMater;
+            //uiManager.StartCoroutine(GameClearLogic());
+            UIManager gameClear = uiManager.GetComponent<UIManager>();
+            gameClear.StartCoroutine(gameClear.GameClearLogic());
+        }
+    }
     public void CheckHp() //*HP 갱신
     {
         if (HpBarSlider != null)
@@ -55,17 +69,7 @@ public class BossHealth : MonoBehaviour
         //    Boss_Controller boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss_Controller>();
         //    boss.StartCoroutine(boss.Groggy());
         //}
-        if (curHealth <= 0)
-        {
-            bossHitBox.SetActive(false);
-            StopAllCoroutines();
-            animator.SetBool("Death", true);
-            originMater = bossHitBox.GetComponent<Hit>().originMaterial;
-            boss.GetComponent<SpriteRenderer>().material = originMater;
-            //uiManager.StartCoroutine(GameClearLogic());
-            UIManager gameClear = uiManager.GetComponent<UIManager>();
-            gameClear.StartCoroutine(gameClear.GameClearLogic());
-        }
+
     }
 
 }

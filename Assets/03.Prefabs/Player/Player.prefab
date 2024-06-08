@@ -501,15 +501,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SkillIcon:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 3613504578871925197, guid: fe2a12138519341419773eba80b7ce3a, type: 3}
+  - {fileID: 2115116647848455584, guid: 638933cdee3c5bd41877411bace499ea, type: 3}
   SkillIconShadow:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6337887735079457685, guid: 2603f9092a7b08c4c8d76f3a705bdb14, type: 3}
+  - {fileID: 4131920221647745866, guid: cfab8bfc8f3d76e459b94e0ca0f4482c, type: 3}
   skillList:
   - {fileID: 11400000, guid: be75b62789258c840892a082ab7dc88b, type: 2}
   - {fileID: 11400000, guid: 14fe66e55d4794742a01f271972db435, type: 2}
   player: {fileID: 6987759318676887170}
+  scale: {x: 0, y: 0, z: 0}
   skillOn: 00000000
   skillCoolDown: 0
   selectedSkillIndex: 0
@@ -545,7 +546,7 @@ MonoBehaviour:
   healthChanged:
     m_PersistentCalls:
       m_Calls: []
-  panel_GameOver: {fileID: 0}
+  uiManager: {fileID: 0}
   hpBar: {fileID: 0}
   playerMask:
     serializedVersion: 2

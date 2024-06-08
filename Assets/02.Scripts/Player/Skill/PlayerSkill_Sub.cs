@@ -10,13 +10,16 @@ public class PlayerSkill_Sub : MonoBehaviour
     public GameObject target;
     Animator anim;
 
-    private void Awake() {
+    private void Awake() 
+    {
         anim = GetComponent<Animator>();
     }
-    private void Start() {
+    private void Start() 
+    {
         Destroy(this.gameObject,skillDataSub.duration);   // 지속시간 이후 소환 프리팹 소멸
     }
-    private void Update() {
+    private void Update() 
+    {
         if (!skillDataSub.skillAttach)// 부착 상태가 아니면 (발사)
         {
             if (skillData.skillFire == true && GetComponent<SpriteRenderer>().flipX == true) // 왼쪽을 바라보고 있으면
@@ -28,18 +31,20 @@ public class PlayerSkill_Sub : MonoBehaviour
              this.transform.position = target.transform.position;
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision) {   // 콜라이더2D에 감지되면
+    private void OnTriggerEnter2D(Collider2D collision)
+    {   // 콜라이더2D에 감지되면
         if (collision.tag.Equals("Enemy") || collision.tag.Equals("Boss"))  // 태그값이 보스나 적일 경우, 또한 할당 받은 적과 같은 콜라이더일 경우
         {
             print("12312312");
             Damageable damageable = collision.GetComponent<Damageable>();   // 해당 적의 Damageable스크립트 접근
             damageable.Hit(skillDataSub.damage, skillDataSub.knockback);    // 데미지 및 넉백 적용
-            if(skillDataSub.Stun == true)
+
+            if (skillDataSub.Stun == true)
             {
                 //StartCoroutine(CCStun(target, skillDataSub.StunTime));  // 적에게 스턴 적용
                 StartCoroutine(CCStuntick(target, skillDataSub.StunTime, skillDataSub.stunTick, skillDataSub.stunCycle));  // 적에게 스턴 적용
             }
-            /*if (damageable != null)
+            if (damageable != null)
             {
                 bool gotHit = damageable.Hit(skillData.damage, skillData.knockback);
 
@@ -47,7 +52,7 @@ public class PlayerSkill_Sub : MonoBehaviour
                 {
                     Debug.Log(collision.name + " hit for " + skillData.damage);
                 }
-            }*/
+            }
         }
     }
     private IEnumerator CCStun(GameObject target, float time) { // CC기 - 스턴

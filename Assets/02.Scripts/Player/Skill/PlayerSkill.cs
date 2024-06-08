@@ -10,6 +10,14 @@ public class PlayerSkill : MonoBehaviour
     public SkillData skillData; // 스킬 데이터(스크립터블 오브젝트) 받아오기
     SkillData_Sub skillDataSub; // 폭발 시 생길 폭발 프리팹 데이터(SkillData_sub) 받아오기
     PlayerSkill_Sub playerSkillSub; //폭발 시 생길 프리팹 데이터 스크립트
+
+    private int skillDamage;
+    private Vector2 skillKnockback;
+    private void Awake()
+    {
+        skillDamage = skillData.damage;
+        skillKnockback = skillData.knockback;
+    }
     private void Update() {
         //if (skillData.skillFire == true && GetComponent<SpriteRenderer>().flipX == true) // 왼쪽을 바라보고 있으면
         if (skillData.skillFire == true && transform.localScale.x < 0) // 왼쪽을 바라보고 있으면
@@ -24,8 +32,10 @@ public class PlayerSkill : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {   // 콜라이더2D에 감지되면
         if (collision.tag.Equals("Enemy") || collision.tag.Equals("Boss"))  // 태그값이 보스나 적일 경우
         {
-            Damageable damageable = collision.GetComponent<Damageable>();   // 해당 적의 Damageable스크립트 접근 (즉, 맞는 대상에게 Damageable 스크립트가 있어야 함)
-            damageable.Hit(skillData.damage,skillData.knockback);           // 데미지 및 넉백 적용
+            /*Damageable damageable = collision.GetComponent<Damageable>();*/   // 해당 적의 Damageable스크립트 접근 (즉, 맞는 대상에게 Damageable 스크립트가 있어야 함)
+            //Hit hit = collision.GetComponent<Hit>();
+            //damageable.Hit(skillData.damage,skillData.knockback);   
+            /*damageable.Hit(skillDamage, skillKnockback)*/; // 데미지 및 넉백 적용
             print("1차 감지");
 
             if(skillData.ExplosionPrefab != null)   //  폭발을 표현할 프리팹이 있는 경우

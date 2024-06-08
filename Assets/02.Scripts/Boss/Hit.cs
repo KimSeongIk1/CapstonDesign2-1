@@ -18,7 +18,7 @@ public class Hit : MonoBehaviour // 보스가 피격 받으면 생기는 이벤트를 관리하는 
     }
     private void OnTriggerEnter2D(Collider2D collision) // 플레이어 공격의 콜라이더랑 접촉시 데미지를 입고 피격효과 코루틴을 실행
     {
-        if (collision.gameObject.CompareTag("PlayerProjectile")) // 플레이어 공격 콜라이더
+        if (collision.gameObject.CompareTag("PlayerProjectile") || collision.gameObject.CompareTag("PlayerAttack")) // 플레이어 공격 콜라이더
         {
             //Debug.Log("보스피격당함"); // 피격 확인 디버깅용 로그
             

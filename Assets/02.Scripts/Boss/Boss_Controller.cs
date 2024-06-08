@@ -7,8 +7,6 @@ using UnityEngine.UIElements;
 
 public class Boss_Controller : MonoBehaviour
 {
-
-
     Animator animator;
     private int speedx = 3; // ���� �ӵ�
     Rigidbody2D rigid2D;
@@ -23,21 +21,32 @@ public class Boss_Controller : MonoBehaviour
     private GameObject backSprite; //���� ������ ��� ������Ʈ
     private SpriteRenderer backSpriteAlpha; //�� ����� ���İ��� �����ϱ� ���� ����
     private SpriteRenderer bossColor;
-
+   
     //���� ���� ���� ����
     [SerializeField] private int startPatternNum; //ù��°�� ������ ����
     [SerializeField] private int patternRange; //������ ������ ����
+    [SerializeField] private GameObject bossHealth;
+    [SerializeField] private AudioClip[] audioClip;
+    private UIManager uiManager;
     void Awake()
     {
         animator = GetComponent<Animator>();
         rigid2D = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         backSprite = GameObject.Find("ThunderBackGround");
+        uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
         backSpriteAlpha = backSprite.GetComponent<SpriteRenderer>();
         bossColor = this.gameObject.GetComponent<SpriteRenderer>();
         StartCoroutine(Intro());
         //NextPatternPlay(startPatternNum);
 
+    }
+    private void Update()
+    {
+        if (bossHealth.GetComponent<BossHealth>().death == true)
+        {
+            StopAllCoroutines();
+        }
     }
     IEnumerator Intro()
     {
@@ -69,9 +78,10 @@ public class Boss_Controller : MonoBehaviour
 
         LookPlayer();//�÷��̾� ������ ����
         animator.SetBool("RushReady", true);//���� �غ� �ִϸ��̼� ���
+        
         //tartCoroutine(EffectRange(rushRange)); //���� ���� ǥ��
         yield return StartCoroutine(EffectRange(rushRange));
-
+        uiManager.clipShow(audioClip[0]);
         //���� ����
         animator.SetBool("RushReady", false);
         animator.SetBool("Rush", true);
@@ -81,6 +91,7 @@ public class Boss_Controller : MonoBehaviour
 
         while (!isBroken)
         {
+            uiManager.clipShow(audioClip[1]);
             yield return new WaitForSeconds(0.1f);
             if (speedx > rigid2D.velocity.x * DIRECTION) //AddForce�� �̿��ؼ� �ڿ������� �����̵��� �ϵ� speedx���� ������ �ʵ����Ѵ�.
             {
@@ -108,11 +119,13 @@ public class Boss_Controller : MonoBehaviour
     IEnumerator Horizontal()
     {
         Debug.Log("������(����) ����");
+        
         LookPlayer();
         yield return new WaitForSeconds(1);
 
         StartCoroutine(EffectRange(horizontalRange)); //���� ���� ���̱�
         yield return StartCoroutine(EffectRange(horizontalRange)); //EffectRange �ڷ�ƾ�� ���������� ���
+        uiManager.clipShow(audioClip[2]);
         animator.SetTrigger("Horizontal");
         horizontalObj[0].SetActive(true);
         yield return new WaitForSeconds(3);
@@ -135,8 +148,10 @@ public class Boss_Controller : MonoBehaviour
         yield return StartCoroutine(EffectRange(verticalRange[1])); //EffectRange �ڷ�ƾ�� ���������� ���       
         animator.SetTrigger("Vertical");
         yield return new WaitForSeconds(0.5f);
+        uiManager.clipShow(audioClip[3]);
         verticalObj[0].SetActive(true);
         yield return new WaitForSeconds(0.5f);
+        uiManager.clipShow(audioClip[3]);
         verticalObj[1].SetActive(true);
         //effectRangePrefab[0].transform.position = playerPos;
         //verticalObj[0].transform.position = playerPos; //������ ������Ʈ�� �÷��̾� ��ġ�� �̵�
@@ -154,6 +169,8 @@ public class Boss_Controller : MonoBehaviour
         
         thunderEffectObj[1].SetActive(true);
         thunderEffectObj[2].SetActive(true);
+        uiManager.clipShow(audioClip[4]);
+        uiManager.clipShow(audioClip[5]);
         // ���� ���� �����Ͽ� ����� ��Ӱ� �ϴ� ����
         do
         {
@@ -177,6 +194,7 @@ public class Boss_Controller : MonoBehaviour
         {
             thunderObj[i].SetActive(true);
             thunderObj[i + 3].SetActive(true);
+            uiManager.clipShow(audioClip[6]);
             yield return new WaitForSeconds(1f);
         }
 
@@ -215,6 +233,7 @@ public class Boss_Controller : MonoBehaviour
             yield return new WaitForSeconds(1f);
             animator.SetTrigger("Stomp");
             yield return new WaitForSeconds(0.2f);
+            uiManager.clipShow(audioClip[0]);
             stompObj.SetActive(true);
             cameraObj.GetComponent<CameraMange>().Dolmpulse();
             yield return new WaitForSeconds(1);
@@ -258,7 +277,7 @@ public class Boss_Controller : MonoBehaviour
         teleportObj[3].SetActive(true);
         
         //teleportObj[3].SetActive(true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2f);
         teleportObj[3].SetActive(false);
         // teleportObj[3].SetActive(false);
         yield return new WaitForSeconds(2);

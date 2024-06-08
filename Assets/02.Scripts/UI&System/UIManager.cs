@@ -13,15 +13,22 @@ public class UIManager : MonoBehaviour
     private Animator animator;
 
     [SerializeField] GameObject setUI;
+
     private void Awake()
     {
-        animator = boss.GetComponent<Animator>();
+        
         setUI.SetActive(false); // 게임이 시작되면 UI 팝업 창을 보이지 않도록 한다.
     }
     [SerializeField] private GameObject clearUI;
     [SerializeField] private GameObject overUI;
     [SerializeField] private GameObject bossUI;
+    [SerializeField] private AudioClip[] audioClip;
 
+    //[SerializeField] private AudioClip[] clipAudio;
+    public void clipShow(AudioClip num)
+    {
+        GetComponent<AudioSource>().PlayOneShot(num);
+    }
     public void Show(string ui, bool set)
     {
         setUI.SetActive(set);
@@ -63,6 +70,7 @@ public class UIManager : MonoBehaviour
 
     public IEnumerator GameClearLogic()
     {
+        animator = boss.GetComponent<Animator>();
 
         //bossUI.SetActive(false);
         Show("보스UI", false);
@@ -70,9 +78,13 @@ public class UIManager : MonoBehaviour
         mainCamera.SetActive(false);
         clearCamera.SetActive(true);
         animator.SetTrigger("Die"); //* 체력이 0 이하라 죽음
+        clipShow(audioClip[0]);
         yield return new WaitForSeconds(3f);
-        clearCamera.SetActive(false);
+        clearCamera.SetActive(false);      
         mainCamera.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
         Show("클리어", true);
     }
+    
+
 }
