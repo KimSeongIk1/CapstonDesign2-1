@@ -13,6 +13,7 @@ public class PlayerSkillystem : MonoBehaviour
     public SkillData[] skillList;// 사용 가능한 스킬 목록
     public PlayerController player;
     //public bool skillOn;
+    [SerializeField] private Vector3 scale;
     public bool[] skillOn = new bool[4];//스킬 활성화 여부
     public bool skillCoolDown = false; // 스킬 쿨타임 진행중 여부;
     //[SerializeField] private bool skillManaCheck = false; //스킬 사용 마나 확인 여부
@@ -128,9 +129,13 @@ public class PlayerSkillystem : MonoBehaviour
             }
             else
             {
-                skillList[selectedSkillIndex].projectilePrefab.GetComponent<SpriteRenderer>().flipX = true;
+                skillList[selectedSkillIndex].projectilePrefab.GetComponent<SpriteRenderer>().flipX = false;
                 spawnPosition = new Vector2(transform.position.x - skillList[selectedSkillIndex].spawnPosx, transform.position.y + skillList[selectedSkillIndex].spawnPosy);
                 GameObject skill = Instantiate(skillList[selectedSkillIndex].projectilePrefab, spawnPosition, Quaternion.identity);
+                Vector3 localScale = skill.transform.localScale;
+                localScale.x = localScale.x * (-1); // 스킬 뒤집기
+                skill.transform.localScale = localScale;
+
                 skill.name = skillList[selectedSkillIndex].name; // 스킬 데이터에 따른 인스펙터 이름 변경
 
                 if (skillList[selectedSkillIndex].freezePlayerPos == true)

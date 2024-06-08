@@ -239,6 +239,10 @@ PrefabInstance:
       propertyPath: panel_GameOver
       value: 
       objectReference: {fileID: 1745853865}
+    - target: {fileID: 6716445563356361600, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6987759318676887170, guid: f6dd99e0367de714896efa9c5190b8dc, type: 3}
       propertyPath: cameraObj
       value: 

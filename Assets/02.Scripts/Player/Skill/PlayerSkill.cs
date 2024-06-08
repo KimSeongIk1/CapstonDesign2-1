@@ -11,17 +11,17 @@ public class PlayerSkill : MonoBehaviour
     SkillData_Sub skillDataSub; // 폭발 시 생길 폭발 프리팹 데이터(SkillData_sub) 받아오기
     PlayerSkill_Sub playerSkillSub; //폭발 시 생길 프리팹 데이터 스크립트
     private void Update() {
-        if (skillData.skillFire == true && GetComponent<SpriteRenderer>().flipX == true) // 왼쪽을 바라보고 있으면
+        //if (skillData.skillFire == true && GetComponent<SpriteRenderer>().flipX == true) // 왼쪽을 바라보고 있으면
+        if (skillData.skillFire == true && transform.localScale.x < 0) // 왼쪽을 바라보고 있으면
         {
             this.transform.Translate(Vector3.left * (skillData.skillSpeed * 0.01f)); // 왼쪽으로 스피드*0.01f만큼 이동
-        }
-        else if (skillData.skillFire == true && GetComponent<SpriteRenderer>().flipX == false) // 오른쪽을 바라보고 있으면
+        }//else if (skillData.skillFire == true && GetComponent<SpriteRenderer>().flipX == false) // 오른쪽을 바라보고 있으면
+        else if (skillData.skillFire == true && transform.localScale.x >= 0) // 오른쪽을 바라보고 있으면
         {
             this.transform.Translate(Vector3.right * (skillData.skillSpeed * 0.01f));// 오른쪽으로 스피드*0.01f만큼 이동
         }
     }
     private void OnTriggerEnter2D(Collider2D collision) {   // 콜라이더2D에 감지되면
-
         if (collision.tag.Equals("Enemy") || collision.tag.Equals("Boss"))  // 태그값이 보스나 적일 경우
         {
             Damageable damageable = collision.GetComponent<Damageable>();   // 해당 적의 Damageable스크립트 접근 (즉, 맞는 대상에게 Damageable 스크립트가 있어야 함)
@@ -39,7 +39,6 @@ public class PlayerSkill : MonoBehaviour
                 //Destroy(explosionPrefab, skillData_Sub.duration); // 자식의 스크립터블 오브젝트를 참조하여 미리 제거 예약*/
                 if (skillData.skillPenetrate != true) // 관통이 활성화되지 않았을 경우
                     Destroy(this.gameObject);   // 프로젝타일 프리팹 소멸
-
             }
             /*if (damageable != null)
             {

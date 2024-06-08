@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4724281987926320453}
   - component: {fileID: 7430026332000012119}
   - component: {fileID: 9199058810633464519}
-  - component: {fileID: -7032472494542286310}
+  - component: {fileID: 7359389941034175583}
   m_Layer: 0
   m_Name: Skill1
   m_TagString: PlayerProjectile
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8368436044975621090}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.31, y: -3.27, z: 0}
+  m_LocalPosition: {x: -12.46, y: -3.24, z: 0}
   m_LocalScale: {x: 3.64, y: 3.64, z: 3.64}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 2010778188, guid: 449c67380fbbe1041859fd138adf9dbc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillData: {fileID: 11400000, guid: be75b62789258c840892a082ab7dc88b, type: 2}
---- !u!60 &-7032472494542286310
+--- !u!60 &7359389941034175583
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
