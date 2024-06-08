@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -16,30 +17,37 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        
+
         setUI.SetActive(false); // 게임이 시작되면 UI 팝업 창을 보이지 않도록 한다.
     }
     [SerializeField] private GameObject clearUI;
     [SerializeField] private GameObject overUI;
     [SerializeField] private GameObject bossUI;
     [SerializeField] private AudioClip[] audioClip;
-    
+
 
     //[SerializeField] private AudioClip[] clipAudio;
     public void clipShow(AudioClip num)
     {
         GetComponent<AudioSource>().PlayOneShot(num);
     }
+    //[SerializeField] private SpriteRenderer[] clearImage;
+    //[SerializeField] private SpriteRenderer[] overImage;
+    //private Image img;
     public void Show(string ui, bool set)
     {
         setUI.SetActive(set);
         switch (ui)
         {
             case "클리어":
+                //clearUI.GetComponent<Image>();
                 clearUI.SetActive(set); // GameOver 팝업 창을 화면에 표시 시키고
+                //StartCoroutine(Clear());
                 break;
             case "오버":
+                //clearUI.GetComponent<Image>();
                 overUI.SetActive(set); // GameOver 팝업 창을 화면에 표시 시키고
+                //StartCoroutine(Over());
                 break;
             case "보스UI":
                 bossUI.SetActive(set); // GameOver 팝업 창을 화면에 표시 시키고
@@ -47,7 +55,26 @@ public class UIManager : MonoBehaviour
         }
 
     }
+    
+    //IEnumerator Clear()
+    //{
+    //    for (int index = 0; index < 6; index++)
+    //    {
+    //        clearUI.GetComponent<Image>().sprite = clearImage[index];
+    //        img = clearImage[index];
+    //        yield return null;
+    //    }
 
+    //}
+    //IEnumerator Over()
+    //{
+    //    for (int index = 0; index < 6; index++)
+    //    {
+    //        img = overImage[index];
+    //        yield return null;
+    //    }
+
+    //}
     public void OnClick_Retry() // '재도전' 버튼을 클릭하며 호출 되어질 함수
     {
         Scene nowScene = SceneManager.GetActiveScene(); //현재 활성화된 씬 불러옴
