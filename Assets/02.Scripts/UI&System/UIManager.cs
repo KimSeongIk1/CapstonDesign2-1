@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject overUI;
     [SerializeField] private GameObject bossUI;
     [SerializeField] private AudioClip[] audioClip;
+    
 
     //[SerializeField] private AudioClip[] clipAudio;
     public void clipShow(AudioClip num)

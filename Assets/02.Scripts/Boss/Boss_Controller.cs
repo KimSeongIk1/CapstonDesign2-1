@@ -45,7 +45,11 @@ public class Boss_Controller : MonoBehaviour
     {
         if (bossHealth.GetComponent<BossHealth>().death == true)
         {
-            StopAllCoroutines();
+            StopCoroutine(Rush());
+            StopCoroutine(Horizontal());
+            StopCoroutine(Vertical());
+            StopCoroutine(Thunder());
+            StopCoroutine(Teleport());
         }
     }
     IEnumerator Intro()
