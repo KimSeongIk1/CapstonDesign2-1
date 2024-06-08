@@ -20,7 +20,7 @@ public class BossHealth : MonoBehaviour
     public Slider HpBarSlider;
     [SerializeField] private GameObject boss;
     [SerializeField] private GameObject bossHitBox;
-    [SerializeField] private GameObject gameClearObj;
+    [SerializeField] private GameObject uiManager;
     private Material originMater;
     private void Start()
     {
@@ -62,9 +62,9 @@ public class BossHealth : MonoBehaviour
             animator.SetBool("Death", true);
             originMater = bossHitBox.GetComponent<Hit>().originMaterial;
             boss.GetComponent<SpriteRenderer>().material = originMater;
-            GameClear gameClear = gameClearObj.GetComponent<GameClear>();
+            //uiManager.StartCoroutine(GameClearLogic());
+            UIManager gameClear = uiManager.GetComponent<UIManager>();
             gameClear.StartCoroutine(gameClear.GameClearLogic());
-            Debug.Log("코루틴 시작");
         }
     }
 

@@ -9,7 +9,7 @@ public class Damageable : MonoBehaviour
 {
     public UnityEvent<int, Vector2> damageableHit; // 데미지 받았을 때 발생하는 유니티 이벤트
     public UnityEvent<int, int> healthChanged; // 체력 변화 시 발생하는 유니티 이벤트
-    public Panel_GameOver panel_GameOver;
+    public UIManager uiManager;
     public Image hpBar;
     private bool death = false;
     public LayerMask playerMask;
@@ -143,9 +143,8 @@ public class Damageable : MonoBehaviour
     public void GameOver() //  새로 추가된 함수
     {
         this.gameObject.GetComponent<PlayerController>().getKeyIgnore = true; // 죽으면 플레이어 못 움직임
-        Debug.Log("GameOver");
         Stop(); 
-        panel_GameOver.Show(); // 게임오버 팝업
+        uiManager.Show("오버",true); // 게임오버 팝업
     }
     public void Stop()
     {

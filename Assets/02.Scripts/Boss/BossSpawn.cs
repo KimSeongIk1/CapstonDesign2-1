@@ -33,5 +33,6 @@ public class BossSpawn : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         canvas.SetActive(true);
         yield return new WaitForSeconds(3f);
+        boss.GetComponent<Boss_Controller>().NextPatternPlay(1);
     }
 }

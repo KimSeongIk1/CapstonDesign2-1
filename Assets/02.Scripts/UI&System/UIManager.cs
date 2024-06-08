@@ -1,110 +1,78 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    // 피해 텍스트 프리팹
-    public GameObject damageTextPrefab;
-    // 체력 텍스트 프리팹
-    public GameObject healthTextPrefab;
+    //public Text Text_GameResult; // 게임의 결과를 표시해줄 Text Ui
 
-    // 게임 캔버스
-    public Canvas gameCanvas;
+    [SerializeField] private GameObject mainCamera;
+    [SerializeField] private GameObject clearCamera;
+    [SerializeField] private GameObject boss;
+    private Animator animator;
 
+    [SerializeField] GameObject setUI;
     private void Awake()
     {
-        gameCanvas = FindObjectOfType<Canvas>();
+        animator = boss.GetComponent<Animator>();
+        setUI.SetActive(false); // 게임이 시작되면 UI 팝업 창을 보이지 않도록 한다.
     }
+    [SerializeField] private GameObject clearUI;
+    [SerializeField] private GameObject overUI;
+    [SerializeField] private GameObject bossUI;
 
-    private void OnEnable()
+    public void Show(string ui, bool set)
     {
-        CharacterEvents.characterDamaged += CharacterTookDamage;
-        CharacterEvents.characterHealed += CharacterHealed;
-    }
-
-    private void OnDisable()
-    {
-        CharacterEvents.characterDamaged -= CharacterTookDamage;
-        CharacterEvents.characterHealed += CharacterHealed;
-    }
-
-    public void CharacterTookDamage(GameObject character, int damageReceived)
-    {
-        // 피해 텍스트 생성 위치 계산
-        Vector3 spawnPosition = Camera.main.WorldToScreenPoint(character.transform.position);
-
-        // 피해 텍스트 프리팹 생성, 텍스트 컴포넌트 가져오기
-        TMP_Text tmpText = Instantiate(damageTextPrefab, spawnPosition, Quaternion.identity, gameCanvas.transform)
-                           .GetComponent<TMP_Text>();
-
-        // 텍스트 내용 설정 (받은 피해량)
-        tmpText.text = damageReceived.ToString();
-    }
-
-    public void CharacterHealed(GameObject character, int healthRestored)
-    {
-        // 체력 회복 텍스트 생성 위치 계산
-        Vector3 spawnPosition = Camera.main.WorldToScreenPoint(character.transform.position);
-
-        // 체력 회복 텍스트 프리팹 생성, 텍스트 컴포넌트 가져오기
-        TMP_Text tmpText = Instantiate(healthTextPrefab, spawnPosition, Quaternion.identity, gameCanvas.transform)
-                           .GetComponent<TMP_Text>();
-
-        // 텍스트 내용 설정 (회복한 체력량)
-        tmpText.text = healthRestored.ToString();
-    }
-
-
-}
-[CustomEditor(typeof(Damageable))]
-public class DamageableTriggerEditor : Editor //Monobehaviour 대신 Editor를 넣습니다.
-{
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
-        //ItemEffectTrigger.cs 의 객체를 받아옵니다 => 이래야 버튼시 명령을 내릴수 잇습니다
-        Damageable damageable = (Damageable)target;
-
-        EditorGUILayout.BeginHorizontal();  //BeginHorizontal() 이후 부터는 GUI 들이 가로로 생성됩니다.
-        GUILayout.FlexibleSpace(); // 고정된 여백을 넣습니다. ( 버튼이 가운데 오기 위함)
-                                   //버튼을 만듭니다 . GUILayout.Button("버튼이름" , 가로크기, 세로크기)
-
-        if (GUILayout.Button("데미지 주기", GUILayout.Width(120), GUILayout.Height(30)))
+        setUI.SetActive(set);
+        switch (ui)
         {
-
-            //ItemEffectTrigger 클래스에서 버튼 누를시 해당 명령을 구현해줍니다.
-            damageable.hitTest(50);
+            case "클리어":
+                clearUI.SetActive(set); // GameOver 팝업 창을 화면에 표시 시키고
+                break;
+            case "오버":
+                overUI.SetActive(set); // GameOver 팝업 창을 화면에 표시 시키고
+                break;
+            case "보스UI":
+                bossUI.SetActive(set); // GameOver 팝업 창을 화면에 표시 시키고
+                break;
         }
-        GUILayout.FlexibleSpace();  // 고정된 여백을 넣습니다.
-        EditorGUILayout.EndHorizontal();  // 가로 생성 끝
-
 
     }
-}
-public class BossTriggerEditor : Editor //Monobehaviour 대신 Editor를 넣습니다.
-{
-    public override void OnInspectorGUI()
+
+    public void OnClick_Retry() // '재도전' 버튼을 클릭하며 호출 되어질 함수
     {
-        base.OnInspectorGUI();
-        //ItemEffectTrigger.cs 의 객체를 받아옵니다 => 이래야 버튼시 명령을 내릴수 잇습니다
-        Boss_Controller boss_Controller = (Boss_Controller)target;
+        Scene nowScene = SceneManager.GetActiveScene(); //현재 활성화된 씬 불러옴
+        SceneManager.LoadScene(nowScene.buildIndex);
+        //switch (nowScene)
+        //{
+        //    case 0:
+        //        SceneManager.LoadScene(0);
+        //        break;
+        //    case 1:
+        //        SceneManager.LoadScene(1);
+        //        break;
+        //}
+        //SceneManager.LoadScene("GameplayScene"); // SceneManager의 LoadScene 함수를 사용하여 현재 신 'GameScene'을 다시 불러오도록 시킨다.
+        // 같은 신을 다시 불러오면 게임이 재시작 된다.
+    }
+    public void OnClick_MainMenu() // 메인화면 버튼을 클릭하며 호출 되어질 함수
+    {
+        SceneManager.LoadScene(0); //메인화면으로
+    }
 
-        EditorGUILayout.BeginHorizontal();  //BeginHorizontal() 이후 부터는 GUI 들이 가로로 생성됩니다.
-        GUILayout.FlexibleSpace(); // 고정된 여백을 넣습니다. ( 버튼이 가운데 오기 위함)
-                                   //버튼을 만듭니다 . GUILayout.Button("버튼이름" , 가로크기, 세로크기)
+    public IEnumerator GameClearLogic()
+    {
 
-        if (GUILayout.Button("대쉬", GUILayout.Width(120), GUILayout.Height(30)))
-        {
-
-            //ItemEffectTrigger 클래스에서 버튼 누를시 해당 명령을 구현해줍니다.
-            //boss_Controller.rush();
-        }
-        GUILayout.FlexibleSpace();  // 고정된 여백을 넣습니다.
-        EditorGUILayout.EndHorizontal();  // 가로 생성 끝
-
-
+        //bossUI.SetActive(false);
+        Show("보스UI", false);
+        yield return new WaitForSeconds(1f);
+        mainCamera.SetActive(false);
+        clearCamera.SetActive(true);
+        animator.SetTrigger("Die"); //* 체력이 0 이하라 죽음
+        yield return new WaitForSeconds(3f);
+        clearCamera.SetActive(false);
+        mainCamera.SetActive(true);
+        Show("클리어", true);
     }
 }

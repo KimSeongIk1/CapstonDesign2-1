@@ -35,10 +35,11 @@ public class Boss_Controller : MonoBehaviour
         backSprite = GameObject.Find("ThunderBackGround");
         backSpriteAlpha = backSprite.GetComponent<SpriteRenderer>();
         bossColor = this.gameObject.GetComponent<SpriteRenderer>();
-        StartCoroutine(Inttro());
-        NextPatternPlay(startPatternNum);
+        StartCoroutine(Intro());
+        //NextPatternPlay(startPatternNum);
+
     }
-    IEnumerator Inttro()
+    IEnumerator Intro()
     {
         do
         {

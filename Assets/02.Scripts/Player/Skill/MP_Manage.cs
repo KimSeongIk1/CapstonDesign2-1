@@ -38,7 +38,7 @@ public class MP_Manage : MonoBehaviour
         if (mpBar != null) // 만약 mpBar 이미지가 할당되었다면
             mpBar.fillAmount = ((float)playerController.manaValueNow / (float)playerController.MaxMana); // hpBar fillAmount값 변경
 
-        print((playerController.manaValueNow / playerController.MaxMana));
+        //print((playerController.manaValueNow / playerController.MaxMana));
     }
     public void MpCharge()
     {
