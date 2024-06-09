@@ -14,7 +14,7 @@ public class PlayerSoundSystem : MonoBehaviour
     [SerializeField] private AudioSource motionAudio; // 플레이어의 액티브한 모션 사운드
     [SerializeField] private AudioSource moveAudio;   // 플레이어의 이동 사운드
     [SerializeField] private AudioSource SkillAudio;  // 플레이어의 일반공격 & 스킬 사운드. 플레이어의 일반 공격은 인스펙터에서 할당해주도록 하자.
-
+    [SerializeField] private AudioSource ATKAudio;
     [Header("Other")]
     [SerializeField] private SoundDataList soundList;
     [SerializeField] private GameObject player;
@@ -87,34 +87,34 @@ public class PlayerSoundSystem : MonoBehaviour
         {
             isAttack = true;
             print("1번 공격!!");
-            SkillAudio.clip = soundList.playerATK[0];
-            SkillAudio.Play();
+            ATKAudio.clip = soundList.playerATK[0];
+            ATKAudio.Play();
         }
         else if (playerAttack[1].GetComponent<PolygonCollider2D>().enabled && !isAttack)
         {
             isAttack = true;
             print("2번 공격!!");
-            SkillAudio.clip = soundList.playerATK[1];
-            SkillAudio.Play();
+            ATKAudio.clip = soundList.playerATK[1];
+            ATKAudio.Play();
         }
         else if(playerAttack[2].GetComponent<PolygonCollider2D>().enabled && !isAttack)
         {
             isAttack = true;
             print("3번 공격!!");
-            SkillAudio.clip = soundList.playerATK[2];
-            SkillAudio.Play();
+            ATKAudio.clip = soundList.playerATK[2];
+            ATKAudio.Play();
         }
         else if (playerAirAttack[0].GetComponent<PolygonCollider2D>().enabled && !isAttack)
         {
             isAttack = true;
-            SkillAudio.clip = soundList.playerAirATK[0];
-            SkillAudio.Play();
+            ATKAudio.clip = soundList.playerAirATK[0];
+            ATKAudio.Play();
         }
         else if (playerAirAttack[1].GetComponent<PolygonCollider2D>().enabled && !isAttack)
         {
             isAttack = true;
-            SkillAudio.clip = soundList.playerAirATK[1];
-            SkillAudio.Play();
+            ATKAudio.clip = soundList.playerAirATK[1];
+            ATKAudio.Play();
         }
 
         if(!playerAttack[0].GetComponent<PolygonCollider2D>().enabled &&
