@@ -30,8 +30,8 @@ public class PlayerSkillystem : MonoBehaviour
         for (int i = 0; i < skillList.Length; i++)
         {
             skillList[i] = skillList[i];
-            //SkillIcon[i].sprite = skillList[i].skillIcon;
-            //SkillIconShadow[i].sprite = skillList[i].skillIcon;
+            SkillIcon[i].sprite = skillList[i].skillIcon;
+            SkillIconShadow[i].sprite = skillList[i].skillIcon;
         }
     }
     void Update()

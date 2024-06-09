@@ -16,7 +16,7 @@ MonoBehaviour:
   skillNum: 0
   skillIcon: {fileID: 21300000, guid: ee3f69c8b7ac124458330605d3729b3d, type: 3}
   cooldown: 2
-  manaCost: 0
+  manaCost: 30
   damage: 50
   attackSpeed: 0
   range: 3000

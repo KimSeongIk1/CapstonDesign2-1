@@ -12,6 +12,7 @@ using UnityEngine.Events;
 //2차 작업 및 수정자 : 김장후
 public class PlayerController : MonoBehaviour
 {
+    [Header("PlayerMove")]
     [SerializeField] private float distance = 3;
     [SerializeField] private float attackSpeed = 3f;
     [SerializeField] private float walkSpeed = 5f; //캐릭터 걷는 속도
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public int selectedSkillIndex = 0; // 선택된 스킬 인덱스
     //public SkillData[] skillList;// 사용 가능한 스킬 목록
     //회피기
+    [Header("PlayerSpeed")]
     [SerializeField] private float idleDashSpeed = 7f;
     [SerializeField] private float walkDashSpeed = 7f; // 걷는 도중 회피 속도
     [SerializeField] private float runDashSpeed = 7f; // 뛰는 도중 회피 속도
@@ -44,7 +46,7 @@ public class PlayerController : MonoBehaviour
     public GameObject soundObj;
     public AudioSource skillAudio;
 
-    Vector2 moveInput; //입력 방향
+    public Vector2 moveInput; //입력 방향
     TouchingDirection touchingDirection; //땅이나 벽에 닿아있는 방향을 판단
     Damageable damagable; //데미지를 받을 수 있는지 여부를 판단
 
@@ -54,7 +56,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
 
-
+    [Header("PlayerDoubleTap")]
     public float startDoubleTapCurTime = 0;   // 더블탭 감지 타이머
     public float startDoubleTapDetectTime;   // 더블탭 감지 활성 시간
     public float endDoubleTapCurTime = 0;   // 더블탭 감지 타이머

@@ -436,6 +436,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dueogsini
       objectReference: {fileID: 0}
+    - target: {fileID: 3045617420913206507, guid: d41fc2f3dd0fef34fbaa40c28f1128dd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3902754227542964194, guid: d41fc2f3dd0fef34fbaa40c28f1128dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.413604
@@ -560,41 +564,9 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 1201264157}
-    m_ColliderPaths:
-    - - X: 110000000
-        Y: -50000000
-      - X: 100000000
-        Y: -50000000
-      - X: 100000000
-        Y: 70000000
-      - X: 70000000
-        Y: 70000000
-      - X: 70000000
-        Y: -10000000
-      - X: -80000000
-        Y: -10000000
-      - X: -80000000
-        Y: 60000000
-      - X: -110000000
-        Y: 60000000
-      - X: -110000000
-        Y: -60000000
-      - X: 110000000
-        Y: -60000000
+  m_ColliderPaths: []
   m_CompositePaths:
-    m_Paths:
-    - - {x: 10.99997, y: -6}
-      - {x: 10.99997, y: -5}
-      - {x: 10, y: -4.9999704}
-      - {x: 9.99997, y: 7}
-      - {x: 7, y: 6.9999704}
-      - {x: 6.9999704, y: -1}
-      - {x: -8, y: -0.9999706}
-      - {x: -8.00003, y: 6}
-      - {x: -11, y: 5.999971}
-      - {x: -10.99997, y: -6}
+    m_Paths: []
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -615,7 +587,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: d4b6b5eecb17ab049ad49e5e67871412, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -657,7 +629,7 @@ TilemapCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
@@ -2764,7 +2736,7 @@ MonoBehaviour:
   healthChanged:
     m_PersistentCalls:
       m_Calls: []
-  panel_GameOver: {fileID: 0}
+  uiManager: {fileID: 0}
   hpBar: {fileID: 0}
   playerMask:
     serializedVersion: 2
@@ -2799,6 +2771,14 @@ PrefabInstance:
       propertyPath: playerObj
       value: 
       objectReference: {fileID: 408173993}
+    - target: {fileID: 6949625445398172293, guid: c1a70a78e9625b945ba367eb98cfe408, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.461112
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949625445398172293, guid: c1a70a78e9625b945ba367eb98cfe408, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.7639604
+      objectReference: {fileID: 0}
     - target: {fileID: 8083691324419828898, guid: c1a70a78e9625b945ba367eb98cfe408, type: 3}
       propertyPath: m_Name
       value: PlayerSettings
@@ -2843,7 +2823,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2443048947912124627, guid: c1a70a78e9625b945ba367eb98cfe408, type: 3}
+    - {fileID: 1143313316481911651, guid: c1a70a78e9625b945ba367eb98cfe408, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

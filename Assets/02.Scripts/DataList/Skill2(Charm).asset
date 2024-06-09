@@ -16,7 +16,7 @@ MonoBehaviour:
   skillNum: 1
   skillIcon: {fileID: 21300000, guid: 9d75b5bcb3e2a654ea89f860502e3d4f, type: 3}
   cooldown: 5
-  manaCost: 10
+  manaCost: 15
   damage: 20
   attackSpeed: 0
   range: 100
@@ -25,12 +25,12 @@ MonoBehaviour:
   knockback: {x: 0, y: 0}
   spawnPosx: 2.7
   spawnPosy: 0
-  motionTime: 0.5
+  motionTime: 0.4
   skillFire: 1
   skillPenetrate: 0
   skillSpeed: 8
   projectilePrefab: {fileID: 1577204655605397387, guid: 653b2dc091fcbea45a441cdb5d6aa798, type: 3}
   ExplosionPrefab: {fileID: 1657587993043581274, guid: f8912132feb995a45ba3afae0838261a, type: 3}
   freezePlayerPos: 0
-  skillSpawnAudioSource: {fileID: 0}
-  skillDestroyAudioSource: {fileID: 0}
+  skillSpawnAudioSource: {fileID: 8300000, guid: 3b3c9f5d7fba9fc40b484dbf5bb90235, type: 3}
+  skillDestroyAudioSource: {fileID: 8300000, guid: b1432407d74bc2c40a756465973d07f7, type: 3}
