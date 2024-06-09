@@ -26,6 +26,10 @@ public class PlayerSoundSystem : MonoBehaviour
     [SerializeField] bool isMovingNow;
     [SerializeField] bool isMove;
     [SerializeField] bool isRun;
+    [SerializeField] bool isAttack;
+
+    [SerializeField] private GameObject[] playerAttack;
+    [SerializeField] private GameObject[] playerAirAttack;
     private void Awake() {
         player = GameObject.Find("Player");
         playerSC = player.GetComponent<PlayerController>();
@@ -33,7 +37,8 @@ public class PlayerSoundSystem : MonoBehaviour
         touchingDirection = player.GetComponent<TouchingDirection>();
     }
     private void Update() {
-        MoveSound();
+        //MoveSound();
+        AttackSound();
     }
     private void MoveSound() {
         isMovingNow = playerSC.moveInput.x != 0 && touchingDirection.IsGrounded;
@@ -77,6 +82,68 @@ public class PlayerSoundSystem : MonoBehaviour
             }
         }*/
     }
-    private void AttackSound() { 
+    private void AttackSound() {
+        if (playerAttack[0].GetComponent<PolygonCollider2D>().enabled && !isAttack)
+        {
+            isAttack = true;
+            print("1번 공격!!");
+            SkillAudio.clip = soundList.playerATK[0];
+            SkillAudio.Play();
+        }
+        else if (playerAttack[1].GetComponent<PolygonCollider2D>().enabled && !isAttack)
+        {
+            isAttack = true;
+            print("2번 공격!!");
+            SkillAudio.clip = soundList.playerATK[1];
+            SkillAudio.Play();
+        }
+        else if(playerAttack[2].GetComponent<PolygonCollider2D>().enabled && !isAttack)
+        {
+            isAttack = true;
+            print("3번 공격!!");
+            SkillAudio.clip = soundList.playerATK[2];
+            SkillAudio.Play();
+        }
+        else if (playerAirAttack[0].GetComponent<PolygonCollider2D>().enabled && !isAttack)
+        {
+            isAttack = true;
+            SkillAudio.clip = soundList.playerAirATK[0];
+            SkillAudio.Play();
+        }
+        else if (playerAirAttack[1].GetComponent<PolygonCollider2D>().enabled && !isAttack)
+        {
+            isAttack = true;
+            SkillAudio.clip = soundList.playerAirATK[1];
+            SkillAudio.Play();
+        }
+
+        if(!playerAttack[0].GetComponent<PolygonCollider2D>().enabled &&
+           !playerAttack[1].GetComponent<PolygonCollider2D>().enabled &&
+           !playerAttack[2].GetComponent<PolygonCollider2D>().enabled &&
+           !playerAirAttack[0].GetComponent<PolygonCollider2D>().enabled &&
+           !playerAirAttack[1].GetComponent<PolygonCollider2D>().enabled &&
+           isAttack){
+            isAttack = false;
+        }
+    }
+    public void SkillSound(int selectedSkillIndex) {
+        switch (selectedSkillIndex)
+        {
+            case 0:
+                motionAudio.clip = soundList.playerSkill1[0];
+                SkillAudio.clip = soundList.playerSkill1[1];
+                motionAudio.Play();
+                SkillAudio.Play();
+                break;
+             case 1:
+                motionAudio.clip = soundList.playerSkill2[0];
+                SkillAudio.clip = soundList.playerSkill2[1];
+                motionAudio.Play();
+                SkillAudio.Play();
+                break;
+            default:
+                print("소리없음");
+                break;
+        }
     }
 }

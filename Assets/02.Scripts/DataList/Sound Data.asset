@@ -23,13 +23,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a028be27b3c28494592f11a6ae991669, type: 3}
   - {fileID: 8300000, guid: 8cfd47c86b81d24488795468995eae2f, type: 3}
   playerATK:
+  - {fileID: 8300000, guid: 13182107f288fdc47a11f9216c8f062b, type: 3}
+  - {fileID: 8300000, guid: 7053294e066eb1945baa4d9cc9194f15, type: 3}
+  - {fileID: 8300000, guid: 80151380c0f818243b66a78ef69c9fcd, type: 3}
+  playerAirATK:
+  - {fileID: 8300000, guid: 13182107f288fdc47a11f9216c8f062b, type: 3}
+  - {fileID: 8300000, guid: 7053294e066eb1945baa4d9cc9194f15, type: 3}
+  playerSkill1:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  playerAirATK: []
-  playerSkill1: []
-  playerSkill2: []
+  - {fileID: 8300000, guid: b7f8695cf65a4f24eb37544298821146, type: 3}
+  playerSkill2:
+  - {fileID: 8300000, guid: 667483344a61991478d9bd2f5444ac4f, type: 3}
+  - {fileID: 8300000, guid: 3b3c9f5d7fba9fc40b484dbf5bb90235, type: 3}
+  - {fileID: 8300000, guid: b1432407d74bc2c40a756465973d07f7, type: 3}
   playerSkill3: []
   playerDash: []
   playerHit: []

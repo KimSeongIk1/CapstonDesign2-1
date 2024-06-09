@@ -20,9 +20,10 @@ public class PlayerSkillystem : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
     TouchingDirection touchingDirection;
-    [SerializeField] int selectedSkillIndex;
+    [SerializeField] public int selectedSkillIndex;
     [SerializeField] private bool isCoolDown = false;
     [SerializeField] private bool isSkill = false;
+    [SerializeField] private PlayerSoundSystem soundSystem;
     private void Awake() {
         rb = player.GetComponent<Rigidbody2D>();
         animator = player.GetComponent<Animator>();
@@ -116,6 +117,7 @@ public class PlayerSkillystem : MonoBehaviour
             {
                 skillList[selectedSkillIndex].projectilePrefab.GetComponent<SpriteRenderer>().flipX = false;
                 spawnPosition = new Vector2(transform.position.x + skillList[selectedSkillIndex].spawnPosx, transform.position.y + skillList[selectedSkillIndex].spawnPosy);
+                soundSystem.SkillSound(selectedSkillIndex);
                 GameObject skill = Instantiate(skillList[selectedSkillIndex].projectilePrefab, spawnPosition, Quaternion.identity);
                 skill.name = skillList[selectedSkillIndex].name; // 스킬 데이터에 따른 인스펙터 이름 변경
                 if (skillList[selectedSkillIndex].freezePlayerPos == true)

@@ -5,8 +5,8 @@ using UnityEngine.UI;
 // 작성자 : 김장후
 public class MP_Manage : MonoBehaviour
 {
-    public Image mpBar;                // 마나 게이지 UI
-    public GameObject playerObj;        // 플레이어 오브젝트
+    [SerializeField] public Image mpBar;                // 마나 게이지 UI
+    [SerializeField] public GameObject playerObj;        // 플레이어 오브젝트
     PlayerController playerController;  // 플레이어 컨트롤러 스크립트
     private void Awake() {
         playerController = playerObj.GetComponent<PlayerController>(); // 플레이어 컨트롤러 스크립트 받아오기
