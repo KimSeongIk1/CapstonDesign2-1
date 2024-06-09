@@ -456,7 +456,7 @@ GameObject:
   - component: {fileID: 313302774}
   - component: {fileID: 313302775}
   m_Layer: 0
-  m_Name: "\uC7A5\uC2B9"
+  m_Name: jangseung
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -634,8 +634,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c84904f24465c9e42bcd0cb17331221a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  followTarget: {fileID: 0}
+  cam: {fileID: 2422543672687977496}
+  followTarget: {fileID: 408174004}
 --- !u!212 &524010500
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1090,8 +1090,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c84904f24465c9e42bcd0cb17331221a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  followTarget: {fileID: 0}
+  cam: {fileID: 2422543672687977496}
+  followTarget: {fileID: 408174004}
 --- !u!212 &723070277
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1510,7 +1510,7 @@ GameObject:
   - component: {fileID: 1073288913}
   - component: {fileID: 1073288912}
   m_Layer: 0
-  m_Name: "\uAE30\uC640\uC9D1\uBCBD\uC911\uAC04"
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1576,12 +1576,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1073288911}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.02, y: -0.12, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.909715, y: 2.8988218, z: 0.06046463}
   m_LocalScale: {x: 3.8932, y: 3.8932, z: 3.8932}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1856819098}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1096851979
 GameObject:
@@ -6734,8 +6734,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c84904f24465c9e42bcd0cb17331221a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  followTarget: {fileID: 0}
+  cam: {fileID: 2422543672687977496}
+  followTarget: {fileID: 408174004}
 --- !u!212 &1167486782
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6799,7 +6799,7 @@ GameObject:
   - component: {fileID: 1433996043}
   - component: {fileID: 1433996044}
   m_Layer: 0
-  m_Name: "\uB098\uBB34\uB4E44 (1)"
+  m_Name: tree4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6883,7 +6883,7 @@ GameObject:
   - component: {fileID: 1546547473}
   - component: {fileID: 1546547474}
   m_Layer: 0
-  m_Name: "\uB098\uBB34\uB4E44 (2)"
+  m_Name: tree5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7001,8 +7001,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c84904f24465c9e42bcd0cb17331221a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  followTarget: {fileID: 0}
+  cam: {fileID: 2422543672687977496}
+  followTarget: {fileID: 408174004}
 --- !u!212 &1568697985
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7295,8 +7295,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c84904f24465c9e42bcd0cb17331221a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  followTarget: {fileID: 0}
+  cam: {fileID: 2422543672687977496}
+  followTarget: {fileID: 408174004}
 --- !u!212 &1753474634
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7390,6 +7390,7 @@ Transform:
   - {fileID: 2025437935}
   - {fileID: 1433996043}
   - {fileID: 1546547473}
+  - {fileID: 1073288913}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1885434471
@@ -7487,7 +7488,7 @@ GameObject:
   - component: {fileID: 1917416301}
   - component: {fileID: 1917416302}
   m_Layer: 0
-  m_Name: "\uB098\uBB34\uB4E44"
+  m_Name: tree2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7980,7 +7981,7 @@ GameObject:
   - component: {fileID: 2054973020}
   - component: {fileID: 2054973021}
   m_Layer: 0
-  m_Name: "\uB098\uBB34\uB4E41"
+  m_Name: tree1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9240,4 +9241,3 @@ SceneRoots:
   - {fileID: 1856819098}
   - {fileID: 784507453}
   - {fileID: 1655370635}
-  - {fileID: 1073288913}
