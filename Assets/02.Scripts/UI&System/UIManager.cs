@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject clearCamera;
     [SerializeField] private GameObject boss;
     private Animator animator;
-
+    public bool playerDeath = false;
     [SerializeField] GameObject setUI;
 
     private void Awake()
@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject overUI;
     [SerializeField] private GameObject bossUI;
     [SerializeField] private AudioClip[] audioClip;
-
+    
 
     //[SerializeField] private AudioClip[] clipAudio;
     public void clipShow(AudioClip num)
@@ -45,6 +45,7 @@ public class UIManager : MonoBehaviour
                 //StartCoroutine(Clear());
                 break;
             case "오버":
+                playerDeath = true;
                 //clearUI.GetComponent<Image>();
                 overUI.SetActive(set); // GameOver 팝업 창을 화면에 표시 시키고
                 //StartCoroutine(Over());
@@ -77,6 +78,7 @@ public class UIManager : MonoBehaviour
     //}
     public void OnClick_Retry() // '재도전' 버튼을 클릭하며 호출 되어질 함수
     {
+        clipShow(audioClip[1]);
         Scene nowScene = SceneManager.GetActiveScene(); //현재 활성화된 씬 불러옴
         SceneManager.LoadScene(nowScene.buildIndex);
         //switch (nowScene)
@@ -93,6 +95,7 @@ public class UIManager : MonoBehaviour
     }
     public void OnClick_MainMenu() // 메인화면 버튼을 클릭하며 호출 되어질 함수
     {
+        clipShow(audioClip[1]);
         SceneManager.LoadScene(0); //메인화면으로
     }
 
@@ -112,6 +115,8 @@ public class UIManager : MonoBehaviour
         mainCamera.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         Show("클리어", true);
+        GetComponent<AudioSource>().clip = audioClip[2];
+        GetComponent<AudioSource>().PlayOneShot(audioClip[2]);
     }
     
 
