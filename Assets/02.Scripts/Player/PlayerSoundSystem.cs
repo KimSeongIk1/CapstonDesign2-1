@@ -130,12 +130,16 @@ public class PlayerSoundSystem : MonoBehaviour
         switch (selectedSkillIndex)
         {
             case 0:
+                motionAudio.Stop();
+                SkillAudio.Stop();
                 motionAudio.clip = soundList.playerSkill1[0];
                 SkillAudio.clip = soundList.playerSkill1[1];
                 motionAudio.Play();
                 SkillAudio.Play();
                 break;
              case 1:
+                motionAudio.Stop();
+                SkillAudio.Stop();
                 motionAudio.clip = soundList.playerSkill2[0];
                 SkillAudio.clip = soundList.playerSkill2[1];
                 motionAudio.Play();
