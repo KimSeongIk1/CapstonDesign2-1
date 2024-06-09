@@ -23,10 +23,12 @@ public class Boss_Controller : MonoBehaviour
     private SpriteRenderer bossColor;
    
     //���� ���� ���� ����
-    [SerializeField] private int startPatternNum; //ù��°�� ������ ����
+    [SerializeField] public int startPatternNum; //ù��°�� ������ ����
     [SerializeField] private int patternRange; //������ ������ ����
     [SerializeField] private GameObject bossHealth;
     [SerializeField] private AudioClip[] audioClip;
+
+    private bool bossDie;
     private UIManager uiManager;
     void Awake()
     {
@@ -43,13 +45,16 @@ public class Boss_Controller : MonoBehaviour
     }
     private void Update()
     {
+        bossDie = bossHealth.GetComponent<BossHealth>().death;
         if (bossHealth.GetComponent<BossHealth>().death == true)
         {
-            StopCoroutine(Rush());
-            StopCoroutine(Horizontal());
-            StopCoroutine(Vertical());
-            StopCoroutine(Thunder());
-            StopCoroutine(Teleport());
+            StopAllCoroutines();
+            //StopCoroutine(Rush());
+            //StopCoroutine(Horizontal());
+            //StopCoroutine(Vertical());
+            //StopCoroutine(Thunder());
+            //StopCoroutine(Stomp());
+            //StopCoroutine(Teleport());
         }
     }
     IEnumerator Intro()
@@ -82,18 +87,24 @@ public class Boss_Controller : MonoBehaviour
 
         LookPlayer();//�÷��̾� ������ ����
         animator.SetBool("RushReady", true);//���� �غ� �ִϸ��̼� ���
-        
-        //tartCoroutine(EffectRange(rushRange)); //���� ���� ǥ��
-        yield return StartCoroutine(EffectRange(rushRange));
         uiManager.clipShow(audioClip[0]);
+        //tartCoroutine(EffectRange(rushRange)); //���� ���� ǥ��
+
+        yield return new WaitForSeconds(1.5f);
+        rushRange.SetActive(true);
+        yield return StartCoroutine(EffectRange(rushRange));
+        
+        yield return new WaitForSeconds(1.5f);
+        
         //���� ����
         animator.SetBool("RushReady", false);
         animator.SetBool("Rush", true);
         isBroken = false;
+        rushRange.SetActive(false);
         rushObj[0].SetActive(true); //�ǰ� �ڽ� Ȱ��ȭ
         rushObj[1].SetActive(true); //����Ʈ Ȱ��ȭ
 
-        while (!isBroken)
+        while (!isBroken )
         {
             uiManager.clipShow(audioClip[1]);
             yield return new WaitForSeconds(0.1f);
@@ -112,7 +123,7 @@ public class Boss_Controller : MonoBehaviour
         rushObj[1].SetActive(false); //����Ʈ ��Ȱ��ȭ
 
         animator.SetBool("Rush", false);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
 
         NextPatternPlay(Random.Range(0, patternRange)); //������ ���� ���� ����
     }
@@ -132,7 +143,7 @@ public class Boss_Controller : MonoBehaviour
         uiManager.clipShow(audioClip[2]);
         animator.SetTrigger("Horizontal");
         horizontalObj[0].SetActive(true);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
 
         NextPatternPlay(Random.Range(0, patternRange));
     }
@@ -147,6 +158,10 @@ public class Boss_Controller : MonoBehaviour
 
 
         playerPos = player.transform.position;
+        verticalRange[0].transform.position = playerPos;
+        verticalRange[1].transform.position = playerPos;
+        verticalObj[0].transform.position = playerPos;
+        verticalObj[1].transform.position = playerPos;
         StartCoroutine(EffectRange(verticalRange[0]));
         yield return new WaitForSeconds(0.5f);
         yield return StartCoroutine(EffectRange(verticalRange[1])); //EffectRange �ڷ�ƾ�� ���������� ���       
@@ -159,14 +174,14 @@ public class Boss_Controller : MonoBehaviour
         verticalObj[1].SetActive(true);
         //effectRangePrefab[0].transform.position = playerPos;
         //verticalObj[0].transform.position = playerPos; //������ ������Ʈ�� �÷��̾� ��ġ�� �̵�
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         NextPatternPlay(Random.Range(0, patternRange));
     }
 
     // 3.���� ����
     [SerializeField] private GameObject[] thunderEffectObj; //���� ���� ����Ʈ
     [SerializeField] private GameObject[] thunderObj; //���� ������Ʈ
-    [SerializeField] private GameObject[] thunderRange; //���� ����
+    [SerializeField] private GameObject thunderRange; //���� ����
     IEnumerator Thunder()
     {
         Debug.Log("���� ����");
@@ -186,22 +201,18 @@ public class Boss_Controller : MonoBehaviour
         animator.SetTrigger("Thunder");
         thunderEffectObj[0].SetActive(true);
         yield return new WaitForSeconds(0.5f);
-        for (int i = 0; i < 3; i++)
-        {
-            animator.SetTrigger("Thunder");
-            StartCoroutine(EffectRange(thunderRange[i]));
-            StartCoroutine(EffectRange(thunderRange[i+1]));
-        }
-
+        thunderRange.SetActive(true);
+        StartCoroutine(EffectRange(thunderRange));
         yield return new WaitForSeconds(2f);
         for (int i = 0; i < 3; i++)
         {
+            animator.SetTrigger("Thunder");
             thunderObj[i].SetActive(true);
             thunderObj[i + 3].SetActive(true);
             uiManager.clipShow(audioClip[6]);
             yield return new WaitForSeconds(1f);
         }
-
+        thunderRange.SetActive(false);
 
         for (int i = 0; i < 3; i++)
         {
@@ -221,7 +232,7 @@ public class Boss_Controller : MonoBehaviour
 
         thunderEffectObj[1].SetActive(false);
         thunderEffectObj[2].SetActive(false);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         NextPatternPlay(Random.Range(0, patternRange));
     }
 
@@ -231,27 +242,31 @@ public class Boss_Controller : MonoBehaviour
     IEnumerator Stomp()
     {
         Debug.Log("����� ����");
+        stompRange.SetActive(true);
+        StartCoroutine(EffectRange(stompRange));
+        yield return new WaitForSeconds(1f);
         for (int i = 0; i < 3; i++)
-        {
-            StartCoroutine(EffectRange(stompRange));
-            yield return new WaitForSeconds(1f);
+        {          
             animator.SetTrigger("Stomp");
             yield return new WaitForSeconds(0.2f);
             uiManager.clipShow(audioClip[0]);
             stompObj.SetActive(true);
             cameraObj.GetComponent<CameraMange>().Dolmpulse();
+            yield return new WaitForSeconds(0.5f);
+            stompObj.SetActive(false);
             yield return new WaitForSeconds(1);
         }
 
-
+        stompRange.SetActive(false);
         //cameraObj.GetComponent<CameraMange>().CameraShake();
         stompObj.SetActive(false);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
 
         NextPatternPlay(Random.Range(0, patternRange));
     }
     // 5.�����̵� ����
     [SerializeField] private GameObject[] teleportObj;
+    [SerializeField] private GameObject teleportRange;
     IEnumerator Teleport()
     {
         Debug.Log("�ڷ���Ʈ ����");
@@ -265,10 +280,14 @@ public class Boss_Controller : MonoBehaviour
         } while (sprite.color.a >= 0f);
         teleportObj[0].SetActive(false);
         yield return new WaitForSeconds(2);
-        teleportObj[1].SetActive(true);
-        teleportObj[2].SetActive(true);
+
         playerPos = player.transform.position;
         gameObject.transform.position = playerPos;
+        StartCoroutine(EffectRange(teleportRange));
+        yield return new WaitForSeconds(1.5f);
+        teleportObj[1].SetActive(true);
+        teleportObj[2].SetActive(true);
+        
         do
         {
             Color color = sprite.color;
@@ -276,13 +295,13 @@ public class Boss_Controller : MonoBehaviour
             sprite.color = color;
             yield return null;
         } while (sprite.color.a <= 1f);
+
+        teleportObj[3].SetActive(true);
+        yield return new WaitForSeconds(0.1f);
         teleportObj[1].SetActive(false);
         teleportObj[2].SetActive(false);
-        teleportObj[3].SetActive(true);
-        
-        //teleportObj[3].SetActive(true);
-        yield return new WaitForSeconds(2f);
         teleportObj[3].SetActive(false);
+
         // teleportObj[3].SetActive(false);
         yield return new WaitForSeconds(2);
         NextPatternPlay(Random.Range(0, patternRange));
