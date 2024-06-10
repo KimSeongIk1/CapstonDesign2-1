@@ -48,6 +48,7 @@ MonoBehaviour:
   motionAudio: {fileID: 0}
   moveAudio: {fileID: 2611001611135646562}
   SkillAudio: {fileID: 0}
+  ATKAudio: {fileID: 0}
   soundList: {fileID: 0}
   player: {fileID: 0}
   playerSC: {fileID: 0}
@@ -56,6 +57,9 @@ MonoBehaviour:
   isMovingNow: 0
   isMove: 0
   isRun: 0
+  isAttack: 0
+  playerAttack: []
+  playerAirAttack: []
 --- !u!82 &6445425117529052003
 AudioSource:
   m_ObjectHideFlags: 0
@@ -240,8 +244,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1019042709
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: -986369987, guid: cc0e416c5c091ea478bfdd412f68a4f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -502,6 +506,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: a3b3562f-1574-4a54-934b-5f1c6ec0e41f
     m_ActionName: MainMenu/GameStart[/Keyboard/anyKey]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 31cdef68-1e29-4cdc-866a-79cc79f85670
+    m_ActionName: Player/Portal[/Keyboard/x]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

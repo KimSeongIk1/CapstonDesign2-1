@@ -16,6 +16,7 @@ TagManager:
   - BossName
   - IntroFire
   - BossHealth
+  - PlayerAttack
   layers:
   - Default
   - TransparentFX
@@ -62,6 +63,9 @@ TagManager:
   - name: Boss
     uniqueID: 2509448577
     locked: 0
+  - name: TileMap
+    uniqueID: 1598462421
+    locked: 0
   - name: PlayerSommon
     uniqueID: 3975699729
     locked: 0
@@ -70,6 +74,9 @@ TagManager:
     locked: 0
   - name: EnemyProjectile
     uniqueID: 3663252055
+    locked: 0
+  - name: BossProjectile
+    uniqueID: 180269727
     locked: 0
   - name: PlayerProjectile
     uniqueID: 3251538929

@@ -7,6 +7,7 @@ public class Attack : MonoBehaviour
 {
 
     public int attackDamage = 10;
+    public int chargeMana = 5;
     public Vector2 knockback = Vector2.zero;
     public GameObject mpMange;
     public bool mpCharge;   // 공격 적중 시 마나 충전 여부
@@ -24,7 +25,7 @@ public class Attack : MonoBehaviour
             {
                 Debug.Log(collision.name + " hit for " + attackDamage);
                 if(mpCharge)
-                    mpMange.GetComponent<MP_Manage>().MpCharge();
+                    mpMange.GetComponent<MP_Manage>().MpCharge(chargeMana);
             }
            
         }

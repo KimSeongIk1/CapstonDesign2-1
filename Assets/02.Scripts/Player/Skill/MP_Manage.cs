@@ -40,12 +40,12 @@ public class MP_Manage : MonoBehaviour
 
         //print((playerController.manaValueNow / playerController.MaxMana));
     }
-    public void MpCharge()
+    public void MpCharge(int chargeMana)
     {
         if(playerController.manaValueNow < playerController.MaxMana)
         {
             Debug.Log("MP 충전, 현재 마나: "+ playerController.manaValueNow);
-            playerController.manaValueNow += 20; // 플레이어 스크립트에 마나량 추가
+            playerController.manaValueNow += chargeMana; // 플레이어 스크립트에 마나량 추가
         }
     }
 }
