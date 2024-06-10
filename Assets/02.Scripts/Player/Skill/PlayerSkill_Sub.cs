@@ -35,8 +35,7 @@ public class PlayerSkill_Sub : MonoBehaviour
     {   // 콜라이더2D에 감지되면
         if (collision.tag.Equals("Enemy") || collision.tag.Equals("Boss"))  // 태그값이 보스나 적일 경우, 또한 할당 받은 적과 같은 콜라이더일 경우
         {
-            print("12312312");
-            Damageable damageable = collision.GetComponent<Damageable>();   // 해당 적의 Damageable스크립트 접근
+            /*Damageable damageable = collision.GetComponent<Damageable>();   // 해당 적의 Damageable스크립트 접근
             damageable.Hit(skillDataSub.damage, skillDataSub.knockback);    // 데미지 및 넉백 적용
 
             if (skillDataSub.Stun == true)
@@ -52,7 +51,7 @@ public class PlayerSkill_Sub : MonoBehaviour
                 {
                     Debug.Log(collision.name + " hit for " + skillData.damage);
                 }
-            }
+            }*/
         }
     }
     private IEnumerator CCStun(GameObject target, float time) { // CC기 - 스턴

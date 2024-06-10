@@ -507,6 +507,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a3b3562f-1574-4a54-934b-5f1c6ec0e41f
     m_ActionName: MainMenu/GameStart[/Keyboard/anyKey]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 31cdef68-1e29-4cdc-866a-79cc79f85670
+    m_ActionName: Player/Portal[/Keyboard/x]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: MainMenu
@@ -695,8 +699,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1615444138}
   - component: {fileID: 1615444137}
-  - component: {fileID: 1615444136}
   - component: {fileID: 1615444139}
+  - component: {fileID: 1615444140}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -704,14 +708,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1615444136
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1615444135}
-  m_Enabled: 1
 --- !u!20 &1615444137
 Camera:
   m_ObjectHideFlags: 0
@@ -874,6 +870,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!81 &1615444140
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615444135}
+  m_Enabled: 1
 --- !u!1 &1627703500
 GameObject:
   m_ObjectHideFlags: 0
